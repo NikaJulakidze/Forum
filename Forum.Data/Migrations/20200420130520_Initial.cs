@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Forum.Data.Migrations
 {
-    public partial class FirstSetup2 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -181,9 +181,9 @@ namespace Forum.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(nullable: true),
                     Title = table.Column<string>(nullable: false),
                     Content = table.Column<string>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
                     ForumId = table.Column<int>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },

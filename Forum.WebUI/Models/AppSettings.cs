@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Forum.Service.Models
+namespace Forum.WebUI.Models
 {
     public class AppSettings
     {
-       public string BaseAddress { get; set; }
+
     }
 }

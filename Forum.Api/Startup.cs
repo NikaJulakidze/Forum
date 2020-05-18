@@ -2,6 +2,8 @@ using AutoMapper;
 using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
+using Forum.Service.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +12,9 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Text;
 
 namespace Forum.Api
 {
@@ -26,6 +30,9 @@ namespace Forum.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mySettings = Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+            var key = Encoding.ASCII.GetBytes(mySettings.Secret);
+            services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
             services.AddControllers();
             services.AddSwaggerConfiguration();
             services.AddDbConfiguration(Configuration.GetConnectionString("default"));
@@ -33,7 +40,17 @@ namespace Forum.Api
             services.AddService();
             services.AddUow();
             services.AddAutoMapper(typeof(Startup));
-
+            services.AddAuthentication().AddJwtBearer(config => 
+            {
+                config.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = false,
+                    ValidateIssuerSigningKey = false,
+                };
+            });
             services.AddMvc(opt =>
             {
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));

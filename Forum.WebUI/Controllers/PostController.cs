@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Forum.WebUI.Extensions;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Forum.WebUI.ViewModels;
@@ -28,9 +29,12 @@ namespace Forum.WebUI.Controllers
         public async Task<IActionResult> CreatePost(CreatePostViewModel model)
         {
             var httpResponse= await _apiCall.PostAsync(ApiCallSettings.CreatePost, model);
-
             //var result = await httpResponse.PostResponseAsync<CreatePostViewModel>(_apiCall, ApiCallSettings.CreatePost);
-            return RedirectToAction("Index", "Home");
+            var result =  httpResponse.PostResponceAsync();
+            if (result)
+                return RedirectToAction("Index", "Home");
+            else
+                return View();
         }
     }
 }

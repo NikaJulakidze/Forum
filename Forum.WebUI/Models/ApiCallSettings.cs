@@ -7,12 +7,12 @@ namespace Forum.WebUI.Models
 {
     public static class ApiCallSettings
     {
-#if DEBUG
-        public const string BaseUrl = "https://localhost:44326/api";
-#else
-#endif
+        public const string BaseUrl = "https://localhost:44326/api/";
+
         public const string GetPosts="";
-        public const string CreatePost = "/Post/CreatePost";
+        public const string CreatePost = "Post/CreatePost";
+        public const string Register = "Account/Register";
+        public const string Authenticate = "Account/Authenticate";
 
     }
 }

@@ -3,6 +3,7 @@ using Forum.Data;
 using Forum.Data.Entities;
 using Forum.Data.Repository;
 using Forum.Data.Uow;
+using Forum.Service.Identity;
 using Forum.Service.PostService;
 using Forum.Service.Services.ForumService;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,7 @@ namespace Forum.Api.Extensions
         {
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IForumService, ForumService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
         public static void AddDbConfiguration(this IServiceCollection services, string connectionString)
         {

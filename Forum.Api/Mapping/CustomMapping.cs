@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
 using Forum.Service.Dto;
+using Forum.Service.Dto.Account;
 using Forum.Service.Dto.Post;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Forum.Api.Mapping
         {
             CreateMap<CreatePostDto, Post>();
             CreateMap<Post, PostDto>();
+            CreateMap<UserRegistrationDto, ApplicationUser>();
+            CreateMap<ApplicationUser, ApplicationUserDto>();
+            CreateMap<UserAuthenticationRequestDto, ApplicationUser>();
+            CreateMap<ApplicationUser, UserAuthenticationResponseDto>().ForMember(x => x.Token, opt => opt.Ignore());
         }
     }
 }

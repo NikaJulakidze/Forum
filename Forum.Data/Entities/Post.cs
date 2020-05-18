@@ -1,11 +1,13 @@
 ﻿using Forum.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Forum.Data.Entities
 {
-    public class Post:EntityCommon
+    public class Post
     {
+        private DateTime _createdDate=DateTime.Now;
 
         [Required]
         public int Id { get; set; }
@@ -13,6 +15,11 @@ namespace Forum.Data.Entities
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
+        public DateTime CreatedDate
+        {
+            get { return DateTime.Now; }
+            set { _createdDate = value; }
+        }
 
         public int? ForumId { get; set; }
         public string UserId { get; set; }

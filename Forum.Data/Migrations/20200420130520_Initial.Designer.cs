@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Forum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200409162937_FirstSetup2")]
-    partial class FirstSetup2
+    [Migration("20200420130520_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,7 +60,7 @@ namespace Forum.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CreatedDate")
+                    b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ForumId")

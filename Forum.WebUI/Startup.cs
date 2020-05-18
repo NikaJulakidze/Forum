@@ -9,9 +9,12 @@ using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Caching.Redis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace Forum.WebUI
@@ -29,6 +32,7 @@ namespace Forum.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMemoryCache();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddHttpClient<IApiCall,ApiCall>(client => 
             {
@@ -36,6 +40,7 @@ namespace Forum.WebUI
                 client.BaseAddress = new Uri(ApiCallSettings.BaseUrl);
                 //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc(opt=>
             {
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));

@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using Forum.WebUI.Models;
 using System.Net.Http;
 using Forum.WebUI.Services;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Http;
 
 namespace Forum.WebUI.Controllers
 {
@@ -15,17 +18,19 @@ namespace Forum.WebUI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IApiCall _apiCall;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HomeController(ILogger<HomeController> logger, IApiCall apiCall)
+        public HomeController(ILogger<HomeController> logger, IApiCall apiCall,IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
             _apiCall = apiCall;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> Index()
         {
-            var aaa=await _apiCall.GetAsync("");
-            return View(aaa);
+            _httpContextAccessor.HttpContext.Response.Cookies.Append("Key", "This is my cookie!!!!");
+            return View();
         }
 
         public IActionResult Privacy()

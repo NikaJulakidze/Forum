@@ -22,13 +22,7 @@ namespace Forum.Api.Controllers
         [HttpGet("GetPosts")]
         public async Task<IActionResult> GetAction()
         {
-            CreatePostDto dto = new CreatePostDto()
-            {
-                Title = "4223",
-                Content = "123"
-            };
-            var a= await _postService.CreatePostAsync(dto);
-            return Ok(a);
+            return Ok();
         }
 
         [HttpPost("CreatePost")]
