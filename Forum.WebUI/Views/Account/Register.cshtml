@@ -9,6 +9,7 @@
         <span asp-validation-for="Username"></span>
         <span asp-validation-for="Password"></span>
         <span asp-validation-for="ConfirmPassword"></span>
+        @Html.ValidationSummary(true)
         <div class="form-group">
             <label asp-for="Email" class="col-lg-3 col-sm-3 control-label"></label>
             <div class="col-lg-6">

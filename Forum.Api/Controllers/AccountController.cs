@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Forum.Api.Attributes;
 using Forum.Service.Dto.Account;
 using Forum.Service.Identity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Api.Controllers
@@ -22,12 +18,12 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] UserRegistrationDto userRegistrationDto)
+        public async Task<IActionResult> RegisterAsync([FromBody] UserRegistrationRequestDto userRegistrationDto)
         {
             var result= await _accountService.RegisterAsync(userRegistrationDto);
             if(result.Succeeded)
             return Ok(result.Data);
-            return BadRequest(result.Errors);
+            return BadRequest(result.noSuccessMessage);
         }
 
         [HttpPost("Authenticate")]
@@ -36,7 +32,7 @@ namespace Forum.Api.Controllers
             var result= await _accountService.AuthenticateAsync(userRegistrationDto);
             if (result.Succeeded)
                 return Ok(result.Data);
-            return BadRequest(result.Errors);
+            return BadRequest(result.noSuccessMessage);
         }
     }
 }

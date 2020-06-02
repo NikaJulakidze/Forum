@@ -76,6 +76,7 @@ namespace Forum.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSerilogRequestLogging();

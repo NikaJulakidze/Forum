@@ -26,16 +26,18 @@ namespace Forum.Api.Middlewares
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex,"");
+                _logger.LogError(ex,ex.Message);
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
       
         private static Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
-            context.Response.StatusCode =(int) HttpStatusCode.InternalServerError;
+            var statusCode = HttpStatusCode.InternalServerError;
+
+            context.Response.StatusCode = (int)statusCode;
             context.Response.ContentType = "application/json";
-            return context.Response.WriteAsync(new ErrorDetails() { Message = ex.Message, StatusCode=context.Response.StatusCode }.ToString());
+            return context.Response.WriteAsync(new ExceptionDetails() { Message = ex.Message, StatusCode=context.Response.StatusCode }.ToJson());
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Forum.WebUI.Controllers
 {
     public class PostController : Controller
     {
-        private readonly IApiCall _apiCall;
+        private readonly IApiCallService _apiCall;
 
-        public PostController(IApiCall apiCall)
+        public PostController(IApiCallService apiCall)
         {
             _apiCall = apiCall;
         }
@@ -28,12 +28,12 @@ namespace Forum.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreatePostViewModel model)
         {
-            var httpResponse= await _apiCall.PostAsync(ApiCallSettings.CreatePost, model);
+            //var httpResponse= await _apiCall.PostAsync(ApiCallSettings.CreatePost, model);
             //var result = await httpResponse.PostResponseAsync<CreatePostViewModel>(_apiCall, ApiCallSettings.CreatePost);
-            var result =  httpResponse.PostResponceAsync();
-            if (result)
-                return RedirectToAction("Index", "Home");
-            else
+            //var result =  httpResponse.PostResponceAsync();
+            //if (result)
+            //    return RedirectToAction("Index", "Home");
+            //else
                 return View();
         }
     }

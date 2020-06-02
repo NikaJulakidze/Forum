@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Forum.Service.Dto.Account
 {
-    public class UserRegistrationDto
+    public class UserRegistrationRequestDto
     {
         [DataType(DataType.EmailAddress)]
         [Required]

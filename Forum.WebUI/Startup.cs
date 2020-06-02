@@ -1,17 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Forum.Service.Models;
 using Forum.WebUI.Attributes;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Caching.Redis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -34,7 +27,7 @@ namespace Forum.WebUI
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddHttpClient<IApiCall,ApiCall>(client => 
+            services.AddHttpClient<IApiCallService,ApiCallService>(client => 
             {
                 //client.BaseAddress = new Uri(Configuration.GetSection("AppSettings").Get<AppSettings>().BaseAddress);
                 client.BaseAddress = new Uri(ApiCallSettings.BaseUrl);

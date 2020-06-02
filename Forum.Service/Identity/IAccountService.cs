@@ -7,6 +7,6 @@ namespace Forum.Service.Identity
     public interface IAccountService
     {
         Task<Result<UserAuthenticationResponseDto>> AuthenticateAsync(UserAuthenticationRequestDto dto);
-        Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationDto model);
+        Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationRequestDto model);
     }
 }

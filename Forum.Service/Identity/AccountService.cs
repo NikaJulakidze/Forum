@@ -30,18 +30,19 @@ namespace Forum.Service.Identity
             _options = options.Value;
         }
 
-        public async Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationDto model)
+        public async Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationRequestDto model)
         {
-            Result<UserRegistrationResponseDto> result = new Result<UserRegistrationResponseDto>();
             var user= _mapper.Map<ApplicationUser>(model);
             var identityResult= await _userManager.CreateAsync(user, model.Password);
             if (!identityResult.Succeeded)
             {
-                result.AddErrors(identityResult.Errors.Select(x => x.Description));
-                return result;
+                var noSuccessMessage = new NoSuccessMessage
+                {
+                    Errors = identityResult.Errors.Select(x => x.Description).ToList()
+                };
+                return Result.BadRequest<UserRegistrationResponseDto>(noSuccessMessage);
             }
-            result.Data = _mapper.Map<UserRegistrationResponseDto>(user);
-            return result;
+            return Result.Ok(_mapper.Map<UserRegistrationResponseDto>(user));
         }
 
         public async Task<Result<UserAuthenticationResponseDto>> AuthenticateAsync(UserAuthenticationRequestDto dto)
@@ -54,7 +55,7 @@ namespace Forum.Service.Identity
             var identityResult=  await _signInManager.PasswordSignInAsync(user.UserName,dto.Password,false,false);
             if (!identityResult.Succeeded)
             {
-                result.AddError("Email or Password is Invalid");
+                //result.AddError("Email or Password is Invalid");
                 return result;
             }
 

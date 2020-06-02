@@ -17,10 +17,10 @@ namespace Forum.WebUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IApiCall _apiCall;
+        private readonly IApiCallService _apiCall;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HomeController(ILogger<HomeController> logger, IApiCall apiCall,IHttpContextAccessor httpContextAccessor)
+        public HomeController(ILogger<HomeController> logger, IApiCallService apiCall,IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
             _apiCall = apiCall;
