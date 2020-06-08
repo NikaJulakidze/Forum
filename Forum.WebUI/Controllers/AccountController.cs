@@ -1,11 +1,13 @@
-﻿using System.Threading.Tasks;
-using Forum.WebUI.Extensions;
+﻿using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using Forum.WebUI.Helpers;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Forum.WebUI.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Forum.WebUI.Controllers
 {
@@ -48,14 +50,26 @@ namespace Forum.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Authenticate(AuthenticateUserViewModel model)
         {
-            //var result = await _apiCall.PostAsync(ApiCallSettings.Authenticate, model);
-            //var response = await result.PostResponseAsync<ApplicationUserViewModel>();
-            //if (response is ApplicationUserViewModel) {
-            //    var token = (ApplicationUserViewModel)response;
-            //    _httpContextAccessor.HttpContext.Response.Cookies.Append(model.Email, token.Token);
-            //    return RedirectToAction("Index", "Home"); 
-            //}
+            var result = await _apiCall.PostAsync<ApplicationUserViewModel>(ApiCallSettings.Authenticate, model);
+            if (result.Succeeded)
+            {
+                Response.Cookies.Append(result.Data.Id, result.Data.Token);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                ModelState.FillModelStateErrors(result.NoSuccessResponse.Errors);
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Test()
+        {
+            var token= Request.Cookies["e8432496-8f9b-4aec-8b8f-51768462a866"];
+            var stringcontent = new StringContent(JsonConvert.SerializeObject(token), Encoding.UTF8, "application/json");
+            var httpclient = new HttpClient();
+            httpclient.BaseAddress =new System.Uri(ApiCallSettings.BaseUrl);
+            var result=await httpclient.PostAsync(ApiCallSettings.Test,stringcontent);
+            return null;
         }
     }
 }

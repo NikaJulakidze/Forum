@@ -2,6 +2,8 @@
 using Forum.Api.Attributes;
 using Forum.Service.Dto.Account;
 using Forum.Service.Identity;
+using Forum.Service.StaticSettings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Api.Controllers
@@ -17,7 +19,9 @@ namespace Forum.Api.Controllers
             _accountService = accountService;
         }
 
+
         [HttpPost("Register")]
+        [AllowAnonymous]
         public async Task<IActionResult> RegisterAsync([FromBody] UserRegistrationRequestDto userRegistrationDto)
         {
             var result= await _accountService.RegisterAsync(userRegistrationDto);
@@ -27,12 +31,21 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost("Authenticate")]
+        [AllowAnonymous]
         public async Task<IActionResult> AuthenticateAsync([FromBody] UserAuthenticationRequestDto userRegistrationDto)
         {
             var result= await _accountService.AuthenticateAsync(userRegistrationDto);
             if (result.Succeeded)
                 return Ok(result.Data);
             return BadRequest(result.noSuccessMessage);
+        }
+        [HttpPost("Test")]
+        //[Authorize(Roles =Roles.Admin)]
+        //[Authorize(AuthenticationSchemes ="Bearer")]
+        [Authorize(Policy =StaticPolicies.ShouldBeAdmin)]
+        public IActionResult Test()
+        {
+            return Ok();
         }
     }
 }

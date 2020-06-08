@@ -3,16 +3,13 @@ using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
 using Forum.Service.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
 
@@ -40,19 +37,14 @@ namespace Forum.Api
             services.AddService();
             services.AddUow();
             services.AddAutoMapper(typeof(Startup));
-            services.AddAuthentication().AddJwtBearer(config => 
-            {
-                config.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ValidateLifetime = false,
-                    ValidateIssuerSigningKey = false,
-                };
-            });
+            services.AddJwtAuthenticationConfiguration(key);
+            services.AddCustomAuthorizations();
             services.AddMvc(opt =>
             {
+                var policy = new AuthorizationPolicyBuilder("Bearer")
+                .RequireAuthenticatedUser()
+                .Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));
             });
         }
@@ -62,23 +54,23 @@ namespace Forum.Api
         {
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
             });
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
-
-            app.UseMiddleware(typeof(GlobalExceptionMidlleware));
 
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMiddleware(typeof(GlobalExceptionMidlleware));
             app.UseSerilogRequestLogging();
 
             app.UseEndpoints(endpoints =>

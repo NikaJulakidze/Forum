@@ -15,5 +15,10 @@ namespace Forum.Api.Controllers
         {
 
         }
+
+        public async Task<IActionResult> BanUser([FromQuery] string id)
+        {
+            return Ok();
+        }
     }
 }

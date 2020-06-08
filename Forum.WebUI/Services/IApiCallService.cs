@@ -10,8 +10,9 @@ namespace Forum.WebUI.Services
 {
     public interface IApiCallService
     {
-        Task<string> GetAsStringAsync(string url);
-        Task<HttpResponseMessage> GetAsync(string url);
+        Task<ApiCallResult<TResponse>> DeleteAsync<TResponse>(string url);
+        Task<ApiCallResult<TResponse>> GetAsync<TResponse>(string url);
         Task<ApiCallResult<TResponse>> PostAsync<TResponse>(string url, object data);
+        Task<ApiCallResult<TResponse>> PutAsync<TResponse>(string url, object data);
     }
 }

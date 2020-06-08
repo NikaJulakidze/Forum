@@ -1,4 +1,5 @@
-﻿using Forum.WebUI.Models;
+﻿using Forum.WebUI.Enums;
+using Forum.WebUI.Models;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
@@ -8,7 +9,7 @@ namespace Forum.WebUI.Extensions
 {
     public static class ApiCallExtension
     {
-        public static async Task<ApiCallResult<TResponse>> PostResponseHandler<TResponse>(this HttpResponseMessage message)
+        public static async Task<ApiCallResult<TResponse>> ApiResponseHandler<TResponse>(this HttpResponseMessage message)
         {
             switch (message.StatusCode)
             {
@@ -23,16 +24,6 @@ namespace Forum.WebUI.Extensions
                     var UnhandledMessage = await message.ReadResponseAs<NoSuccessResponse>();
                     return  ApiCallResult.InternalServerError<TResponse>(UnhandledMessage);
             }
-        }
-
-        public static bool PostResponceAsync(this HttpResponseMessage message)
-        {
-            return  message.IsSuccessStatusCode;
-        }
-
-        public static async Task<ApiCallResult<TResponse>> HandleApiResponse<TResponse> (this HttpResponseMessage message)
-        {
-            return null;
         }
 
         public static async Task<TResponse> ReadResponseAs<TResponse>(this HttpResponseMessage message)

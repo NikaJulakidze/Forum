@@ -13,6 +13,7 @@ namespace Forum.WebUI.Models
         public const string CreatePost = "Post/CreatePost";
         public const string Register = "Account/Register";
         public const string Authenticate = "Account/Authenticate";
+        public const string Test = "Account/Test";
 
     }
 }
