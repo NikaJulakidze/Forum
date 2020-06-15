@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Forum.Data.Entities
 {
@@ -12,8 +11,13 @@ namespace Forum.Data.Entities
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
+        [Required]
         public DateTime CreatedDate { get; set; }
+        [Required]
+        public int RatingPoints { get; set; }
+        [Required]
         public int ViewCount { get; set; }
+        [Required]
         public bool IsEdited { get; set; }
         public string UserId { get; set; }
 

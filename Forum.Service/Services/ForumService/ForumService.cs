@@ -17,7 +17,7 @@ namespace Forum.Service.Services.ForumService
         {
             _forumUow = forumUow;
         }
-        public async Task<Result<PostDto>> CreatePostAsync(CreatePostDto model)
+        public async Task<Result<PostDto>> CreatePostAsync(CreateAnswerDto model)
         {
             return null;
         }

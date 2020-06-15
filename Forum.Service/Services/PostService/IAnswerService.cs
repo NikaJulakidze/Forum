@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Forum.Service.PostService
 {
-    public interface IPostService
+    public interface IAnswerService
     {
-        Task<Result<PostDto>> CreatePostAsync(CreatePostDto model);
+        Task<Result<PostDto>> CreatePostAsync(CreateAnswerDto model);
     }
 }

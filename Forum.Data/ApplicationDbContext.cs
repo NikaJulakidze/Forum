@@ -29,6 +29,7 @@ namespace Forum.Data
                 q.Property(p => p.ViewCount).HasDefaultValue(0);
                 q.Property(p => p.CreatedDate).HasDefaultValue(DateTime.Now);
                 q.Property(p => p.IsEdited).HasDefaultValue(false);
+                q.Property(p => p.RatingPoints).HasDefaultValue(0);
             });
 
 
@@ -36,6 +37,7 @@ namespace Forum.Data
             {
                 a.Property(p => p.IsAcceptedAnswer).HasDefaultValue(false);
                 a.Property(p => p.CreatedDate).HasDefaultValue(DateTime.Now);
+                a.Property(p => p.RatingPoints).HasDefaultValue(0);
             });
 
             builder.Entity<ApplicationUser>(a => 

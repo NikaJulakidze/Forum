@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Forum.Service.Dto.Admin;
 using Forum.Service.Identity;
 using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Authorization;
@@ -21,12 +22,17 @@ namespace Forum.Api.Controllers
         {
             return Ok();
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateTags()
+        {
+            return null;
+        }
 
         [HttpPost(StaticRoutes.Admin.CreateRole)]
         [AllowAnonymous]
-        public async Task<IActionResult> CreateRoleAsync()
+        public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRoleDto role)
         {
-            return CustomResult(await _adminService.CreateRoleAsync("User"));
+            return CustomResult(await _adminService.CreateRoleAsync(role.Role));
         }
     }
 }

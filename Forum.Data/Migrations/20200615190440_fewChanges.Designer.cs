@@ -4,14 +4,16 @@ using Forum.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Forum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200615190440_fewChanges")]
+    partial class fewChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 6, 39, 288, DateTimeKind.Local).AddTicks(5761));
+                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 4, 40, 422, DateTimeKind.Local).AddTicks(1840));
 
                     b.Property<bool>("IsAcceptedAnswer")
                         .ValueGeneratedOnAdd()
@@ -44,9 +46,7 @@ namespace Forum.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("RatingPoints")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -74,7 +74,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 6, 39, 286, DateTimeKind.Local).AddTicks(8284));
+                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 4, 40, 420, DateTimeKind.Local).AddTicks(4971));
 
                     b.Property<bool>("IsEdited")
                         .ValueGeneratedOnAdd()
@@ -82,9 +82,7 @@ namespace Forum.Data.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<int>("RatingPoints")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

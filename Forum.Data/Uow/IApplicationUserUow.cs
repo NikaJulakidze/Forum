@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Forum.Data.Uow
 {
-    public interface IForumUow
+    public interface IApplicationUserUow
     {
-         ITagRepository ForumRepository { get; }
+        public IApplicationUserRepository ApplicationUserRepository { get; }
     }
 }

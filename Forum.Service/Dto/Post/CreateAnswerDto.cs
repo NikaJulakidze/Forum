@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Forum.Service.Dto.Tags
+namespace Forum.Service.Dto
 {
-    public class TagsDto
+    public class CreateAnswerDto
     {
         [Required]
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string Content { get; set; }
     }
 }

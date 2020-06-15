@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,16 +91,31 @@ namespace Forum.Service.Identity
             return Result.Ok(response);
         }
 
-        public async Task<Result<FirstSetUpProfileRequestDto>> FirstSetUpUser(FirstSetUpProfileRequestDto firstSetUp)
+        public async Task<Result<FirstSetupProfileResponseDto>> FirstSetUpUser(string Username, FirstSetUpProfileRequestDto firstSetUp)
         {
+            var user = await _userManager.FindByNameAsync(Username);
+            if (user == null)
+                return Result.BadRequest<FirstSetupProfileResponseDto>(NoSuccessMessage.AddError("Something Went Wrong"));
 
-            return null;
+            await _userManager.AddToRoleAsync(user, firstSetUp.WhoAreYou);
+            user.ImageUrl = firstSetUp.ImageUrl == null ? user.ImageUrl : firstSetUp.ImageUrl;
+            await _userManager.UpdateAsync(user);
+
+            return Result.Ok(new FirstSetupProfileResponseDto() { ImageUrl=user.ImageUrl,Role=firstSetUp.WhoAreYou});
         }
 
         public async Task RemoveUserFromRoleAsync(ApplicationUser user,string role)
         {
             await _userManager.RemoveFromRoleAsync(user, role);
         }
+
+        //public async Task UpdateImageUrl(ApplicationUser user, string imageUrl)
+        //{
+        //    if (imageUrl == null)
+        //        return;
+        //    user.ImageUrl = imageUrl;
+        //    await _userManager.UpdateAsync(user);
+        //}
 
         private async Task<string> GenerateJWTToken(ApplicationUser user)
         {

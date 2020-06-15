@@ -20,9 +20,7 @@ namespace Forum.Service.Identity
         {
             var identityResult= await _rolemanager.CreateAsync(new IdentityRole { Name = role});
             if (identityResult.Succeeded)
-            {
                 return Result.Ok();
-            }
             return Result.BadRequest(NoSuccessMessage.AddErrors(identityResult.Errors.Select(x => x.Description).ToList()));
         }
     }

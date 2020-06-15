@@ -10,9 +10,9 @@ namespace Forum.Data.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public string UserId { get; set; }
-
+        public int RatingPoints { get; set; }
 
         public ApplicationUser User { get; set; }
-        public IEnumerable<Tag> Forums { get; set; }
+        public ICollection<Tag> Forums { get; set; }
     }
 }

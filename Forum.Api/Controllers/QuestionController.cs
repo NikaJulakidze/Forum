@@ -11,10 +11,10 @@ namespace Forum.Api.Controllers
     [ModelStateValidation]
     public class QuestionController : ControllerBase
     {
-        private readonly IPostService _postService;
+        private readonly IAnswerService _postService;
         private readonly ILogger<QuestionController> _logger;
 
-        public QuestionController(IPostService postService,ILogger<QuestionController> logger)
+        public QuestionController(IAnswerService postService,ILogger<QuestionController> logger)
         {
             _postService = postService;
             _logger = logger;
@@ -26,7 +26,7 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost("CreatePost")]
-        public async Task<IActionResult> CreatePost([FromBody] CreatePostDto model)
+        public async Task<IActionResult> CreatePost([FromBody] CreateAnswerDto model)
         {
             _logger.LogInformation("CreatePost Controller");
             var result= await _postService.CreatePostAsync(model);

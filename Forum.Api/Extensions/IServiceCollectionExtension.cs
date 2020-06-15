@@ -26,19 +26,19 @@ namespace Forum.Api.Extensions
     {
         public static void AddRepository(this IServiceCollection services)
         {
-            services.AddScoped<IPostRepository, PostRepository>();
-            services.AddScoped<IForumRepository, ForumRepository>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
         }
         public static void AddUow(this IServiceCollection services)
         {
             services.AddScoped<IBaseUow, BaseUow>();
-            services.AddScoped<IPostUow, PostUow>();
+            services.AddScoped<IAnswerUow, AnswerUow>();
             services.AddScoped<IForumUow, ForumUow>();
         }
 
         public static void AddService(this IServiceCollection services)
         {
-            services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IAnswerService, AnswerService>();
             services.AddScoped<IForumService, ForumService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IFileService, FileService>();

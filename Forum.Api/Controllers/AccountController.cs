@@ -40,11 +40,11 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost(StaticRoutes.Account.FirstSetup)]
-        [Authorize(Policy =StaticPolicies.ShouldBeAdmin)]
-        public async Task<IActionResult> FirstSetUpProfile(string UserId,[FromBody] FirstSetUpProfileRequestDto firstSetUp)
+        [Authorize(Policy =StaticPolicies.ShouldBeUser)]
+        public async Task<IActionResult> FirstSetUpProfile(string Username,[FromBody] FirstSetUpProfileRequestDto firstSetUp)
         {
-
-            return Ok();
+            var result = await _accountService.FirstSetUpUser(Username, firstSetUp);
+            return CustomGenericResult(result);
         }
        
 

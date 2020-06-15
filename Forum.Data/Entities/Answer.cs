@@ -15,6 +15,8 @@ namespace Forum.Data.Entities
         public DateTime CreatedDate { get; set; }
         [Required]
         public bool IsAcceptedAnswer { get; set; }
+        [Required]
+        public int RatingPoints { get; set; }
         public string UserId { get; set; }
         public int QuestionId { get; set; }
 
