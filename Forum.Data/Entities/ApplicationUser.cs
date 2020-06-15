@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Forum.Data.Entities
 {
     public class ApplicationUser:IdentityUser
     {
-        public virtual ICollection<Forum> Forums { get; set; }
-        public virtual ICollection<PostReply> PostReplies { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
+        [Required]
+        public int RatingPoints { get; set; }
+        public string ImageUrl { get; set; }
+
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
     }
 }

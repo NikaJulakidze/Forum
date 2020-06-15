@@ -1,6 +1,6 @@
 ﻿namespace Forum.Data.Repository
 {
-    public interface IForumRepository:IBaseRepository<Forum.Data.Entities.Forum>
+    public interface IForumRepository:IBaseRepository<Forum.Data.Entities.Tag>
     {
 
     }

@@ -15,8 +15,8 @@ namespace Forum.Api.Mapping
     {
         public CustomMapping()
         {
-            CreateMap<CreatePostDto, Post>();
-            CreateMap<Post, PostDto>();
+            CreateMap<CreatePostDto, Answer>();
+            CreateMap<Answer, PostDto>();
             CreateMap<UserRegistrationRequestDto, ApplicationUser>();
             CreateMap<ApplicationUser, ApplicationUserDto>();
             CreateMap<UserAuthenticationRequestDto, ApplicationUser>();

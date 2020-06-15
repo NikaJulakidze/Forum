@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Forum.Data.Entities
 {
-    public class InterviewQuestions
+    public class InterviewQuestion
     {
         public int Id { get; set; }
         public int ForumId { get; set; }
@@ -12,6 +12,6 @@ namespace Forum.Data.Entities
         public string Answer { get; set; }
 
 
-        public Forum Forum { get; set; }
+        public Tag Forum { get; set; }
     }
 }

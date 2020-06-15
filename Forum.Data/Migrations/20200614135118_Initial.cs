@@ -40,11 +40,27 @@ namespace Forum.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false)
+                    Discriminator = table.Column<string>(nullable: false),
+                    RatingPoints = table.Column<int>(nullable: true, defaultValue: 1),
+                    ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(nullable: false),
+                    Content = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tags", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,21 +170,23 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Forums",
+                name: "Questions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(nullable: true),
                     Title = table.Column<string>(nullable: false),
                     Content = table.Column<string>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 6, 14, 17, 51, 18, 667, DateTimeKind.Local).AddTicks(3587)),
+                    ViewCount = table.Column<int>(nullable: false, defaultValue: 0),
+                    IsEdited = table.Column<bool>(nullable: false, defaultValue: false),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Forums", x => x.Id);
+                    table.PrimaryKey("PK_Questions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Forums_AspNetUsers_UserId",
+                        name: "FK_Questions_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -176,28 +194,28 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Posts",
+                name: "Answers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
                     Content = table.Column<string>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ForumId = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    CreatedDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 6, 14, 17, 51, 18, 669, DateTimeKind.Local).AddTicks(1286)),
+                    IsAcceptedAnswer = table.Column<bool>(nullable: false, defaultValue: false),
+                    UserId = table.Column<string>(nullable: true),
+                    QuestionId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Posts", x => x.Id);
+                    table.PrimaryKey("PK_Answers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Posts_Forums_ForumId",
-                        column: x => x.ForumId,
-                        principalTable: "Forums",
+                        name: "FK_Answers_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Posts_AspNetUsers_UserId",
+                        name: "FK_Answers_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -205,32 +223,73 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PostReplies",
+                name: "TagQuestion",
+                columns: table => new
+                {
+                    TagId = table.Column<int>(nullable: false),
+                    QuestionId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TagQuestion", x => new { x.TagId, x.QuestionId });
+                    table.ForeignKey(
+                        name: "FK_TagQuestion_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TagQuestion_Tags_TagId",
+                        column: x => x.TagId,
+                        principalTable: "Tags",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuestionReply",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedDate = table.Column<DateTime>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: true),
-                    PostId = table.Column<int>(nullable: true)
+                    QuestionId = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    AnswerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PostReplies", x => x.Id);
+                    table.PrimaryKey("PK_QuestionReply", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PostReplies_Posts_PostId",
-                        column: x => x.PostId,
-                        principalTable: "Posts",
+                        name: "FK_QuestionReply_Answers_AnswerId",
+                        column: x => x.AnswerId,
+                        principalTable: "Answers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PostReplies_AspNetUsers_UserId",
+                        name: "FK_QuestionReply_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionReply_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Answers_QuestionId",
+                table: "Answers",
+                column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Answers_UserId",
+                table: "Answers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -272,29 +331,29 @@ namespace Forum.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Forums_UserId",
-                table: "Forums",
+                name: "IX_QuestionReply_AnswerId",
+                table: "QuestionReply",
+                column: "AnswerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionReply_QuestionId",
+                table: "QuestionReply",
+                column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionReply_UserId",
+                table: "QuestionReply",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PostReplies_PostId",
-                table: "PostReplies",
-                column: "PostId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PostReplies_UserId",
-                table: "PostReplies",
+                name: "IX_Questions_UserId",
+                table: "Questions",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_ForumId",
-                table: "Posts",
-                column: "ForumId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Posts_UserId",
-                table: "Posts",
-                column: "UserId");
+                name: "IX_TagQuestion_QuestionId",
+                table: "TagQuestion",
+                column: "QuestionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -315,16 +374,22 @@ namespace Forum.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PostReplies");
+                name: "QuestionReply");
+
+            migrationBuilder.DropTable(
+                name: "TagQuestion");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Posts");
+                name: "Answers");
 
             migrationBuilder.DropTable(
-                name: "Forums");
+                name: "Tags");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

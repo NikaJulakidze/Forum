@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 namespace Forum.Service.Helpers
 {
-    public static class IdentityHelpers
+    public  class IdentityHelpers
     {
-        //public async static Task<Result<UserAuthenticationResponseDto>> AuthenticateUser(this SignInManager<ApplicationUser> signInManager,ApplicationUser user,string password)
-        //{
-        //    if (user == null)
-        //    {
-        //        var noSuccessMessage = NoSuccessMessage.AddError("Username or password is incorrect");
-        //        return Result.BadRequest<UserAuthenticationResponseDto>(noSuccessMessage);
-        //    }
-
-        //    return null;
-        //}
-
+        public static void UploadDefaultProfilePhoto(string path, ApplicationUser user)
+        {
+            if (string.IsNullOrEmpty(user.ImageUrl))
+                user.ImageUrl = path;
+            return;
+        }
     }
 }

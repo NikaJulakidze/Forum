@@ -1,0 +1,3 @@
+﻿<h1>Hello userName,</h1>
+</br>
+<div>Hello, please input otpCode to confirm PhoneNumber </div>

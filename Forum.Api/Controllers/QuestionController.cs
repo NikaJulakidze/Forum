@@ -9,18 +9,18 @@ namespace Forum.Api.Controllers
 {
     [Route("api/[controller]")]
     [ModelStateValidation]
-    public class PostController : ControllerBase
+    public class QuestionController : ControllerBase
     {
         private readonly IPostService _postService;
-        private readonly ILogger<PostController> _logger;
+        private readonly ILogger<QuestionController> _logger;
 
-        public PostController(IPostService postService,ILogger<PostController> logger)
+        public QuestionController(IPostService postService,ILogger<QuestionController> logger)
         {
             _postService = postService;
             _logger = logger;
         }
-        [HttpGet("GetPosts")]
-        public async Task<IActionResult> GetAction()
+        [HttpGet("GetQuestions")]
+        public async Task<IActionResult> GetQuestions()
         {
             return Ok();
         }

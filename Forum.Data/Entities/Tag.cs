@@ -1,10 +1,11 @@
 ﻿using Forum.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Forum.Data.Entities
 {
-    public class Forum:EntityCommon
+    public class Tag
     {
         [Key]
         public int Id { get; set; }
@@ -13,9 +14,7 @@ namespace Forum.Data.Entities
         [Required]
         public string Content { get; set; }
         
-        
-        public string UserId { get; set; }
-        public virtual ICollection<Post> Posts { get; set; }
-        public virtual ApplicationUser User { get; set; }
+
+        public  ICollection<TagQuestion> TagQuestions { get; set; }
     }
 }

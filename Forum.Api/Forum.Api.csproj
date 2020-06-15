@@ -34,5 +34,10 @@
     <ProjectReference Include="..\Forum.Service\Forum.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logs\" />
+    <Folder Include="wwwroot\Files\" />
+  </ItemGroup>
+
 
 </Project>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Forum.Data.Entities
 {
-    public class Articles
+    public class Article
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -13,6 +13,6 @@ namespace Forum.Data.Entities
 
 
         public ApplicationUser User { get; set; }
-        public IEnumerable<Forum> Forums { get; set; }
+        public IEnumerable<Tag> Forums { get; set; }
     }
 }

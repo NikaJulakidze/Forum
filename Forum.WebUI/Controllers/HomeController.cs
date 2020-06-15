@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Forum.WebUI.Models;
-using System.Net.Http;
 using Forum.WebUI.Services;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Http;
+using Forum.WebUI.ViewModels;
+using Forum.WebUI.StaticSettings;
 
 namespace Forum.WebUI.Controllers
 {
@@ -29,7 +24,9 @@ namespace Forum.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            _httpContextAccessor.HttpContext.Response.Cookies.Append("Key", "This is my cookie!!!!");
+
+            //var result= await _apiCall.GetAsync<TestViewModel>(ApiCallStaticRoutes.GetImage);
+            //_httpContextAccessor.HttpContext.Response.Cookies.Append("Key", "This is my cookie!!!!");
             return View();
         }
 

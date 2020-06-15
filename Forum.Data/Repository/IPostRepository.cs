@@ -2,7 +2,7 @@
 
 namespace Forum.Data.Repository
 {
-    public interface IPostRepository:IBaseRepository<Post>
+    public interface IPostRepository:IBaseRepository<Answer>
     {
 
     }

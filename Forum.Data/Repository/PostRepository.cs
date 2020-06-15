@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Forum.Data.Repository
 {
-    public class PostRepository:BaseRepository<Post>, IPostRepository
+    public class PostRepository:BaseRepository<Answer>, IPostRepository
     {
         public PostRepository(ApplicationDbContext context):base(context)
         {

@@ -2,7 +2,9 @@ using AutoMapper;
 using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
+using Forum.Service.CustomPolicy;
 using Forum.Service.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,9 +29,9 @@ namespace Forum.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var mySettings = Configuration.GetSection("JwtSettings").Get<JwtSettings>();
-            var key = Encoding.ASCII.GetBytes(mySettings.Secret);
-            services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
+            var mySettings = Configuration.GetSection("AppSettings").Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(mySettings.JwtSettings.Secret);
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddControllers();
             services.AddSwaggerConfiguration();
             services.AddDbConfiguration(Configuration.GetConnectionString("default"));
@@ -39,11 +41,13 @@ namespace Forum.Api
             services.AddAutoMapper(typeof(Startup));
             services.AddJwtAuthenticationConfiguration(key);
             services.AddCustomAuthorizations();
+            services.AddCustomPolicy();
             services.AddMvc(opt =>
             {
-                var policy = new AuthorizationPolicyBuilder("Bearer")
+                var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                 .RequireAuthenticatedUser()
                 .Build();
+
                 opt.Filters.Add(new AuthorizeFilter(policy));
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));
             });
@@ -66,6 +70,7 @@ namespace Forum.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseAuthentication();
             app.UseAuthorization();

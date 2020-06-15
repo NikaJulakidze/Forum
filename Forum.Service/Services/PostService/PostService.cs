@@ -23,7 +23,7 @@ namespace Forum.Service.PostService
         {
             var result = new Result<PostDto>();
 
-            var post = _mapper.Map<Post>(model);
+            var post = _mapper.Map<Answer>(model);
             _postUow.PostRepository.Add(post);
             await _postUow.CompleteAsync();
             result.Data = _mapper.Map<PostDto>(post);

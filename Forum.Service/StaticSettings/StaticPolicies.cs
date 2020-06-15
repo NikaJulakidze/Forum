@@ -7,5 +7,6 @@ namespace Forum.Service.StaticSettings
     public static class StaticPolicies
     {
         public const string ShouldBeAdmin = "ShouldBeAdmin";
+        public const string ShouldBeUser = "ShouldBeUser";
     }
 }

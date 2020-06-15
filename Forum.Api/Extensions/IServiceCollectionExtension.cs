@@ -2,9 +2,12 @@
 using Forum.Data.Entities;
 using Forum.Data.Repository;
 using Forum.Data.Uow;
+using Forum.Service.CustomPolicy;
 using Forum.Service.Identity;
 using Forum.Service.PostService;
+using Forum.Service.Services.FileService;
 using Forum.Service.Services.ForumService;
+using Forum.Service.Services.MailService;
 using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq.Expressions;
 
 namespace Forum.Api.Extensions
 {
@@ -37,6 +41,9 @@ namespace Forum.Api.Extensions
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<IForumService, ForumService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IAdminService, AdminService>();
         }
         public static void AddDbConfiguration(this IServiceCollection services, string connectionString)
         {
@@ -51,6 +58,7 @@ namespace Forum.Api.Extensions
                 options.Password.RequiredUniqueChars = 0;
                 options.User.RequireUniqueEmail = true;
                 options.Lockout.MaxFailedAccessAttempts = 3;
+                options.SignIn.RequireConfirmedEmail = true;
             })
                  .AddEntityFrameworkStores<ApplicationDbContext>()
                  .AddDefaultTokenProviders();
@@ -67,14 +75,17 @@ namespace Forum.Api.Extensions
         {
             services.AddAuthorization(options =>
             {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder("Bearer")
-                .RequireAuthenticatedUser()
-                .Build();
+                //options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+                //.RequireAuthenticatedUser()
+                //.Build();
+                //AuthorizationPolicyBuilder a = new AdminPolicy();
+                options.AddPolicy(StaticPolicies.ShouldBeAdmin, policy=>policy.Requirements.Add(new AdminPolicy()));
 
                 options.AddPolicy("ShouldBeAdmin", policy =>
                 policy.RequireClaim(StaticClaims.IsAdmin, "True")
                 .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                .RequireAuthenticatedUser().Build());
+                .RequireAuthenticatedUser()
+                .Build());
             });
         }
 
@@ -101,6 +112,11 @@ namespace Forum.Api.Extensions
                            ClockSkew=TimeSpan.Zero
                        };
                    });
+        }
+        public static void AddCustomPolicy(this IServiceCollection services)
+        {
+            services.AddSingleton<IAuthorizationHandler, AdminPolicyHandler>();
+            services.AddSingleton<IAuthorizationHandler, UserPolicyHandler>();
         }
     }
 }

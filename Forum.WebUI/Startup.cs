@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using Forum.WebUI.Attributes;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
+using Forum.WebUI.StaticSettings;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,7 +35,7 @@ namespace Forum.WebUI
             services.AddHttpClient<IApiCallService,ApiCallService>(client => 
             {
                 //client.BaseAddress = new Uri(Configuration.GetSection("AppSettings").Get<AppSettings>().BaseAddress);
-                client.BaseAddress = new Uri(ApiCallSettings.BaseUrl);
+                client.BaseAddress = new Uri(ApiCallStaticRoutes.BaseUrl);
                 //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
