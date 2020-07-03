@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
-using Forum.Service.Dto.Account;
+using Forum.Data.Models;
+using Forum.Data.Uow;
+using Forum.Models.Account;
 using Forum.Service.Helpers;
 using Forum.Service.Models;
 using Forum.Service.Services.MailService;
-using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,82 +26,72 @@ namespace Forum.Service.Identity
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IMapper _mapper;
-        private readonly AppSettings _options;
+        private readonly AppSettings _appSettings;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IHostingEnvironment _env;
         private readonly IEmailService _emailService;
+        private readonly IApplicationUserUow _uow;
 
         public AccountService(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager,
-            IMapper mapper,IOptions<AppSettings> options,RoleManager<IdentityRole> roleManager,IHostingEnvironment env,IEmailService emailService) 
+            IMapper mapper,IOptions<AppSettings> options,RoleManager<IdentityRole> roleManager,IHostingEnvironment env,IEmailService emailService,IApplicationUserUow uow) 
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
-            _options = options.Value;
+            _appSettings = options.Value;
             _roleManager = roleManager;
             _env = env;
             _emailService = emailService;
+            _uow = uow;
         }
 
-        public async Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationRequestDto model)
+        public async Task<Result<RegisterResponse>> RegisterAsync(RegisterRequest model)
         {
             var user= _mapper.Map<ApplicationUser>(model);
             IdentityHelpers.UploadDefaultProfilePhoto(_env.WebRootFileProvider.GetFileInfo("images/Defaultimage.png").PhysicalPath, user);
-
+            user.EmailConfirmed = true;
 
             var identityResult= await _userManager.CreateAsync(user, model.Password);
 
             if (!identityResult.Succeeded)
             {
                 var noSuccessMessage = NoSuccessMessage.AddErrors(identityResult.Errors.Select(x => x.Description).ToList()); 
-                return Result.BadRequest<UserRegistrationResponseDto>(noSuccessMessage);
+                return Result.BadRequest<RegisterResponse>(noSuccessMessage);
             }
-            await _userManager.AddToRoleAsync(user, "User");
-            await _emailService.SendMail(EmailSendModel.BuildEmailVerificationModel(user, _options));
-            var response = _mapper.Map<UserRegistrationResponseDto>(user);
-            response.Token = await GenerateJWTToken(user);
+            
+            await _userManager.AddToRoleAsync(user, model.Role);
+
+            var response = _mapper.Map<RegisterResponse>(user);
             return Result.Ok(response);
         }
 
-        public async Task<Result<UserAuthenticationResponseDto>> AuthenticateAsync(UserAuthenticationRequestDto dto)
+        public async Task<Result<AuthenticationResponse>> AuthenticateAsync(AuthenticatationRequest request)
         {
-            var user = await _userManager.FindByEmailAsync(dto.Email);
-
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            var token = await GenerateJWTToken(user);
             if (user == null)
             {
                 var noSuccessMessage= NoSuccessMessage.AddError("Email or password is invalid");
-                return Result.BadRequest<UserAuthenticationResponseDto>(noSuccessMessage);
+                return Result.BadRequest<AuthenticationResponse>(noSuccessMessage);
             }
 
-            if (!user.EmailConfirmed && await _userManager.CheckPasswordAsync(user, dto.Password))
+            if (!user.EmailConfirmed && await _userManager.CheckPasswordAsync(user, request.Password))
             {
-                await _emailService.SendMail(EmailSendModel.BuildEmailVerificationModel(user, _options));
-                return Result.BadRequest<UserAuthenticationResponseDto>(NoSuccessMessage.AddError("Your Email is not confirmed, We've sent you instructions to your mail address"));
+                await _emailService.SendMail(EmailSendModel.BuildEmailVerificationModel(user, _appSettings, token));
+                return Result.BadRequest<AuthenticationResponse>(NoSuccessMessage.AddError("Your Email is not confirmed, We've sent you instructions to your mail address"));
             }
-                
-            var response = _mapper.Map<UserAuthenticationResponseDto>(user);
-            var identityResult=  await _signInManager.PasswordSignInAsync(user.UserName,dto.Password,false,false);
+
+            
+            var response = _mapper.Map<AuthenticationResponse>(user);
+            var identityResult=  await _signInManager.PasswordSignInAsync(user.UserName,request.Password,false,false);
             if (!identityResult.Succeeded)
-            {
+            { 
                 var noSuccessMessage = NoSuccessMessage.AddError("Email or password is invalid");
-                return Result.BadRequest<UserAuthenticationResponseDto>(noSuccessMessage);
+                return Result.BadRequest<AuthenticationResponse>(noSuccessMessage);
             }
 
-            response.Token = await GenerateJWTToken(user);
+            response.Token = token;
             return Result.Ok(response);
-        }
-
-        public async Task<Result<FirstSetupProfileResponseDto>> FirstSetUpUser(string Username, FirstSetUpProfileRequestDto firstSetUp)
-        {
-            var user = await _userManager.FindByNameAsync(Username);
-            if (user == null)
-                return Result.BadRequest<FirstSetupProfileResponseDto>(NoSuccessMessage.AddError("Something Went Wrong"));
-
-            await _userManager.AddToRoleAsync(user, firstSetUp.WhoAreYou);
-            user.ImageUrl = firstSetUp.ImageUrl == null ? user.ImageUrl : firstSetUp.ImageUrl;
-            await _userManager.UpdateAsync(user);
-
-            return Result.Ok(new FirstSetupProfileResponseDto() { ImageUrl=user.ImageUrl,Role=firstSetUp.WhoAreYou});
         }
 
         public async Task RemoveUserFromRoleAsync(ApplicationUser user,string role)
@@ -109,34 +99,32 @@ namespace Forum.Service.Identity
             await _userManager.RemoveFromRoleAsync(user, role);
         }
 
-        //public async Task UpdateImageUrl(ApplicationUser user, string imageUrl)
-        //{
-        //    if (imageUrl == null)
-        //        return;
-        //    user.ImageUrl = imageUrl;
-        //    await _userManager.UpdateAsync(user);
-        //}
+        public async Task<List<RolesModel>> GetRolesAsync()
+        {
+            var roles = await _roleManager.Roles.Where(x => x.Name == "Developer" || x.Name=="Employer").ToListAsync();
+            return _mapper.Map<List<RolesModel>>(roles);  
+        }
 
         private async Task<string> GenerateJWTToken(ApplicationUser user)
         {
-            var key = Encoding.ASCII.GetBytes(_options.JwtSettings.Secret);
-
-            var claimsList = new List<Claim>();
+            var key = Encoding.ASCII.GetBytes(_appSettings.JwtSettings.Secret);
             
-            var role=await _userManager.GetRolesAsync(user);
-            var claimesList1 = await _userManager.GetClaimsAsync(user);
-            var claims = new[]
+            var userRoles=await _userManager.GetRolesAsync(user);
+
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub,user.Id),
-                new Claim(ClaimTypes.Role,role.SingleOrDefault()),
-                new Claim("IsAdmin","True")
             };
-            claimsList.AddRange(claimesList1);
 
-            var expires = DateTime.Now.AddSeconds(Convert.ToDouble(_options.JwtSettings.Expires));
+            claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
+            claims.AddRange(userClaims.Select(claim => new Claim(claim.Type, claim.Value)));
+
+            var expires = DateTime.Now.AddSeconds(Convert.ToDouble(_appSettings.JwtSettings.Expires));
             var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_options.JwtSettings.Issuer, _options.JwtSettings.Audiance, claims, notBefore: DateTime.Now, expires: expires, signingCredentials: creds);
+            var token = new JwtSecurityToken(_appSettings.JwtSettings.Issuer, _appSettings.JwtSettings.Audiance, claims, notBefore: DateTime.Now, expires: expires, signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

@@ -1,5 +1,6 @@
 ﻿using Forum.Api.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net;

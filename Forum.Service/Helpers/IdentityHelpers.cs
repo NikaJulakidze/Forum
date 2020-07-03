@@ -1,6 +1,4 @@
 ﻿using Forum.Data.Entities;
-using Forum.Service.Dto.Account;
-using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
@@ -13,6 +11,12 @@ namespace Forum.Service.Helpers
             if (string.IsNullOrEmpty(user.ImageUrl))
                 user.ImageUrl = path;
             return;
+        }
+
+        public static async Task<string> PasswordRecoveryToken(UserManager<ApplicationUser> userManager, ApplicationUser user)
+        {
+            return await userManager.GeneratePasswordResetTokenAsync(user);
+            
         }
     }
 }

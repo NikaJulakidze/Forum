@@ -17,6 +17,7 @@ namespace Forum.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<TagQuestion> TagQuestion { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<UsersAction> UsersActions { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,6 +41,11 @@ namespace Forum.Data
                 a.Property(p => p.RatingPoints).HasDefaultValue(0);
             });
 
+            builder.Entity<UsersAction>(u =>
+            {
+                u.Property(p => p.Time).HasDefaultValue(DateTime.Now);
+            });
+
             builder.Entity<ApplicationUser>(a => 
             {
                 a.Property(p => p.RatingPoints).HasDefaultValue(1);
@@ -58,6 +64,10 @@ namespace Forum.Data
                  .HasOne(tq => tq.Question)
                  .WithMany(t => t.TagQuestions)
                  .HasForeignKey(tq => tq.QuestionId);
+
+            builder.Entity<Tag>()
+                .HasIndex(x =>  new{ x.Title, x.Content})
+                .IsUnique();
 
 
             base.OnModelCreating(builder);

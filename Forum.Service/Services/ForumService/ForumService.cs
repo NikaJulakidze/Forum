@@ -1,11 +1,4 @@
 ﻿using Forum.Data.Uow;
-using Forum.Service.Dto;
-using Forum.Service.Dto.Post;
-using Forum.Service.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Forum.Service.Services.ForumService
 {
@@ -17,9 +10,6 @@ namespace Forum.Service.Services.ForumService
         {
             _forumUow = forumUow;
         }
-        public async Task<Result<PostDto>> CreatePostAsync(CreateAnswerDto model)
-        {
-            return null;
-        }
+        
     }
 }

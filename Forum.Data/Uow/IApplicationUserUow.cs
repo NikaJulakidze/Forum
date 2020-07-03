@@ -7,6 +7,6 @@ namespace Forum.Data.Uow
 {
     public interface IApplicationUserUow
     {
-        public IApplicationUserRepository ApplicationUserRepository { get; }
+        public IAccountRepository ApplicationUserRepository { get; }
     }
 }

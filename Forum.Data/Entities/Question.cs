@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -22,7 +23,7 @@ namespace Forum.Data.Entities
         public string UserId { get; set; }
 
 
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }        
         public ICollection<Answer> Answers { get; set; }
         public ICollection<TagQuestion> TagQuestions { get; set; }
     }

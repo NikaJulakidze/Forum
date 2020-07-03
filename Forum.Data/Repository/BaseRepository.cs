@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Forum.Data.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections;
 using System.Linq;
 
 namespace Forum.Data.Repository
@@ -33,5 +35,6 @@ namespace Forum.Data.Repository
         {
             return _entities.AsQueryable();
         }
+
     }
 }

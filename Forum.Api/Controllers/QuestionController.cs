@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Forum.Api.Attributes;
-using Forum.Service.Dto;
-using Forum.Service.PostService;
+using Forum.Models.Question;
+using Forum.Service.Services.QuestionService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,26 +12,20 @@ namespace Forum.Api.Controllers
     [ModelStateValidation]
     public class QuestionController : ControllerBase
     {
-        private readonly IAnswerService _postService;
         private readonly ILogger<QuestionController> _logger;
+        private readonly IQuestionService _questionService;
 
-        public QuestionController(IAnswerService postService,ILogger<QuestionController> logger)
+        public QuestionController(ILogger<QuestionController> logger,IQuestionService questionService)
         {
-            _postService = postService;
             _logger = logger;
+            _questionService = questionService;
         }
-        [HttpGet("GetQuestions")]
-        public async Task<IActionResult> GetQuestions()
+
+        [HttpPost("[action]")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AddQuestion([FromBody] AddQuestionModel model)
         {
             return Ok();
-        }
-
-        [HttpPost("CreatePost")]
-        public async Task<IActionResult> CreatePost([FromBody] CreateAnswerDto model)
-        {
-            _logger.LogInformation("CreatePost Controller");
-            var result= await _postService.CreatePostAsync(model);
-            return Ok(result);
         }
     }
 }

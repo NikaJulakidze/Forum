@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Forum.Data.Uow
 {
-    public interface IAdminUow
+    public interface IAdminUow:IBaseUow
     {
         public IAdminRepository AdminRepository { get; }
     }

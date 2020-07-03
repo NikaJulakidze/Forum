@@ -24,10 +24,12 @@ namespace Forum.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-
+            UsersFilterModel usersFilter = new UsersFilterModel();
+            usersFilter.Role = "test";
+            //usersFilter.SearchValue = "testsearch";
             //var result= await _apiCall.GetAsync<TestViewModel>(ApiCallStaticRoutes.GetImage);
             //_httpContextAccessor.HttpContext.Response.Cookies.Append("Key", "This is my cookie!!!!");
-            return View();
+            return View(usersFilter);
         }
 
         public IActionResult Privacy()

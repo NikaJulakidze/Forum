@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
-using Forum.Service.Dto.Account;
+using Forum.Data.Models;
+using Forum.Models.Account;
 using Forum.Service.Identity;
-using Forum.Service.Services.MailService;
 using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Api.Controllers
@@ -12,18 +13,18 @@ namespace Forum.Api.Controllers
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
-        private readonly IEmailService _emailService;
+        private readonly IHttpContextAccessor _http;
 
-        public AccountController(IAccountService accountService,IEmailService emailService)
+        public AccountController(IAccountService accountService,IHttpContextAccessor http)
         {
             _accountService = accountService;
-            _emailService = emailService;
+            _http = http;
         }
 
 
         [HttpPost(StaticRoutes.Account.Register)]
         [AllowAnonymous]
-        public async Task<IActionResult> RegisterAsync([FromBody] UserRegistrationRequestDto userRegistrationDto)
+        public async Task<IActionResult> RegisterAsync([FromBody] RegisterRequest userRegistrationDto)
         {
             var result= await _accountService.RegisterAsync(userRegistrationDto);
             return CustomGenericResult(result);
@@ -31,30 +32,29 @@ namespace Forum.Api.Controllers
 
         [HttpPost(StaticRoutes.Account.Authenticate)]
         [AllowAnonymous]
-        public async Task<IActionResult> AuthenticateAsync([FromBody] UserAuthenticationRequestDto userRegistrationDto)
+        public async Task<IActionResult> AuthenticateAsync([FromBody] AuthenticatationRequest authenticatation)
         {
-            var result= await _accountService.AuthenticateAsync(userRegistrationDto);
+            var result= await _accountService.AuthenticateAsync(authenticatation);
             if (result.Succeeded)
                 return Ok(result.Data);
             return BadRequest(result.noSuccessMessage);
         }
 
-        [HttpPost(StaticRoutes.Account.FirstSetup)]
-        [Authorize(Policy =StaticPolicies.ShouldBeUser)]
-        public async Task<IActionResult> FirstSetUpProfile(string Username,[FromBody] FirstSetUpProfileRequestDto firstSetUp)
+        [HttpGet("GetRoles")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetRoles()
         {
-            var result = await _accountService.FirstSetUpUser(Username, firstSetUp);
-            return CustomGenericResult(result);
+            var result = await _accountService.GetRolesAsync();
+            return Ok(result);
         }
+
+        //[HttpGet("Users")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> GetUsersWithPaging(UsersFilterModel filter,int page=1)
+        //{ 
+            
+        //    return null;
+        //}
        
-
-        [HttpPost("Test")]
-        [Authorize(Policy =StaticPolicies.ShouldBeUser)]
-        public IActionResult Test()
-        {
-            _emailService.SendMail(null);
-            return Ok();
-        }
-
     }
 }

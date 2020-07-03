@@ -1,13 +1,16 @@
-﻿using Forum.Service.Dto.Account;
+﻿using Forum.Data.Entities;
+using Forum.Data.Models;
+using Forum.Models.Account;
 using Forum.Service.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Forum.Service.Identity
 {
     public interface IAccountService
     {
-        Task<Result<UserAuthenticationResponseDto>> AuthenticateAsync(UserAuthenticationRequestDto dto);
-        Task<Result<FirstSetupProfileResponseDto>> FirstSetUpUser(string Username, FirstSetUpProfileRequestDto firstSetUp);
-        Task<Result<UserRegistrationResponseDto>> RegisterAsync(UserRegistrationRequestDto model);
+        Task<Result<AuthenticationResponse>> AuthenticateAsync(AuthenticatationRequest request);
+        Task<List<RolesModel>> GetRolesAsync();
+        Task<Result<RegisterResponse>> RegisterAsync(RegisterRequest model);
     }
 }

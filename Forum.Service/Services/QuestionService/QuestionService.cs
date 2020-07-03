@@ -1,10 +1,8 @@
-﻿using AutoMapper.Configuration;
+﻿using AutoMapper;
+using Forum.Data.Entities;
 using Forum.Data.Uow;
-using Forum.Service.Identity;
+using Forum.Models.Question;
 using Forum.Service.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Forum.Service.Services.QuestionService
@@ -12,14 +10,17 @@ namespace Forum.Service.Services.QuestionService
     public class QuestionService:IQuestionService
     {
         private readonly IQuestionUow _questionUow;
-
-        public QuestionService(IQuestionUow questionUow)
+        private readonly IMapper _mapper;
+        public QuestionService(IQuestionUow questionUow,IMapper mapper)
         {
             _questionUow = questionUow;
+            _mapper = mapper;
         }
 
-        public async Task<Result> CreatePostAsync()
+        public async Task<Result> CreatePostAsync(AddQuestionModel model)
         {
+            var question= _mapper.Map<Question>(model);
+            
             return null;
         }
     }

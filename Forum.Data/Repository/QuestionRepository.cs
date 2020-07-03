@@ -1,6 +1,7 @@
 ﻿using Forum.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Forum.Data.Repository

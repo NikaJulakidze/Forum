@@ -1,9 +1,13 @@
-﻿@model TestViewModel
+﻿@model UsersFilterModel
 @{
     ViewData["Title"] = "Home Page";
 }
-<img src="https://www.shutterstock.com/image-illustration/illustration-international-passengers-infrared-thermal-scan-1640970700" height="500" width="500" asp-append-version="true"/>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@*<a asp-action="Users" asp-controller="Account" method="get" asp-route-role="@Model.Role" asp-route-searchValue="@Model.SearchValue">
+  ClickMe  
+</a>*@

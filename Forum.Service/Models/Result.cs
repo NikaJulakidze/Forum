@@ -15,7 +15,7 @@ namespace Forum.Service.Models
         public static Result BadRequest(NoSuccessMessage error) => new Result { noSuccessMessage=error, StatusCode = (int)HttpStatusCode.BadRequest };
 
 
-        public static Result<T> Ok<T>(T result) => new Result<T> { Data = result };
+        public static Result<T> Ok<T>(T result) => new Result<T> { Data = result ,StatusCode=(int)HttpStatusCode.OK};
         public static Result<T> BadRequest<T>(NoSuccessMessage error) => new Result<T>{noSuccessMessage=error};
 
     }

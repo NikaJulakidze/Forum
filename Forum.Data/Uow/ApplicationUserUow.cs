@@ -7,10 +7,10 @@ namespace Forum.Data.Uow
 {
     public class ApplicationUserUow : BaseUow, IApplicationUserUow
     {
-        public ApplicationUserUow(ApplicationDbContext context,IApplicationUserRepository applicationUserRepository):base(context)
+        public ApplicationUserUow(ApplicationDbContext context,IAccountRepository applicationUserRepository):base(context)
         {
             ApplicationUserRepository = applicationUserRepository;
         }
-        public IApplicationUserRepository ApplicationUserRepository { get; }
+        public IAccountRepository ApplicationUserRepository { get; }
     }
 }

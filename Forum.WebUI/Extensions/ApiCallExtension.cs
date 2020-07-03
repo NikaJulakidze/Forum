@@ -20,6 +20,8 @@ namespace Forum.WebUI.Extensions
                     var badrequestMessage = await message.ReadResponseAs<NoSuccessResponse>();
                     var result= ApiCallResult.BadRequest<TResponse>(badrequestMessage);
                     return result;
+                case HttpStatusCode.Unauthorized:
+                    return ApiCallResult.Unauthorized<TResponse>();
                 default:
                     var UnhandledMessage = await message.ReadResponseAs<NoSuccessResponse>();
                     return  ApiCallResult.InternalServerError<TResponse>(UnhandledMessage);

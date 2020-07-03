@@ -14,6 +14,8 @@ namespace Forum.WebUI.ViewModels
         public string Email { get; set; }
         [JsonProperty("usermane")]
         public string Username { get; set; }
+        [JsonProperty("ratingpoints")]
+        public int RatingPoints { get; set; }
         [JsonProperty("token")]
         public string Token { get; set; }
     }

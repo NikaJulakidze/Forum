@@ -12,7 +12,9 @@ namespace Forum.Service.StaticSettings
         {
             public const string Register = "Register";
             public const string Authenticate = "Authenticate";
-            public const string FirstSetup = "FirstSetup/{id}";
+            public const string FirstSetup = "FirstSetup";
+            public const string ForgotPassword = "ForgotPassword";
+            public const string RessetPassword = "RessetPassword";
         }
         public static class Questions
         {

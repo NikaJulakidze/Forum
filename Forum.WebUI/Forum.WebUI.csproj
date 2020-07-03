@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Forum.Models\Forum.Models.csproj" />
     <ProjectReference Include="..\Forum.Service\Forum.Service.csproj" />
   </ItemGroup>
 

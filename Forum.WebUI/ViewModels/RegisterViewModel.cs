@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Forum.WebUI.ViewModels
 {
@@ -19,5 +21,7 @@ namespace Forum.WebUI.ViewModels
         public string ConfirmPassword { get; set; }
         [Required]
         public string Role { get; set; }
+        
+        public List<SelectListItem> Roles { get; set; }
     }
 }

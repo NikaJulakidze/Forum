@@ -1,6 +1,12 @@
-﻿using Forum.Data.Entities;
+﻿using AutoMapper;
+using Forum.Data.Entities;
+using Forum.Data.Models;
+using Forum.Data.Uow;
+using Forum.Models.Tag;
 using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,10 +16,17 @@ namespace Forum.Service.Identity
     {
         private readonly RoleManager<IdentityRole> _rolemanager;
         private readonly UserManager<ApplicationUser> _userManager;
-        public AdminService(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager) 
+        private readonly IAdminUow _uow;
+        private readonly AppSettings _appSettings;
+        private readonly IMapper _mapper;
+
+        public AdminService(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager,IAdminUow uow,IOptionsSnapshot<AppSettings> appSettings,IMapper mapper) 
         {
             _rolemanager = roleManager;
             _userManager = userManager;
+            _uow = uow;
+            _appSettings = appSettings.Value;
+            _mapper = mapper;
         }
 
         public async Task<Result> CreateRoleAsync(string role)
@@ -22,6 +35,26 @@ namespace Forum.Service.Identity
             if (identityResult.Succeeded)
                 return Result.Ok();
             return Result.BadRequest(NoSuccessMessage.AddErrors(identityResult.Errors.Select(x => x.Description).ToList()));
+        }
+        public async Task<PagedList<ApplicationUser>> GetUsersWithPaging(PagingSettings settings)
+        {
+            var result= await _uow.AdminRepository.GetusersWithPaging(settings);
+            return PagedList<ApplicationUser>.CreatePaging(result, settings);
+        }
+
+        public async Task<Result> BanUsersAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.Now.AddDays(1));
+            return Result.Ok();
+        }
+
+        public async Task<Result<AddTagModel>> CreateTagAsync(AddTagModel tagModel)
+        {
+            var tag = _mapper.Map<Tag>(tagModel);
+            _uow.AdminRepository.CreateTag(tag);
+            await _uow.CompleteAsync();
+            return Result.Ok(_mapper.Map<AddTagModel>(tag));
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
-using Forum.Data.Entities;
 using Forum.Data.Uow;
-using Forum.Service.Dto;
-using Forum.Service.Dto.Post;
-using Forum.Service.Models;
-using System.Threading.Tasks;
 
 namespace Forum.Service.PostService
 {
@@ -17,18 +12,6 @@ namespace Forum.Service.PostService
         {
             _postUow = postUow;
             _mapper = mapper;
-        }
-
-        public async Task<Result<PostDto>> CreatePostAsync(CreateAnswerDto model)
-        {
-
-            var result = new Result<PostDto>();
-
-            var post = _mapper.Map<Answer>(model);
-            _postUow.AnswerRepository.Add(post);
-            await _postUow.CompleteAsync();
-            result.Data = _mapper.Map<PostDto>(post);
-            return result;
         }
     }
 }

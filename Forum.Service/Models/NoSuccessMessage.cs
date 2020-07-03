@@ -8,6 +8,10 @@ namespace Forum.Service.Models
     public class NoSuccessMessage
     {
         public List<string> Errors { get; set; }
+        public NoSuccessMessage()
+        {
+            Errors = new List<string>();
+        }
 
         public static NoSuccessMessage AddErrors(List<string> errors)
         {

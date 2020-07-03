@@ -12,5 +12,6 @@ namespace Forum.Data.Entities
 
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<UsersAction> UsersActions { get;set; }
     }
 }

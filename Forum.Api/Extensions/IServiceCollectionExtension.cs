@@ -28,12 +28,16 @@ namespace Forum.Api.Extensions
         {
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
         public static void AddUow(this IServiceCollection services)
         {
             services.AddScoped<IBaseUow, BaseUow>();
             services.AddScoped<IAnswerUow, AnswerUow>();
             services.AddScoped<IForumUow, ForumUow>();
+            services.AddScoped<IAdminUow, AdminUow>();
+            services.AddScoped<IApplicationUserUow, ApplicationUserUow>();
         }
 
         public static void AddService(this IServiceCollection services)
@@ -44,6 +48,7 @@ namespace Forum.Api.Extensions
             services.AddScoped<IFileService, FileService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
         public static void AddDbConfiguration(this IServiceCollection services, string connectionString)
         {

@@ -1,5 +1,6 @@
 ﻿using Forum.Data.Entities;
 using Forum.Service.StaticSettings;
+using Microsoft.VisualBasic.CompilerServices;
 using System.IO;
 
 namespace Forum.Service.Models
@@ -16,7 +17,7 @@ namespace Forum.Service.Models
         public string Subject { get; set; }
 
         
-        public static EmailSendModel BuildEmailVerificationModel(ApplicationUser user,AppSettings _options) => new EmailSendModel()
+        public static EmailSendModel BuildEmailVerificationModel(ApplicationUser user,AppSettings _options,string token) => new EmailSendModel()
         {
             Body = File.ReadAllText(_options.MailSendSettings.EmailConfirmationText),
             FromAddress = _options.MailSendSettings.FromAddress,
@@ -25,9 +26,19 @@ namespace Forum.Service.Models
             Subject = _options.MailSendSettings.EmailConfirmationSubject,
             ToAddress = user.Email,
             ToUserName = user.UserName,
-            ConfirmationLink = StaticRoutes.BaseUrl + $"Account/FirstSetup/{user.Id}",
+            ConfirmationLink = StaticRoutes.BaseUrl + $"Account/FirstSetup",
         };
 
-        public static EmailSendModel BuildPasswordRecoveryModel(ApplicationUser user, AppSettings _options) => new EmailSendModel();
+        public static EmailSendModel BuildPasswordRecoveryModel(ApplicationUser user, AppSettings _options,string token) => new EmailSendModel()
+        {
+            Body=File.ReadAllText(_options.MailSendSettings.RessetPasswordText),
+            FromAddress=_options.MailSendSettings.FromAddress,
+            FromName=_options.MailSendSettings.FromName,
+            FromPassword=_options.MailSendSettings.FromPassword,
+            Subject=_options.MailSendSettings.RessetPasswordSubject,
+            ToAddress=user.Email,
+            ToUserName=user.UserName,
+            ConfirmationLink=StaticRoutes.BaseUrl +$"Account/RessetPassword/{token}"
+        };
     }
 }

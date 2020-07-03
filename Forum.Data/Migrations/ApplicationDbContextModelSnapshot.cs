@@ -15,7 +15,7 @@ namespace Forum.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -33,7 +33,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 6, 39, 288, DateTimeKind.Local).AddTicks(5761));
+                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 136, DateTimeKind.Local).AddTicks(1484));
 
                     b.Property<bool>("IsAcceptedAnswer")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 6, 15, 23, 6, 39, 286, DateTimeKind.Local).AddTicks(8284));
+                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 134, DateTimeKind.Local).AddTicks(2217));
 
                     b.Property<bool>("IsEdited")
                         .ValueGeneratedOnAdd()
@@ -147,13 +147,16 @@ namespace Forum.Data.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Title", "Content")
+                        .IsUnique();
 
                     b.ToTable("Tags");
                 });
@@ -171,6 +174,37 @@ namespace Forum.Data.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("TagQuestion");
+                });
+
+            modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ActionType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Time")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 136, DateTimeKind.Local).AddTicks(5480));
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("UsersActions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -440,6 +474,13 @@ namespace Forum.Data.Migrations
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
+                {
+                    b.HasOne("Forum.Data.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("UsersActions")
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

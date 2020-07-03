@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Forum.Data.Uow
 {
-    public interface IQuestionUow
+    public interface IQuestionUow : IBaseUow
     {
         IQuestionRepository QuestionRepository { get; }
     }
