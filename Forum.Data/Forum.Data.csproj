@@ -14,7 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Forum.DynamicQuery\Forum.DynamicQuery.csproj" />
     <ProjectReference Include="..\Forum.Models\Forum.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

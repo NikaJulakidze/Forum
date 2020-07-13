@@ -1,0 +1,75 @@
+13-07-2020 00:03:47.942 Application Starting...
+13-07-2020 00:03:58.265 HTTP "GET" "/api/Users/cabd4506-a447-45fa-bdf2-c25cf890e151/nika" responded 200 in 1340.4015 ms
+13-07-2020 00:06:48.058 Application Starting...
+13-07-2020 00:06:53.883 HTTP "GET" "/api/Users/cabd4506-a447-45fa-bdf2-c25cf890e151/nika" responded 200 in 1378.2164 ms
+13-07-2020 00:08:16.260 Application Starting...
+13-07-2020 00:08:19.949 HTTP "GET" "/api/Users/cabd4506-a447-45fa-bdf2-c25cf890e151/nika" responded 200 in 1391.5970 ms
+13-07-2020 00:09:32.371 Application Starting...
+13-07-2020 00:09:35.345 HTTP "GET" "/api/Users/cabd4506-a447-45fa-bdf2-c25cf890e151/nika" responded 200 in 1426.4212 ms
+13-07-2020 00:58:20.192 Application Starting...
+13-07-2020 00:58:51.956 HTTP "GET" "/api/Users/9f10ce3e-541c-4b72-8ce0-5ffd25009576/nika" responded 200 in 1403.4230 ms
+13-07-2020 01:02:29.073 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 292.6460 ms
+13-07-2020 01:02:37.009 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 39.4768 ms
+13-07-2020 01:02:42.629 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 37.9876 ms
+13-07-2020 01:02:47.379 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 24.3710 ms
+13-07-2020 01:02:50.951 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 33.5028 ms
+13-07-2020 01:23:08.179 Application Starting...
+13-07-2020 01:23:18.025 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 1903.0571 ms
+13-07-2020 01:23:54.263 Application Starting...
+13-07-2020 01:24:02.912 HTTP "GET" "/api/Users/9f10ce3e-541c-4b72-8ce0-5ffd25009576/nika" responded 500 in 6865.3090 ms
+System.ArgumentException: At least one object must implement IComparable.
+   at System.Collections.Comparer.Compare(Object a, Object b)
+   at System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   at System.Linq.EnumerableSorter`2.CompareAnyKeys(Int32 index1, Int32 index2)
+   at System.Linq.EnumerableSorter`2.Min(Int32[] map, Int32 count)
+   at System.Linq.EnumerableSorter`1.ElementAt(TElement[] elements, Int32 count, Int32 idx)
+   at System.Linq.OrderedEnumerable`1.ToList(Int32 minIdx, Int32 maxIdx)
+   at System.Linq.OrderedPartition`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Forum.Service.Identity.AccountService.GetUserById(String id) in D:\Projects\Forum\Forum.Service\Identity\AccountService.cs:line 111
+   at Forum.Api.Controllers.UsersController.GetUserById(String id, String username) in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+13-07-2020 01:24:03.036 At least one object must implement IComparable.
+System.ArgumentException: At least one object must implement IComparable.
+   at System.Collections.Comparer.Compare(Object a, Object b)
+   at System.Collections.Generic.ObjectComparer`1.Compare(T x, T y)
+   at System.Linq.EnumerableSorter`2.CompareAnyKeys(Int32 index1, Int32 index2)
+   at System.Linq.EnumerableSorter`2.Min(Int32[] map, Int32 count)
+   at System.Linq.EnumerableSorter`1.ElementAt(TElement[] elements, Int32 count, Int32 idx)
+   at System.Linq.OrderedEnumerable`1.ToList(Int32 minIdx, Int32 maxIdx)
+   at System.Linq.OrderedPartition`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Forum.Service.Identity.AccountService.GetUserById(String id) in D:\Projects\Forum\Forum.Service\Identity\AccountService.cs:line 111
+   at Forum.Api.Controllers.UsersController.GetUserById(String id, String username) in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+13-07-2020 01:27:23.960 Application Starting...
+13-07-2020 01:29:19.756 Application Starting...
+13-07-2020 01:32:42.872 Application Starting...
+13-07-2020 01:33:28.852 Application Starting...
+13-07-2020 01:45:55.601 Application Starting...
+13-07-2020 01:47:44.359 Application Starting...

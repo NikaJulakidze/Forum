@@ -1,13 +1,12 @@
 ﻿using Forum.Data.Entities;
-using Forum.Data.Models;
-using System;
+using Forum.Models.Filters;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {
-    public interface IAccountRepository
+    public interface IAccountRepository:IBaseRepository<ApplicationUser>
     {
-        (List<ApplicationUser> users, int dataCount) GetAll(UsersFilterModel filter, PagingSettings settings);
+        Task<(List<ApplicationUser>, int)> GetFilteredUsers(UsersFilterModel filter);
     }
 }

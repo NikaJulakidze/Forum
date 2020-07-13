@@ -13,8 +13,8 @@ namespace Forum.Data.Entities
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
-        
 
-        public  ICollection<TagQuestion> TagQuestions { get; set; }
+
+        public ICollection<TagQuestion> TagQuestions { get; set; }
     }
 }

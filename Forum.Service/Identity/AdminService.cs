@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
-using Forum.Data.Models;
 using Forum.Data.Uow;
+using Forum.Models;
 using Forum.Models.Tag;
 using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;
@@ -29,17 +29,12 @@ namespace Forum.Service.Identity
             _mapper = mapper;
         }
 
-        public async Task<Result> CreateRoleAsync(string role)
+        public async Task<Result> CreateRoleAsync(string name)
         {
-            var identityResult= await _rolemanager.CreateAsync(new IdentityRole { Name = role});
+            var identityResult= await _rolemanager.CreateAsync(new IdentityRole { Name = name});
             if (identityResult.Succeeded)
                 return Result.Ok();
             return Result.BadRequest(NoSuccessMessage.AddErrors(identityResult.Errors.Select(x => x.Description).ToList()));
-        }
-        public async Task<PagedList<ApplicationUser>> GetUsersWithPaging(PagingSettings settings)
-        {
-            var result= await _uow.AdminRepository.GetusersWithPaging(settings);
-            return PagedList<ApplicationUser>.CreatePaging(result, settings);
         }
 
         public async Task<Result> BanUsersAsync(string userId)

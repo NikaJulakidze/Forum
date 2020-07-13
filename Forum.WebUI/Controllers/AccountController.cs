@@ -37,26 +37,26 @@ namespace Forum.WebUI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Register()
-        {
-            var result= _apiCall.GetAsync<List<RolesModel>>(ApiCallStaticRoutes.Account.GetRoles).Result;   
-            if(result.ResultCode==ApiCallResultCode.UnAuthorized)
-            {
-                return RedirectToAction("Login", "Account");
-            }    
-            var items = result.Data.Select(i => new SelectListItem { Value = i.Id, Text = i.Name }).ToList();
-            var registerModel = new RegisterModel();
-            registerModel.Roles.AddRange(items);
+        //[HttpGet]
+        //public IActionResult Register()
+        //{
+        //    var result= _apiCall.GetAsync<List<RolesModel>>(ApiCallStaticRoutes.Account.GetRoles).Result;   
+        //    if(result.ResultCode==ApiCallResultCode.UnAuthorized)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    }    
+        //    var items = result.Data.Select(i => new SelectListItem { Value = i.Id, Text = i.Name }).ToList();
+        //    var registerModel = new RegisterModel();
+        //    registerModel.Roles.AddRange(items);
 
-            return View(registerModel);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
-        {
-            var result = await _apiCall.PostAsync<ApplicationUserViewModel>(ApiCallStaticRoutes.Account.Register, model);
-            return CustomResult(result, "Index","Home");
-        }
+        //    return View(registerModel);
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> Register(RegisterModel model)
+        //{
+        //    var result = await _apiCall.PostAsync<ApplicationUserViewModel>(ApiCallStaticRoutes.Account.Register, model);
+        //    return CustomResult(result, "Index","Home");
+        //}
         [HttpGet]
         public IActionResult Login()
         {

@@ -1,5 +1,7 @@
-﻿using Forum.Service.Models;
+﻿using Forum.Models;
+using Forum.Service.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Forum.Api.Controllers
 {
@@ -8,16 +10,24 @@ namespace Forum.Api.Controllers
     {
         protected IActionResult CustomGenericResult<T>(Result<T> result)
         {
-            if (result.Succeeded)
-                return Ok(result.Data);
-            return BadRequest(result.noSuccessMessage);
+            return result.StatusCode switch
+            {
+                (int)HttpStatusCode.OK => Ok(result.Data),
+                (int)HttpStatusCode.BadRequest => BadRequest(result.noSuccessMessage),
+                (int)HttpStatusCode.NotFound => NotFound(),
+                _ => StatusCode((int)HttpStatusCode.InternalServerError),
+            };
         }
 
         protected IActionResult CustomResult(Result result)
         {
-            if(result.Succeeded)
-                return Ok();
-            return BadRequest(result.noSuccessMessage);
+            return result.StatusCode switch
+            {
+                (int)HttpStatusCode.OK => Ok(),
+                (int)HttpStatusCode.BadRequest => BadRequest(result.noSuccessMessage),
+                (int)HttpStatusCode.NotFound => NotFound(),
+                _ => StatusCode((int)HttpStatusCode.InternalServerError),
+            };
         }
     }
 }

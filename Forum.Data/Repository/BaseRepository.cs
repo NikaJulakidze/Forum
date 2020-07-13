@@ -1,40 +1,37 @@
-﻿using Forum.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {
-    public abstract class BaseRepository<TEntity>:IBaseRepository<TEntity> where TEntity:class
+    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         protected readonly ApplicationDbContext _context;
-        protected readonly DbSet<TEntity> _entities;
+        protected readonly DbSet<TEntity> _entity;
 
         public BaseRepository(ApplicationDbContext context)
         {
             _context = context;
-            _entities = _context.Set<TEntity>();
+            _entity = _context.Set<TEntity>();
         }
 
         public void Add(TEntity entity)
         {
-            _entities.Add(entity);
+            _entity.Add(entity);
         }
 
         public void Remove(TEntity entity)
         {
-            _entities.Remove(entity);
+            _entity.Remove(entity);
         }
 
         public void Update(TEntity entity)
         {
-            _entities.Update(entity);
+            _entity.Update(entity);
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual async Task<TEntity> GetByIdAsync<T>(T id)
         {
-            return _entities.AsQueryable();
+           return await _entity.FindAsync(id);
         }
-
     }
 }

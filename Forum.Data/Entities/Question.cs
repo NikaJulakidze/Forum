@@ -13,7 +13,7 @@ namespace Forum.Data.Entities
         [Required]
         public string Content { get; set; }
         [Required]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         [Required]
         public int RatingPoints { get; set; }
         [Required]
@@ -23,7 +23,7 @@ namespace Forum.Data.Entities
         public string UserId { get; set; }
 
 
-        public ApplicationUser User { get; set; }        
+        public ApplicationUser User { get; set; }   
         public ICollection<Answer> Answers { get; set; }
         public ICollection<TagQuestion> TagQuestions { get; set; }
     }

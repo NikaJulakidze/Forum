@@ -1,4 +1,5 @@
 ﻿using Forum.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,11 @@ namespace Forum.Data.Repository
         public AnswerRepository(ApplicationDbContext context):base(context)
         {
 
+        }
+
+        public List<Answer> GetAnswersByPost(int questionId)
+        {
+            return _entity.Where(x => x.QuestionId == questionId).Include(x=>x.User).ToList();
         }
     }
 }

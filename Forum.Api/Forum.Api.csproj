@@ -34,6 +34,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Forum.Data\Forum.Data.csproj" />
     <ProjectReference Include="..\Forum.Service\Forum.Service.csproj" />
+    <ProjectReference Include="..\Forum.SignalR\Forum.SignalR.csproj" />
   </ItemGroup>
 
   <ItemGroup>

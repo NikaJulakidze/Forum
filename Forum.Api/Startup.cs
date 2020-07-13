@@ -2,8 +2,8 @@ using AutoMapper;
 using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
-using Forum.Service.CustomPolicy;
 using Forum.Service.Models;
+using Forum.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -45,6 +45,7 @@ namespace Forum.Api
             services.AddCustomAuthorizations();
             services.AddCustomPolicy();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSignalR();
             services.AddMvc(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
@@ -59,7 +60,6 @@ namespace Forum.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public  void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -89,6 +89,7 @@ namespace Forum.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotificationHub>("/notifications");
             });
         }
     }

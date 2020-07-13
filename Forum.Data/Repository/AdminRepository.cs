@@ -1,10 +1,4 @@
 ﻿using Forum.Data.Entities;
-using Forum.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {
@@ -30,6 +24,5 @@ namespace Forum.Data.Repository
         {
             _context.Remove(tag); 
         }
-
     }
 }

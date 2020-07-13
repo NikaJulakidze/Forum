@@ -33,7 +33,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 136, DateTimeKind.Local).AddTicks(1484));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<bool>("IsAcceptedAnswer")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 134, DateTimeKind.Local).AddTicks(2217));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<bool>("IsEdited")
                         .ValueGeneratedOnAdd()
@@ -103,39 +103,6 @@ namespace Forum.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("Forum.Data.Entities.QuestionReply", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AnswerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AnswerId");
-
-                    b.HasIndex("QuestionId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("QuestionReply");
                 });
 
             modelBuilder.Entity("Forum.Data.Entities.Tag", b =>
@@ -176,6 +143,29 @@ namespace Forum.Data.Migrations
                     b.ToTable("TagQuestion");
                 });
 
+            modelBuilder.Entity("Forum.Data.Entities.UserRatingPointsHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RatingPoints")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRatingPoints");
+                });
+
             modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
                 {
                     b.Property<int>("Id")
@@ -195,7 +185,7 @@ namespace Forum.Data.Migrations
                     b.Property<DateTime>("Time")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 2, 16, 9, 51, 136, DateTimeKind.Local).AddTicks(5480));
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -204,7 +194,7 @@ namespace Forum.Data.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("UsersActions");
+                    b.ToTable("UsersAction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -413,13 +403,22 @@ namespace Forum.Data.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int>("Credits")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RatingPoints")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(1);
+
+                    b.Property<DateTime>("RegisterTime")
+                        .HasColumnType("datetime2");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -444,23 +443,6 @@ namespace Forum.Data.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Forum.Data.Entities.QuestionReply", b =>
-                {
-                    b.HasOne("Forum.Data.Entities.Answer", null)
-                        .WithMany("PostReplies")
-                        .HasForeignKey("AnswerId");
-
-                    b.HasOne("Forum.Data.Entities.Question", "Answer")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Forum.Data.Entities.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("Forum.Data.Entities.TagQuestion", b =>
                 {
                     b.HasOne("Forum.Data.Entities.Question", "Question")
@@ -476,10 +458,17 @@ namespace Forum.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Forum.Data.Entities.UserRatingPointsHistory", b =>
+                {
+                    b.HasOne("Forum.Data.Entities.ApplicationUser", "User")
+                        .WithMany("UserRatingPoints")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
                 {
                     b.HasOne("Forum.Data.Entities.ApplicationUser", "ApplicationUser")
-                        .WithMany("UsersActions")
+                        .WithMany()
                         .HasForeignKey("ApplicationUserId");
                 });
 

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
-using Forum.Data.Models;
 using Forum.Data.Uow;
+using Forum.Models;
 using Forum.Models.Account;
+using Forum.Models.Filters;
+using Forum.Models.Paging;
 using Forum.Service.Helpers;
 using Forum.Service.Models;
 using Forum.Service.Services.MailService;
@@ -31,9 +33,10 @@ namespace Forum.Service.Identity
         private readonly IHostingEnvironment _env;
         private readonly IEmailService _emailService;
         private readonly IApplicationUserUow _uow;
+        private readonly IRatingPointsHistoryUow _historyUow;
 
         public AccountService(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager,
-            IMapper mapper,IOptions<AppSettings> options,RoleManager<IdentityRole> roleManager,IHostingEnvironment env,IEmailService emailService,IApplicationUserUow uow) 
+            IMapper mapper,IOptions<AppSettings> options,RoleManager<IdentityRole> roleManager,IHostingEnvironment env,IEmailService emailService,IApplicationUserUow uow, IRatingPointsHistoryUow historyUow) 
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -43,6 +46,7 @@ namespace Forum.Service.Identity
             _env = env;
             _emailService = emailService;
             _uow = uow;
+            _historyUow = historyUow;
         }
 
         public async Task<Result<RegisterResponse>> RegisterAsync(RegisterRequest model)
@@ -60,7 +64,8 @@ namespace Forum.Service.Identity
             }
             
             await _userManager.AddToRoleAsync(user, model.Role);
-
+            _historyUow.RatingPointsHistory.Add(new UserRatingPointsHistory { RatingPoints = user.RatingPoints, User = user });
+            await _historyUow.CompleteAsync();
             var response = _mapper.Map<RegisterResponse>(user);
             return Result.Ok(response);
         }
@@ -83,20 +88,15 @@ namespace Forum.Service.Identity
 
             
             var response = _mapper.Map<AuthenticationResponse>(user);
-            var identityResult=  await _signInManager.PasswordSignInAsync(user.UserName,request.Password,false,false);
+            var identityResult = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, false);
             if (!identityResult.Succeeded)
-            { 
+            {
                 var noSuccessMessage = NoSuccessMessage.AddError("Email or password is invalid");
                 return Result.BadRequest<AuthenticationResponse>(noSuccessMessage);
             }
-
+            
             response.Token = token;
             return Result.Ok(response);
-        }
-
-        public async Task RemoveUserFromRoleAsync(ApplicationUser user,string role)
-        {
-            await _userManager.RemoveFromRoleAsync(user, role);
         }
 
         public async Task<List<RolesModel>> GetRolesAsync()
@@ -104,6 +104,28 @@ namespace Forum.Service.Identity
             var roles = await _roleManager.Roles.Where(x => x.Name == "Developer" || x.Name=="Employer").ToListAsync();
             return _mapper.Map<List<RolesModel>>(roles);  
         }
+
+        public async Task<ApplicationUser> GetUserById(string id)
+        {
+            var result= await _uow.ApplicationUserRepository.GetByIdAsync(id);
+            var result1 = result.Questions.SelectMany(x => x.TagQuestions).Select(x => x.Tag).GroupBy(x => x.Title).OrderByDescending(x => x.Count()).Take(2).Select(x=>new { title=x.Key, count=x.Count()});
+            
+            return result;
+        }
+
+        public async Task<PagedResult<List<ApplicationUser>>> GetPagedUsersAsync(UsersFilterModel model)
+        {
+            var result= await _uow.ApplicationUserRepository.GetFilteredUsers(model);
+            if (result.Item1.Count == 0)
+            {
+
+            }
+            var a= PagedResult<List<ApplicationUser>>.CreatePagedResponse(result.Item1,result.Item2,1,5);
+            return a;
+        }
+
+        
+
 
         private async Task<string> GenerateJWTToken(ApplicationUser user)
         {
@@ -120,8 +142,9 @@ namespace Forum.Service.Identity
 
             claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
             claims.AddRange(userClaims.Select(claim => new Claim(claim.Type, claim.Value)));
+            claims.Add(new Claim(ClaimTypes.Email, user.Email));
 
-            var expires = DateTime.Now.AddSeconds(Convert.ToDouble(_appSettings.JwtSettings.Expires));
+            var expires = DateTime.Now.AddDays(Convert.ToDouble(_appSettings.JwtSettings.Expires));
             var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(_appSettings.JwtSettings.Issuer, _appSettings.JwtSettings.Audiance, claims, notBefore: DateTime.Now, expires: expires, signingCredentials: creds);

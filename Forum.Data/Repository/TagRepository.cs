@@ -1,8 +1,6 @@
 ﻿using Forum.Data.Entities;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 
 namespace Forum.Data.Repository
 {
@@ -12,10 +10,20 @@ namespace Forum.Data.Repository
         {
 
         }
-        public IEnumerable<Tag> GetTagsByNames(List<string> tagNames)
+        public List<Tag> GetTagsByNames(List<string> tagNames)
         {
-            var names = (_entities.SelectMany(i => tagNames.Where(item => i.Title == item).Select(item => i))).ToList();
-            return names;
+            var tags = new List<Tag>();
+            foreach(var i in tagNames)
+            {
+                foreach(var item in _entity)
+                {
+                    if (i == item.Title)
+                    {
+                        tags.Add(item);
+                    }
+                }
+            }
+            return tags;
         }
     }
 }

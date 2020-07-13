@@ -8,6 +8,7 @@ using Forum.Service.PostService;
 using Forum.Service.Services.FileService;
 using Forum.Service.Services.ForumService;
 using Forum.Service.Services.MailService;
+using Forum.Service.Services.QuestionService;
 using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -30,6 +31,10 @@ namespace Forum.Api.Extensions
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<ITagQuestionRepository, TagQuestionRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IRatingPointsHistoryRepository, RatingPointsHistoryRepository>();
         }
         public static void AddUow(this IServiceCollection services)
         {
@@ -38,6 +43,10 @@ namespace Forum.Api.Extensions
             services.AddScoped<IForumUow, ForumUow>();
             services.AddScoped<IAdminUow, AdminUow>();
             services.AddScoped<IApplicationUserUow, ApplicationUserUow>();
+            services.AddScoped<IQuestionUow, QuestionUow>();
+            services.AddScoped<ITagQuestionUow, TagQuestionUow>();
+            services.AddScoped<ITagUow, TagUow>();
+            services.AddScoped<IRatingPointsHistoryUow, RatingPointsHistoryUow>();
         }
 
         public static void AddService(this IServiceCollection services)
@@ -49,6 +58,7 @@ namespace Forum.Api.Extensions
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IQuestionService, QuestionService>();
         }
         public static void AddDbConfiguration(this IServiceCollection services, string connectionString)
         {

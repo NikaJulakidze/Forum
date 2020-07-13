@@ -1,9 +1,4 @@
 ﻿using Forum.Data.Entities;
-using Forum.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {

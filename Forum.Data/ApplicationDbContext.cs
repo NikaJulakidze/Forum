@@ -17,7 +17,8 @@ namespace Forum.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<TagQuestion> TagQuestion { get; set; }
         public DbSet<Answer> Answers { get; set; }
-        public DbSet<UsersAction> UsersActions { get; set; }
+        public DbSet<UserRatingPointsHistory> UserRatingPoints { get; set; }
+        //public DbSet<UsersAction> UsersActions { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,10 +26,14 @@ namespace Forum.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<UserRatingPointsHistory>(u =>
+            { 
+                
+            });
             builder.Entity<Question>(q => 
             {
                 q.Property(p => p.ViewCount).HasDefaultValue(0);
-                q.Property(p => p.CreatedDate).HasDefaultValue(DateTime.Now);
+                q.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
                 q.Property(p => p.IsEdited).HasDefaultValue(false);
                 q.Property(p => p.RatingPoints).HasDefaultValue(0);
             });
@@ -37,18 +42,19 @@ namespace Forum.Data
             builder.Entity<Answer>(a => 
             {
                 a.Property(p => p.IsAcceptedAnswer).HasDefaultValue(false);
-                a.Property(p => p.CreatedDate).HasDefaultValue(DateTime.Now);
+                a.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
                 a.Property(p => p.RatingPoints).HasDefaultValue(0);
             });
 
             builder.Entity<UsersAction>(u =>
             {
-                u.Property(p => p.Time).HasDefaultValue(DateTime.Now);
+                u.Property(p => p.Time).HasDefaultValueSql("getdate()");
             });
 
             builder.Entity<ApplicationUser>(a => 
             {
                 a.Property(p => p.RatingPoints).HasDefaultValue(1);
+                a.Property(p => p.Credits).HasDefaultValue(0);
             });
 
             //configure many-to-many relationship

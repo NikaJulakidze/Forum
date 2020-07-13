@@ -1,6 +1,6 @@
 ﻿using Forum.Data.Entities;
+using Forum.Models;
 using Forum.Service.Helpers;
-using Forum.Service.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;

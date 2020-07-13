@@ -1,14 +1,12 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using Forum.Data;
-using Forum.Data.Entities;
+using Forum.Models.Admin;
 using Forum.Models.Tag;
-using Forum.Service.Dto.Admin;
-using Forum.Service.Dto.Question;
-using Forum.Service.Dto.Tags;
 using Forum.Service.Identity;
 using Forum.Service.Models;
 using Forum.Service.StaticSettings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -16,7 +14,8 @@ using Microsoft.Extensions.Options;
 namespace Forum.Api.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Policy =StaticPolicies.ShouldBeAdmin)]
+    [AllowAnonymous]
+    //[Authorize(Policy =StaticPolicies.ShouldBeAdmin)]
     public class AdminController : BaseController
     {
         private readonly IAdminService _adminService;
@@ -41,16 +40,11 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost(StaticRoutes.Admin.CreateRole)]
-        public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRoleDto role)
+        //S[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme,Roles ="Admin")]
+        [AllowAnonymous]
+        public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRole role)
         {
-            return CustomResult(await _adminService.CreateRoleAsync(role.Role));
-        }
-
-        [HttpGet("GetUsers")]
-        public async Task<IActionResult> GetAllUsers([FromQuery] int currenPage)
-        {
-            var a= await _adminService.GetUsersWithPaging(new Data.Models.PagingSettings(currenPage, 5));
-            return Ok(a);
+            return CustomResult(await _adminService.CreateRoleAsync(role.Name));
         }
     }
 }

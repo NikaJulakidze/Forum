@@ -7,7 +7,7 @@ namespace Forum.Data.Entities
     public class UsersAction
     {
         public int Id { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime Time { get; set; } 
         public string IpAddress { get; set; }
         public string ActionType { get; set; }
 

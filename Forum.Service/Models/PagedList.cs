@@ -1,30 +1,22 @@
-﻿using Forum.Data.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Forum.Service.Models
+﻿namespace Forum.Service.Models
 {
     public class PagedList<T> where T : class
     {
-        public PagedList(List<T> source,PagingSettings pagingSettings)
-        {
-            this.Source = source;
-            this.PagingSettings = pagingSettings;   
-        }
+        //public PagedList(List<T> source,PagingSettings pagingSettings)
+        //{
+        //    this.Source = source;
+        //    this.PagingSettings = pagingSettings;   
+        //}
 
-        public PagingSettings PagingSettings { get; private set; }
+        //public PagingSettings PagingSettings { get; private set; }
 
-        public List<T> Source { get; private set; }
+        //public List<T> Source { get; private set; }
 
-        public bool HasNextPage => PagingSettings.CurrentPage < PagingSettings.TotalPage;
-        public bool HasPreviousPage => PagingSettings.CurrentPage > 1;
+        //public bool HasNextPage => PagingSettings.CurrentPage < PagingSettings.TotalPage;
+        //public bool HasPreviousPage => PagingSettings.CurrentPage > 1;
 
 
-        public static PagedList<T> CreatePaging(List<T> source,PagingSettings pagingSettings) => new PagedList<T>(source,pagingSettings) { Source = source, PagingSettings = pagingSettings };
+        //public static PagedList<T> CreatePaging(List<T> source,PagingSettings pagingSettings) => new PagedList<T>(source,pagingSettings) { Source = source, PagingSettings = pagingSettings };
 
 
         //public PagedList(List<T> source, int count,int currentPage, int pageSize)

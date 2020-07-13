@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Forum.Data.Repository
 {
-    public interface IQuestionRepository:IBaseRepository<Question>
+    public interface IQuestionRepository : IBaseRepository<Question>
     {
-
+        Question GetQuestionByIdWithIncludes(int id);
+        Question GetQuestionWithUserInclude(int questionId);
     }
 }

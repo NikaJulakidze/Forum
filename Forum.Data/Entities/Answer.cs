@@ -22,7 +22,7 @@ namespace Forum.Data.Entities
 
 
         public virtual Question Question { get; set; }
-        public virtual ApplicationUser User { get; set; }
-        public virtual ICollection<QuestionReply> PostReplies { get; set; }
+        public ApplicationUser User { get; set; }
+        //public virtual ICollection<AnswerReply> AnswerReplies { get; set; }
     }
 }

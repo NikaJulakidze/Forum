@@ -1,8 +1,5 @@
-﻿using Forum.Service.Models;
+﻿using Forum.Models;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Forum.Service.Services.FileService
