@@ -1,0 +1,66 @@
+18-07-2020 18:52:48.295 Application Starting...
+18-07-2020 18:53:16.416 HTTP "POST" "/api/Admin/CreateTag" responded 200 in 1262.9174 ms
+18-07-2020 18:53:25.782 HTTP "POST" "/api/Admin/CreateTag" responded 200 in 31.6983 ms
+18-07-2020 18:53:32.527 HTTP "POST" "/api/Admin/CreateTag" responded 200 in 28.6821 ms
+18-07-2020 18:53:37.696 HTTP "POST" "/api/Admin/CreateRole" responded 200 in 197.2275 ms
+18-07-2020 18:53:41.639 HTTP "POST" "/api/Users/Register" responded 200 in 206.2213 ms
+18-07-2020 18:53:57.720 HTTP "POST" "/api/Users/Register" responded 200 in 43.6614 ms
+18-07-2020 18:57:55.402 Application Starting...
+18-07-2020 18:58:23.644 HTTP "POST" "/api/Question/AddQuestion" responded 500 in 1116.2029 ms
+System.ArgumentNullException: Value cannot be null. (Parameter 'email')
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Forum.Service.Services.QuestionService.QuestionService.AskQuestion(AddQuestionRequest request, String email) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 34
+   at Forum.Api.Controllers.QuestionController.AddQuestion(AddQuestionRequest model) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+18-07-2020 18:58:23.704 Value cannot be null. (Parameter 'email')
+System.ArgumentNullException: Value cannot be null. (Parameter 'email')
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Forum.Service.Services.QuestionService.QuestionService.AskQuestion(AddQuestionRequest request, String email) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 34
+   at Forum.Api.Controllers.QuestionController.AddQuestion(AddQuestionRequest model) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+18-07-2020 18:58:33.763 HTTP "POST" "/api/Users/Authenticate" responded 200 in 967.4237 ms
+18-07-2020 19:10:52.201 Application Starting...
+18-07-2020 19:12:40.576 Application Starting...
+18-07-2020 19:17:52.476 Application Starting...
+18-07-2020 19:17:59.738 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 1524.2549 ms
+18-07-2020 19:58:45.152 Application Starting...
+18-07-2020 19:58:50.882 HTTP "POST" "/api/Question/AddQuestion" responded 200 in 2059.0025 ms
+18-07-2020 20:51:36.436 Application Starting...
+18-07-2020 20:51:39.071 HTTP "GET" "/api/Question/GetQuestionById/1" responded 200 in 1499.7018 ms
+18-07-2020 22:31:22.074 Application Starting...
+18-07-2020 22:31:24.168 HTTP "POST" "/api/Answer/CreateAnswer/1" responded 404 in 0.5155 ms
+18-07-2020 22:31:58.615 Application Starting...
+18-07-2020 22:32:00.833 HTTP "POST" "/api/Answer/CreateAnswer/1" responded 404 in 0.4747 ms
+18-07-2020 22:32:33.406 Application Starting...
+18-07-2020 22:46:08.134 Application Starting...
+18-07-2020 22:46:11.426 HTTP "POST" "/api/Answer/CreateAnswer/1" responded 200 in 1797.2230 ms
+18-07-2020 22:49:45.625 Application Starting...

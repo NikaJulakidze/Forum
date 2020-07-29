@@ -15,6 +15,7 @@ namespace Forum.Data.Entities
         public string Content { get; set; }
 
 
-        public ICollection<TagQuestion> TagQuestions { get; set; }
+        public virtual ICollection<TagQuestion> TagQuestions { get; set; }
+        public virtual ICollection<TagAnswer> TagAnswers { get; set; }
     }
 }

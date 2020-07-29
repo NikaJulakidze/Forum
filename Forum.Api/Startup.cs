@@ -2,7 +2,10 @@ using AutoMapper;
 using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
+using Forum.Jobs.Jobs;
+using Forum.Models.NewFolder;
 using Forum.Service.Models;
+using Forum.Service.Uri;
 using Forum.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -46,6 +49,7 @@ namespace Forum.Api
             services.AddCustomPolicy();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSignalR();
+            //services.AddQuartzConfiguration(typeof(BirthDayGiftJob),typeof(AnniversaryGiftJob));
             services.AddMvc(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
@@ -65,6 +69,7 @@ namespace Forum.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
             });
+
             if (env.IsDevelopment())
             {
                 //app.UseDeveloperExceptionPage();

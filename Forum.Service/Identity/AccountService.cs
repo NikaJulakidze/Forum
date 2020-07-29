@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
+using Forum.Data.Extensions;
 using Forum.Data.Uow;
 using Forum.Models;
 using Forum.Models.Account;
+using Forum.Models.ApplicationUser;
 using Forum.Models.Filters;
+using Forum.Models.NewFolder;
 using Forum.Models.Paging;
 using Forum.Service.Helpers;
 using Forum.Service.Models;
@@ -70,6 +73,11 @@ namespace Forum.Service.Identity
             return Result.Ok(response);
         }
 
+        public async Task<List<ApplicationUser>> GetHappyBirthDayUsers()
+        {
+            return await _uow.ApplicationUserRepository.GetHappyBirthDayUsers();
+        }
+
         public async Task<Result<AuthenticationResponse>> AuthenticateAsync(AuthenticatationRequest request)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
@@ -105,12 +113,12 @@ namespace Forum.Service.Identity
             return _mapper.Map<List<RolesModel>>(roles);  
         }
 
-        public async Task<ApplicationUser> GetUserById(string id)
+        public async Task<UserProfileModel> GetUserProfile(string id)
         {
-            var result= await _uow.ApplicationUserRepository.GetByIdAsync(id);
-            var result1 = result.Questions.SelectMany(x => x.TagQuestions).Select(x => x.Tag).GroupBy(x => x.Title).OrderByDescending(x => x.Count()).Take(2).Select(x=>new { title=x.Key, count=x.Count()});
+            var topPostsAndAnswers = await _uow.ApplicationUserRepository.TopPosts(id);
+             
             
-            return result;
+            return new UserProfileModel();
         }
 
         public async Task<PagedResult<List<ApplicationUser>>> GetPagedUsersAsync(UsersFilterModel model)
@@ -120,12 +128,18 @@ namespace Forum.Service.Identity
             {
 
             }
-            var a= PagedResult<List<ApplicationUser>>.CreatePagedResponse(result.Item1,result.Item2,1,5);
-            return a;
+            //var a= PagedResult<List<ApplicationUser>>.CreatePagedResponse(result.Item1,result.Item2,1,5);
+            return null;
         }
 
-        
+        public async Task<Result<List<ApplicationUserListingModel>>> GetTop15ThisWeek()
+        {
+            var top15 =await _uow.ApplicationUserRepository.GetTop15UsersThisWeek();
+            //var users = _mapper.Map < List<ApplicationUserListingModel>>(top15);
+            return Result.Ok(new List<ApplicationUserListingModel>());
+        }
 
+       
 
         private async Task<string> GenerateJWTToken(ApplicationUser user)
         {
@@ -143,6 +157,7 @@ namespace Forum.Service.Identity
             claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
             claims.AddRange(userClaims.Select(claim => new Claim(claim.Type, claim.Value)));
             claims.Add(new Claim(ClaimTypes.Email, user.Email));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
 
             var expires = DateTime.Now.AddDays(Convert.ToDouble(_appSettings.JwtSettings.Expires));
             var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);

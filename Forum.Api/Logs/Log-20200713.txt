@@ -73,3 +73,108 @@ System.ArgumentException: At least one object must implement IComparable.
 13-07-2020 01:33:28.852 Application Starting...
 13-07-2020 01:45:55.601 Application Starting...
 13-07-2020 01:47:44.359 Application Starting...
+13-07-2020 14:33:13.512 Application Starting...
+13-07-2020 14:33:33.611 Application Starting...
+13-07-2020 14:43:15.884 Application Starting...
+13-07-2020 14:45:42.903 Application Starting...
+13-07-2020 14:48:00.944 Application Starting...
+13-07-2020 15:28:06.058 Application Starting...
+13-07-2020 15:30:30.819 Application Starting...
+13-07-2020 15:30:50.400 Application Starting...
+13-07-2020 19:21:00.671 Application Starting...
+13-07-2020 20:34:54.869 Application Starting...
+13-07-2020 20:35:08.457 HTTP "GET" "/api/Users/9f10ce3e-541c-4b72-8ce0-5ffd25009576/nika" responded 500 in 5001.9506 ms
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Type Map configuration:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Destination Member:
+TagAndCount
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ProfileTopTags -> KeyValuePair`2
+Forum.Models.Account.ProfileTopTags -> System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]
+   at lambda_method(Closure , ProfileTopTags , KeyValuePair`2 , ResolutionContext )
+   at lambda_method(Closure , ApplicationUser , UserProfileModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , ApplicationUser , UserProfileModel , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Forum.Service.Identity.AccountService.GetUserById(String id) in D:\Projects\Forum\Forum.Service\Identity\AccountService.cs:line 115
+   at Forum.Api.Controllers.UsersController.GetUserById(String id, String username) in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+13-07-2020 20:35:08.585 Error mapping types.
+
+Mapping types:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Type Map configuration:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Destination Member:
+TagAndCount
+
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Type Map configuration:
+ApplicationUser -> UserProfileModel
+Forum.Data.Entities.ApplicationUser -> Forum.Models.Account.UserProfileModel
+
+Destination Member:
+TagAndCount
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ProfileTopTags -> KeyValuePair`2
+Forum.Models.Account.ProfileTopTags -> System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]
+   at lambda_method(Closure , ProfileTopTags , KeyValuePair`2 , ResolutionContext )
+   at lambda_method(Closure , ApplicationUser , UserProfileModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , ApplicationUser , UserProfileModel , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Forum.Service.Identity.AccountService.GetUserById(String id) in D:\Projects\Forum\Forum.Service\Identity\AccountService.cs:line 115
+   at Forum.Api.Controllers.UsersController.GetUserById(String id, String username) in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+13-07-2020 23:34:35.063 Application Starting...
+13-07-2020 23:44:48.512 Application Starting...
+13-07-2020 23:45:17.832 Application Starting...
+13-07-2020 23:45:54.050 Application Starting...

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Forum.Models.Account;
 using Forum.Models.Filters;
 using Forum.Service.Identity;
@@ -58,9 +56,7 @@ namespace Forum.Api.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetUserById(string id, string username)
         {
-            //if (User?.FindFirstValue(ClaimTypes.Email)== id)
-            //    return RedirectToAction("MyProfile",id);
-            return Ok(await _accountService.GetUserById(id));
+            return Ok(await _accountService.GetUserProfile(id));
         }
 
         [HttpGet("[action]/{id}")]
@@ -68,6 +64,13 @@ namespace Forum.Api.Controllers
         public async Task<IActionResult> MyProfile(string id)
         {
             return Ok();
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Top15()
+        {
+            var result = await _accountService.GetTop15ThisWeek();
+            return Ok(result);
         }
        
     }

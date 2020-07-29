@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,8 @@ namespace Forum.Data.Entities
         public string ImageUrl { get; set; }
         public DateTime RegisterTime { get; set; } = DateTime.Now;
         public int Credits { get; set; }
-
+        public string AboutMe { get; set; }
+        public int ProfileViewCount { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }

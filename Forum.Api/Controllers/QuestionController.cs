@@ -1,12 +1,12 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Forum.Api.Attributes;
+using Forum.Data.Repository;
 using Forum.Models.Question;
 using Forum.Service.Services.QuestionService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 
 namespace Forum.Api.Controllers
@@ -28,7 +28,7 @@ namespace Forum.Api.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> AddQuestion([FromBody] AddQuestionRequest model)
         {
-            var result=await _questionService.AskQuestion(model, User.FindFirstValue(ClaimTypes.Email));
+            var result=await _questionService.AskQuestion(model, UserId);
             return Ok(result.Data);
         }
 
@@ -43,7 +43,7 @@ namespace Forum.Api.Controllers
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpVoteQuestion(int id)
         {
-            var result = await _questionService.UpvoteQuestion(id,User.FindFirstValue(ClaimTypes.Email));
+            var result = await _questionService.UpvoteQuestion(id,UserId);
             return CustomGenericResult(result);
         }
 
@@ -52,6 +52,14 @@ namespace Forum.Api.Controllers
         {
             var result = await _questionService.DownVoteQuestion(id,User.FindFirstValue(ClaimTypes.Email));
             return CustomGenericResult(result);
+        }
+
+        [HttpGet("[action]/{tagname}")]
+        public async Task<IActionResult> Tagged(string tagName)
+        {
+
+            var aa =await _questionService.GetQuestionsByTag("C#");
+            return Ok(aa);
         }
 
     }

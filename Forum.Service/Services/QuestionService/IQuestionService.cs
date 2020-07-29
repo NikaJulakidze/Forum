@@ -1,4 +1,5 @@
-﻿using Forum.Models;
+﻿using Forum.Data.Entities;
+using Forum.Models;
 using Forum.Models.Question;
 using Forum.Service.Models;
 using System;
@@ -10,9 +11,10 @@ namespace Forum.Service.Services.QuestionService
 {
     public interface IQuestionService
     {
-        Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest model,string email);
+        Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest model,string id);
         Task<Result<UpDownVoteModel>> DownVoteQuestion(int questionId,string voterId);
-        Result<QuestionModel> GetQuestionById(int id);
+        Result<Question> GetQuestionById(int id);
+        Task<List<Question>> GetQuestionsByTag(string tagName);
         Task<Result<UpDownVoteModel>> UpvoteQuestion(int questionId,string voterId);
     }
 }

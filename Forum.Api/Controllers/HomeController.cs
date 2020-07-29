@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Forum.Api.Attributes;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Api.Controllers
@@ -12,6 +8,9 @@ namespace Forum.Api.Controllers
     [ModelStateValidation]
     public class HomeController : ControllerBase
     {
-
+        public async Task<IActionResult> Index()
+        {
+            return Ok();
+        }
     }
 }

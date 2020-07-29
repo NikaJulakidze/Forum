@@ -10,6 +10,6 @@ namespace Forum.Models.Answer
         public int RatingPoints { get; set; }
         public bool IsAcceptedAsnwer { get; set; }
 
-        public ApplicationUserModel ApplicationUser { get; set; }
+        public ApplicationUserListingModel ApplicationUser { get; set; }
     }
 }

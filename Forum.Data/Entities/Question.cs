@@ -23,8 +23,8 @@ namespace Forum.Data.Entities
         public string UserId { get; set; }
 
 
-        public ApplicationUser User { get; set; }   
-        public ICollection<Answer> Answers { get; set; }
-        public ICollection<TagQuestion> TagQuestions { get; set; }
+        public virtual ApplicationUser User { get; set; }   
+        public virtual ICollection<TagAnswer>  TagAnswers{ get; set; }
+        public virtual ICollection<TagQuestion> TagQuestions { get; set; }
     }
 }

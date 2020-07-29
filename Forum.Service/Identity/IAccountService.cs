@@ -12,9 +12,11 @@ namespace Forum.Service.Identity
     public interface IAccountService
     {
         Task<Result<AuthenticationResponse>> AuthenticateAsync(AuthenticatationRequest request);
+        Task<List<ApplicationUser>> GetHappyBirthDayUsers();
         Task<PagedResult<List<ApplicationUser>>> GetPagedUsersAsync(UsersFilterModel model);
         Task<List<RolesModel>> GetRolesAsync();
-        Task<ApplicationUser> GetUserById(string id);
+        Task<Result<List<ApplicationUserListingModel>>> GetTop15ThisWeek();
+        Task<UserProfileModel> GetUserProfile(string id);
         Task<Result<RegisterResponse>> RegisterAsync(RegisterRequest model);
     }
 }

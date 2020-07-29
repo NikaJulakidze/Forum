@@ -14,7 +14,7 @@ namespace Forum.Models.Question
         public DateTime CreatedDate { get; set; }
         public int RatingPoints { get; set; }
         public bool IsEdited { get; set; }
-        public ApplicationUserModel QuestionAuthor { get; set; }
+        public ApplicationUserListingModel QuestionAuthor { get; set; }
 
 
         public List<AnswerModel> Answers { get; set; }

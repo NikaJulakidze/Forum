@@ -1,0 +1,531 @@
+20-07-2020 03:21:21.410 Application Starting...
+20-07-2020 03:21:22.483 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:21:22.521 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:21:22.522 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:21:22.523 RAMJobStore initialized.
+20-07-2020 03:21:22.525 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:21:22.526 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:21:22.526 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:21:22.544 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:21:22.554 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 03:21:22.595 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 03:23:01.052 Application Starting...
+20-07-2020 03:23:01.389 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:23:01.419 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:23:01.420 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:23:01.421 RAMJobStore initialized.
+20-07-2020 03:23:01.423 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:23:01.423 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:23:01.423 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:23:01.441 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:23:01.452 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 03:23:01.464 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 03:27:31.164 Application Starting...
+20-07-2020 03:27:32.516 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:27:32.575 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:27:32.576 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:27:32.578 RAMJobStore initialized.
+20-07-2020 03:27:32.593 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:27:32.593 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:27:32.593 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:27:32.618 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:27:32.653 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 03:27:32.710 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 03:29:22.230 Application Starting...
+20-07-2020 03:29:47.112 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:29:47.160 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:29:47.161 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:29:47.163 RAMJobStore initialized.
+20-07-2020 03:29:47.166 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:29:47.166 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:29:47.166 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:30:12.778 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:30:24.607 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 03:30:24.647 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 03:31:20.186 Application Starting...
+20-07-2020 03:31:20.526 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:31:20.556 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:31:20.557 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:31:20.558 RAMJobStore initialized.
+20-07-2020 03:31:20.560 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:31:20.560 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:31:20.560 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:31:20.579 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:31:54.441 Application Starting...
+20-07-2020 03:31:55.733 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:31:55.776 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:31:55.782 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:31:55.783 RAMJobStore initialized.
+20-07-2020 03:31:55.786 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:31:55.786 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:31:55.786 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:31:55.806 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 03:32:31.745 Application Starting...
+20-07-2020 03:32:33.130 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 03:32:33.168 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 03:32:33.175 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 03:32:33.176 RAMJobStore initialized.
+20-07-2020 03:32:33.179 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 03:32:33.179 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 03:32:33.179 Quartz scheduler version: 3.0.7.0
+20-07-2020 03:32:33.198 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 04:15:34.782 Application Starting...
+20-07-2020 04:15:35.911 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 04:15:35.950 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 04:15:35.957 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 04:15:35.958 RAMJobStore initialized.
+20-07-2020 04:15:35.961 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 04:15:35.961 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 04:15:35.961 Quartz scheduler version: 3.0.7.0
+20-07-2020 04:15:35.981 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 04:15:58.782 Application Starting...
+20-07-2020 04:16:00.020 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 04:16:00.061 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 04:16:00.067 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 04:16:00.068 RAMJobStore initialized.
+20-07-2020 04:16:00.071 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 04:16:00.071 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 04:16:00.071 Quartz scheduler version: 3.0.7.0
+20-07-2020 04:16:00.091 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 04:16:10.250 Application Starting...
+20-07-2020 04:16:11.354 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 04:16:11.393 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 04:16:11.399 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 04:16:11.400 RAMJobStore initialized.
+20-07-2020 04:16:11.403 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 04:16:11.403 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 04:16:11.403 Quartz scheduler version: 3.0.7.0
+20-07-2020 04:16:11.423 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 13:51:09.805 Application Starting...
+20-07-2020 13:51:11.849 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 13:51:11.891 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 13:51:11.897 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 13:51:11.898 RAMJobStore initialized.
+20-07-2020 13:51:11.901 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 13:51:11.902 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 13:51:11.902 Quartz scheduler version: 3.0.7.0
+20-07-2020 13:51:11.922 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:16:15.726 Application Starting...
+20-07-2020 14:16:16.974 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 14:16:17.013 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 14:16:17.019 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 14:16:17.020 RAMJobStore initialized.
+20-07-2020 14:16:17.023 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 14:16:17.024 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 14:16:17.024 Quartz scheduler version: 3.0.7.0
+20-07-2020 14:16:17.043 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:16:49.474 Application Starting...
+20-07-2020 14:16:50.715 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 14:16:50.753 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 14:16:50.760 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 14:16:50.761 RAMJobStore initialized.
+20-07-2020 14:16:50.764 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 14:16:50.764 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 14:16:50.764 Quartz scheduler version: 3.0.7.0
+20-07-2020 14:16:50.785 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:16:50.809 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 14:16:50.849 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 14:26:37.159 Application Starting...
+20-07-2020 14:26:38.330 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 14:26:38.367 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 14:26:38.373 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 14:26:38.375 RAMJobStore initialized.
+20-07-2020 14:26:38.377 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 14:26:38.377 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 14:26:38.377 Quartz scheduler version: 3.0.7.0
+20-07-2020 14:26:38.398 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:26:38.419 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 14:26:38.457 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 14:43:06.825 Application Starting...
+20-07-2020 14:43:07.955 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 14:43:08.012 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 14:43:08.023 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 14:43:08.024 RAMJobStore initialized.
+20-07-2020 14:43:08.027 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 14:43:08.027 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 14:43:08.027 Quartz scheduler version: 3.0.7.0
+20-07-2020 14:43:08.051 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:43:08.114 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 14:43:08.197 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 14:47:57.379 Application Starting...
+20-07-2020 14:47:58.827 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 14:47:58.867 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 14:47:58.873 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 14:47:58.875 RAMJobStore initialized.
+20-07-2020 14:47:58.877 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 14:47:58.877 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 14:47:58.877 Quartz scheduler version: 3.0.7.0
+20-07-2020 14:47:58.894 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 14:47:58.920 An error occurred instantiating job to be executed. job= 'DEFAULT.BirthDay'
+Quartz.SchedulerException: Problem instantiating class 'Forum.Jobs.Jobs.BirthDayGiftJob'
+ ---> System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   --- End of inner exception stack trace ---
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Simpl.PropertySettingJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
+   at Quartz.Core.JobRunShell.Initialize(QuartzScheduler sched, CancellationToken cancellationToken) [See nested exception: System.ArgumentException: Cannot instantiate type which has no empty constructor (Parameter 'BirthDayGiftJob')
+   at Quartz.Util.ObjectUtils.InstantiateType[T](Type type)
+   at Quartz.Simpl.SimpleJobFactory.NewJob(TriggerFiredBundle bundle, IScheduler scheduler)]
+20-07-2020 14:47:58.965 All triggers of Job DEFAULT.BirthDay set to ERROR state.
+20-07-2020 14:58:18.098 Application Starting...
+20-07-2020 14:58:48.153 Application Starting...
+20-07-2020 14:59:35.349 Application Starting...
+20-07-2020 15:04:02.874 Application Starting...
+20-07-2020 15:04:03.205 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:04:03.239 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:04:03.240 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:04:03.241 RAMJobStore initialized.
+20-07-2020 15:04:03.243 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:04:03.243 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:04:03.243 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:04:03.244 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:04:03.282 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:04:41.738 Application Starting...
+20-07-2020 15:04:50.523 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:04:50.572 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:04:50.578 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:04:50.579 RAMJobStore initialized.
+20-07-2020 15:04:50.582 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:04:50.582 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:04:50.582 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:04:50.582 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:04:52.569 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:05:39.680 Application Starting...
+20-07-2020 15:05:47.961 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:05:48.007 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:05:48.010 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:05:48.014 RAMJobStore initialized.
+20-07-2020 15:05:48.017 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:05:48.017 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:05:48.017 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:05:48.017 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:05:48.053 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:08:02.116 Application Starting...
+20-07-2020 15:08:02.465 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:08:02.495 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:08:02.496 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:08:02.498 RAMJobStore initialized.
+20-07-2020 15:08:02.500 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:08:02.500 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:08:02.500 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:08:02.500 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:08:02.534 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:08:28.674 Application Starting...
+20-07-2020 15:08:30.014 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:08:30.058 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:08:30.059 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:08:30.065 RAMJobStore initialized.
+20-07-2020 15:08:30.068 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:08:30.068 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:08:30.068 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:08:30.068 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:08:30.105 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:12:34.706 Application Starting...
+20-07-2020 15:12:35.459 Application failed to start, "Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Forum.Jobs.Jobs.BirthDayGiftJob Lifetime: Singleton ImplementationType: Forum.Jobs.Jobs.BirthDayGiftJob': Cannot consume scoped service 'Forum.Data.ApplicationDbContext' from singleton 'Forum.Jobs.Jobs.BirthDayGiftJob'.)"
+20-07-2020 15:15:16.928 Application Starting...
+20-07-2020 15:15:18.184 Default Quartz.NET properties loaded from embedded resource file
+20-07-2020 15:15:18.230 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+20-07-2020 15:15:18.231 Quartz Scheduler v."3.0.7.0" created.
+20-07-2020 15:15:18.237 RAMJobStore initialized.
+20-07-2020 15:15:18.239 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+20-07-2020 15:15:18.239 Quartz scheduler 'DefaultQuartzScheduler' initialized
+20-07-2020 15:15:18.240 Quartz scheduler version: 3.0.7.0
+20-07-2020 15:15:18.240 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+20-07-2020 15:15:18.276 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+20-07-2020 15:15:20.027 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:20.059 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:25.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:25.003 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:30.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:30.003 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:35.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:35.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:40.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:40.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:45.001 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:45.002 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:50.004 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:50.006 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+20-07-2020 15:15:55.001 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an unhandled Exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+20-07-2020 15:15:55.001 Job DEFAULT.Forum.Jobs.Jobs.BirthDayGiftJob threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]

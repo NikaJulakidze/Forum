@@ -2,9 +2,11 @@
 using Forum.Data.Entities;
 using Forum.Data.Uow;
 using Forum.Models;
+using Forum.Models.Filters;
 using Forum.Models.Question;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,9 +31,14 @@ namespace Forum.Service.Services.QuestionService
             _userManager = userManager;
         }
 
-        public async Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest request,string email)
+        public async Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest request,string id)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(id);
+            if (user == null)
+            {
+                _logger.LogError("Question with id {0} not found",id);
+                return Result.BadRequest<QuestionModel>(NoSuccessMessage.AddError("Something Went Wrong"));
+            }
 
             var question= _mapper.Map<Question>(request);
             question.User = user;
@@ -44,25 +51,36 @@ namespace Forum.Service.Services.QuestionService
             }
 
             var tagQuestions = tags.Select(i => new TagQuestion { Question = question, Tag = i }).ToList();
+
             _questionUow.QuestionRepository.Add(question);
             _tagQuestionUow.TagQuestionRepository.AddRange(tagQuestions);
             await _questionUow.CompleteAsync();
 
-            var test = _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(question.Id);
+            //var test = _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(question.Id);
             var result = _mapper.Map<QuestionModel>(question);
             
             return Result.Ok(result);
         }
 
-        public  Result<QuestionModel> GetQuestionById(int id)
+        public  Result<Question> GetQuestionById(int id)
         {
-            var result= _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(id);
-            if (result == null)
-                return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Could not find Question"));
+            var question = _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(id);
 
-            var model = _mapper.Map<QuestionModel>(result);
+            if (question == null)
+                return Result.NotFound<Question>(NoSuccessMessage.AddError("Could not find Question"));
 
-            return Result.Ok(model);
+            question.ViewCount += 1;
+            _questionUow.QuestionRepository.Update(question);
+            _questionUow.CompleteAsync();
+
+            //var model = _mapper.Map<QuestionModel>(question);
+
+            return Result.Ok(question);
+        }
+
+        public async Task<List<Question>> GetQuestionsByTag(string tagName)
+        {
+            return  await _questionUow.QuestionRepository.GetQuestionByTag(tagName);
         }
 
         public async Task<Result<UpDownVoteModel>> UpvoteQuestion(int questionId, string voterId)

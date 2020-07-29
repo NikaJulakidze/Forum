@@ -1,0 +1,350 @@
+24-07-2020 02:06:26.711 Application Starting...
+24-07-2020 02:07:59.786 Application Starting...
+24-07-2020 02:28:55.130 Application Starting...
+24-07-2020 02:32:36.736 Application Starting...
+24-07-2020 02:34:44.791 Application Starting...
+24-07-2020 02:34:49.390 HTTP "GET" "/api/Users/Top15" responded 500 in 912.3083 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at Forum.Api.Controllers.UsersController.Top15() in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+24-07-2020 02:34:49.492 Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at Forum.Api.Controllers.UsersController.Top15() in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+24-07-2020 02:35:34.951 HTTP "GET" "/api/Users/Top15" responded 500 in 2859.0034 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at Forum.Api.Controllers.UsersController.Top15() in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+24-07-2020 02:35:56.094 Application Starting...
+24-07-2020 02:35:59.863 HTTP "GET" "/api/Users/Top15" responded 500 in 1867.8475 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AccountService.GetTop15ThisWeek()
+   at Forum.Api.Controllers.UsersController.Top15() in D:\Projects\Forum\Forum.Api\Controllers\UsersController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+24-07-2020 02:36:07.769 Application Starting...
+24-07-2020 02:37:08.644 Application Starting...
+24-07-2020 02:39:01.473 Application Starting...
+24-07-2020 16:42:59.500 Application Starting...
+24-07-2020 16:43:47.012 Application Starting...
+24-07-2020 16:45:13.520 Application Starting...
+24-07-2020 16:45:57.637 Application Starting...
+24-07-2020 16:50:59.039 Application Starting...
+24-07-2020 16:52:16.264 Application Starting...
+24-07-2020 16:55:03.784 Application Starting...
+24-07-2020 16:56:23.698 Application Starting...
+24-07-2020 17:37:19.643 Application Starting...
+24-07-2020 17:37:19.881 Application failed to start, "Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Microsoft.Extensions.Hosting.IHostedService Lifetime: Singleton ImplementationType: Forum.Jobs.HostedService.QuartzHostedService': Cannot consume scoped service 'Quartz.ISchedulerFactory' from singleton 'Microsoft.Extensions.Hosting.IHostedService'.)"
+24-07-2020 17:38:42.445 Application Starting...
+24-07-2020 17:38:49.262 Application Starting...
+24-07-2020 17:39:04.361 Application Starting...
+24-07-2020 17:39:59.774 Application Starting...
+24-07-2020 17:47:14.469 Application Starting...
+24-07-2020 17:47:15.514 Application failed to start, "Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Microsoft.Extensions.Hosting.IHostedService Lifetime: Singleton ImplementationType: Forum.Jobs.HostedService.QuartzHostedService': Cannot consume scoped service 'Quartz.ISchedulerFactory' from singleton 'Microsoft.Extensions.Hosting.IHostedService'.)"
+24-07-2020 17:49:01.541 Application Starting...
+24-07-2020 17:49:02.560 Application failed to start, "Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Microsoft.Extensions.Hosting.IHostedService Lifetime: Singleton ImplementationType: Forum.Jobs.HostedService.QuartzHostedService': Cannot consume scoped service 'Quartz.ISchedulerFactory' from singleton 'Microsoft.Extensions.Hosting.IHostedService'.)"
+24-07-2020 17:49:54.051 Application Starting...
+24-07-2020 17:49:55.416 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 17:49:55.465 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 17:49:55.467 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 17:49:55.473 RAMJobStore initialized.
+24-07-2020 17:49:55.476 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 17:49:55.476 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 17:49:55.476 Quartz scheduler version: 3.0.7.0
+24-07-2020 17:49:55.477 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 17:49:55.519 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 17:50:56.579 Application Starting...
+24-07-2020 17:50:57.840 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 17:50:57.885 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 17:50:57.892 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 17:50:57.893 RAMJobStore initialized.
+24-07-2020 17:50:57.896 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 17:50:57.896 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 17:50:57.896 Quartz scheduler version: 3.0.7.0
+24-07-2020 17:50:57.896 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 17:50:57.934 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:45:00.114 Application Starting...
+24-07-2020 18:45:01.417 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:45:01.462 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:45:01.465 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:45:01.471 RAMJobStore initialized.
+24-07-2020 18:45:01.473 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:45:01.473 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:45:01.473 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:45:01.474 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:45:01.511 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:46:30.221 Application Starting...
+24-07-2020 18:46:31.512 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:46:31.558 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:46:31.561 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:46:31.566 RAMJobStore initialized.
+24-07-2020 18:46:31.569 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:46:31.569 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:46:31.569 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:46:31.569 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:46:31.605 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:53:32.259 Application Starting...
+24-07-2020 18:53:33.738 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:53:33.783 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:53:33.790 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:53:33.791 RAMJobStore initialized.
+24-07-2020 18:53:33.793 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:53:33.793 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:53:33.793 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:53:33.794 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:53:33.831 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:54:04.266 Application Starting...
+24-07-2020 18:54:05.961 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:54:06.011 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:54:06.017 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:54:06.019 RAMJobStore initialized.
+24-07-2020 18:54:06.022 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:54:06.022 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:54:06.022 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:54:06.023 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:54:06.059 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:56:20.156 Application Starting...
+24-07-2020 18:56:21.208 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:56:21.256 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:56:21.264 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:56:21.265 RAMJobStore initialized.
+24-07-2020 18:56:21.268 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:56:21.268 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:56:21.268 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:56:21.269 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:56:21.311 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 18:58:23.286 Application Starting...
+24-07-2020 18:58:24.868 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 18:58:24.920 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 18:58:24.921 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 18:58:24.927 RAMJobStore initialized.
+24-07-2020 18:58:24.930 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 18:58:24.930 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 18:58:24.930 Quartz scheduler version: 3.0.7.0
+24-07-2020 18:58:24.931 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 18:58:24.968 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:00:46.464 Application Starting...
+24-07-2020 19:00:47.751 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:00:47.800 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:00:47.802 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:00:47.807 RAMJobStore initialized.
+24-07-2020 19:00:47.810 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:00:47.810 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:00:47.810 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:00:47.810 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:00:47.849 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:03:55.946 Application Starting...
+24-07-2020 19:03:57.226 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:03:57.271 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:03:57.278 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:03:57.279 RAMJobStore initialized.
+24-07-2020 19:03:57.281 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:03:57.281 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:03:57.281 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:03:57.282 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:03:57.318 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:50:31.726 Application Starting...
+24-07-2020 19:50:32.116 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:50:32.147 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:50:32.148 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:50:32.149 RAMJobStore initialized.
+24-07-2020 19:50:32.151 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:50:32.151 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:50:32.151 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:50:32.152 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:50:32.187 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:52:24.655 Application Starting...
+24-07-2020 19:52:24.988 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:52:25.018 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:52:25.019 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:52:25.020 RAMJobStore initialized.
+24-07-2020 19:52:25.022 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:52:25.022 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:52:25.022 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:52:25.023 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:52:25.057 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:57:09.350 Application Starting...
+24-07-2020 19:57:09.713 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:57:09.746 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:57:09.747 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:57:09.748 RAMJobStore initialized.
+24-07-2020 19:57:09.750 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:57:09.750 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:57:09.750 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:57:09.751 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:57:09.785 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+24-07-2020 19:57:28.821 Application Starting...
+24-07-2020 19:57:29.167 Default Quartz.NET properties loaded from embedded resource file
+24-07-2020 19:57:29.198 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+24-07-2020 19:57:29.199 Quartz Scheduler v."3.0.7.0" created.
+24-07-2020 19:57:29.200 RAMJobStore initialized.
+24-07-2020 19:57:29.202 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+24-07-2020 19:57:29.202 Quartz scheduler 'DefaultQuartzScheduler' initialized
+24-07-2020 19:57:29.202 Quartz scheduler version: 3.0.7.0
+24-07-2020 19:57:29.203 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+24-07-2020 19:57:29.237 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.

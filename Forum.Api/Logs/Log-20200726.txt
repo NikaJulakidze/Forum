@@ -1,0 +1,620 @@
+26-07-2020 14:17:42.805 Application Starting...
+26-07-2020 14:17:44.221 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 14:17:44.267 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 14:17:44.268 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 14:17:44.270 RAMJobStore initialized.
+26-07-2020 14:17:44.273 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 14:17:44.273 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 14:17:44.273 Quartz scheduler version: 3.0.7.0
+26-07-2020 14:17:44.273 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 14:17:44.311 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 14:18:53.954 Application Starting...
+26-07-2020 14:18:55.279 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 14:18:55.336 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 14:18:55.337 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 14:18:55.347 RAMJobStore initialized.
+26-07-2020 14:18:55.350 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 14:18:55.350 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 14:18:55.351 Quartz scheduler version: 3.0.7.0
+26-07-2020 14:18:55.351 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 14:18:55.393 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 17:05:31.531 Application Starting...
+26-07-2020 17:05:31.907 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 17:05:31.943 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 17:05:31.944 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 17:05:31.945 RAMJobStore initialized.
+26-07-2020 17:05:31.947 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 17:05:31.947 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 17:05:31.947 Quartz scheduler version: 3.0.7.0
+26-07-2020 17:05:31.947 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 17:05:31.983 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 17:07:12.506 Scheduler "DefaultQuartzScheduler_$_NON_CLUSTERED" shutting down.
+26-07-2020 17:07:12.507 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+26-07-2020 17:07:12.510 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+26-07-2020 17:08:58.166 Application Starting...
+26-07-2020 17:08:58.504 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 17:08:58.535 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 17:08:58.536 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 17:08:58.537 RAMJobStore initialized.
+26-07-2020 17:08:58.539 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 17:08:58.540 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 17:08:58.540 Quartz scheduler version: 3.0.7.0
+26-07-2020 17:08:58.540 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 17:08:58.574 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 17:09:34.804 Scheduler "DefaultQuartzScheduler_$_NON_CLUSTERED" shutting down.
+26-07-2020 17:09:34.805 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+26-07-2020 17:09:34.810 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+26-07-2020 17:20:52.147 Application Starting...
+26-07-2020 17:20:53.096 Application failed to start, "Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Forum.Jobs.Scheduler.JobSchedule Lifetime: Singleton ImplementationType: Forum.Jobs.Scheduler.JobSchedule': Unable to resolve service for type 'System.Type' while attempting to activate 'Forum.Jobs.Scheduler.JobSchedule'.) (Error while validating the service descriptor 'ServiceType: Microsoft.Extensions.Hosting.IHostedService Lifetime: Singleton ImplementationType: Forum.Jobs.HostedService.QuartzHostedService': Unable to resolve service for type 'System.Type' while attempting to activate 'Forum.Jobs.Scheduler.JobSchedule'.)"
+26-07-2020 17:49:48.881 Application Starting...
+26-07-2020 17:49:49.243 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 17:49:49.274 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 17:49:49.275 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 17:49:49.276 RAMJobStore initialized.
+26-07-2020 17:49:49.278 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 17:49:49.278 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 17:49:49.278 Quartz scheduler version: 3.0.7.0
+26-07-2020 17:49:49.278 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 17:49:49.314 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 17:50:25.704 Scheduler "DefaultQuartzScheduler_$_NON_CLUSTERED" shutting down.
+26-07-2020 17:50:25.705 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+26-07-2020 17:50:25.709 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+26-07-2020 18:49:19.785 Application Starting...
+26-07-2020 22:01:34.978 Application Starting...
+26-07-2020 22:01:36.316 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 22:01:36.381 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 22:01:36.383 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 22:01:36.389 RAMJobStore initialized.
+26-07-2020 22:01:36.393 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 22:01:36.393 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 22:01:36.393 Quartz scheduler version: 3.0.7.0
+26-07-2020 22:01:36.394 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 22:01:36.440 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 22:01:37.038 Connection ID ""18374686489872171112"", Request ID ""80000069-0002-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 22:01:43.155 HTTP "POST" "/api/Admin/CreateTag" responded 500 in 4042.0317 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+26-07-2020 22:01:43.189 Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+26-07-2020 22:02:13.500 Application Starting...
+26-07-2020 22:02:15.015 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 22:02:15.068 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 22:02:15.069 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 22:02:15.076 RAMJobStore initialized.
+26-07-2020 22:02:15.079 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 22:02:15.079 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 22:02:15.079 Quartz scheduler version: 3.0.7.0
+26-07-2020 22:02:15.080 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 22:02:15.123 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 22:02:15.893 Connection ID ""18302628900129210525"", Request ID ""8000009e-0003-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 22:02:23.877 HTTP "POST" "/api/Admin/CreateTag" responded 500 in 399.4106 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+26-07-2020 22:02:23.907 Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+26-07-2020 22:02:54.098 HTTP "POST" "/api/Admin/CreateTag" responded 500 in 41.4326 ms
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+26-07-2020 22:02:54.119 Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+System.MissingMethodException: Method not found: '!!0 AutoMapper.IMapper.Map(System.Object)'.
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at Forum.Service.Identity.AdminService.CreateTagAsync(AddTagModel tagModel)
+   at Forum.Api.Controllers.AdminController.CreateTags(AddTagModel tag) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+26-07-2020 22:04:11.544 Application Starting...
+26-07-2020 22:04:12.908 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 22:04:12.954 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 22:04:12.958 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 22:04:12.967 RAMJobStore initialized.
+26-07-2020 22:04:12.971 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 22:04:12.971 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 22:04:12.972 Quartz scheduler version: 3.0.7.0
+26-07-2020 22:04:12.973 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 22:04:13.033 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 22:04:13.569 Connection ID ""18302628887244308509"", Request ID ""8000001e-0000-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:48:44.522 Application Starting...
+26-07-2020 23:48:45.629 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:48:45.675 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:48:45.677 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:48:45.683 RAMJobStore initialized.
+26-07-2020 23:48:45.685 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:48:45.686 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:48:45.686 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:48:45.686 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:48:45.728 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:48:46.410 Connection ID ""18302628908719144986"", Request ID ""8000001b-0005-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:49:53.531 Application Starting...
+26-07-2020 23:49:54.865 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:49:54.913 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:49:54.923 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:49:54.924 RAMJobStore initialized.
+26-07-2020 23:49:54.926 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:49:54.926 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:49:54.927 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:49:54.927 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:49:54.965 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:49:55.586 Connection ID ""18302628908719144988"", Request ID ""8000001d-0005-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:50:41.609 Application Starting...
+26-07-2020 23:50:42.855 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:50:42.904 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:50:42.905 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:50:42.911 RAMJobStore initialized.
+26-07-2020 23:50:42.913 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:50:42.913 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:50:42.913 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:50:42.914 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:50:42.953 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:50:43.461 Connection ID ""18374686489872171114"", Request ID ""8000006b-0002-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:52:08.254 Application Starting...
+26-07-2020 23:52:09.554 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:52:09.599 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:52:09.600 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:52:09.606 RAMJobStore initialized.
+26-07-2020 23:52:09.608 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:52:09.608 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:52:09.609 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:52:09.609 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:52:09.647 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:52:10.103 Connection ID ""18302628891539275780"", Request ID ""80000005-0001-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:53:00.601 Application Starting...
+26-07-2020 23:53:01.884 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:53:01.932 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:53:01.935 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:53:01.961 RAMJobStore initialized.
+26-07-2020 23:53:01.964 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:53:01.965 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:53:01.965 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:53:01.965 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:53:02.007 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:53:02.531 Connection ID ""18374686489872171116"", Request ID ""8000006d-0002-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:53:05.246 HTTP "POST" "/api/Admin/CreateRole" responded 500 in 2758.2257 ms
+System.InvalidOperationException: The LINQ expression 'DbSet<TagQuestion>
+    .Where(t1 => EF.Property<Nullable<int>>((EntityShaperExpression: 
+        EntityType: Tag
+        ValueBufferExpression: 
+            (ProjectionBindingExpression: EmptyProjectionMember)
+        IsNullable: False
+    ), "Id") != null && EF.Property<Nullable<int>>((EntityShaperExpression: 
+        EntityType: Tag
+        ValueBufferExpression: 
+            (ProjectionBindingExpression: EmptyProjectionMember)
+        IsNullable: False
+    ), "Id") == EF.Property<Nullable<int>>(t1, "TagId"))
+    .Join(
+        outer: DbSet<Question>, 
+        inner: t1 => EF.Property<Nullable<int>>(t1, "QuestionId"), 
+        outerKeySelector: q => EF.Property<Nullable<int>>(q, "Id"), 
+        innerKeySelector: (o, i) => new TransparentIdentifier<TagQuestion, Question>(
+            Outer = o, 
+            Inner = i
+        ))
+    .Where(t1 => t1.Inner.CreatedDate >= DateTime.Now
+        .GetDayOfWeek(Monday))' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to either AsEnumerable(), AsAsyncEnumerable(), ToList(), or ToListAsync(). See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.<VisitMethodCall>g__CheckTranslated|8_0(ShapedQueryExpression translated, <>c__DisplayClass8_0& )
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.TranslateSubquery(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.VisitNew(NewExpression newExpression)
+   at System.Linq.Expressions.NewExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Translate(SelectExpression selectExpression, Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.TranslateSelect(ShapedQueryExpression source, LambdaExpression selector)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass9_0`1.<Execute>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQueryCore[TFunc](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Forum.Data.Repository.TagRepository.GetTags() in D:\Projects\Forum\Forum.Data\Repository\TagRepository.cs:line 26
+   at Forum.Api.Controllers.AdminController.CreateRoleAsync(CreateRole role) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+26-07-2020 23:53:53.561 Application Starting...
+26-07-2020 23:53:54.928 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:53:54.995 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:53:54.997 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:53:55.004 RAMJobStore initialized.
+26-07-2020 23:53:55.007 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:53:55.007 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:53:55.007 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:53:55.008 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:53:55.064 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:53:56.092 Connection ID ""18158513716348321869"", Request ID ""8000004e-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+26-07-2020 23:54:23.514 HTTP "POST" "/api/Admin/CreateRole" responded 500 in 18908.5046 ms
+System.InvalidOperationException: The LINQ expression 'DbSet<TagQuestion>
+    .Where(t1 => EF.Property<Nullable<int>>((EntityShaperExpression: 
+        EntityType: Tag
+        ValueBufferExpression: 
+            (ProjectionBindingExpression: EmptyProjectionMember)
+        IsNullable: False
+    ), "Id") != null && EF.Property<Nullable<int>>((EntityShaperExpression: 
+        EntityType: Tag
+        ValueBufferExpression: 
+            (ProjectionBindingExpression: EmptyProjectionMember)
+        IsNullable: False
+    ), "Id") == EF.Property<Nullable<int>>(t1, "TagId"))
+    .Join(
+        outer: DbSet<Question>, 
+        inner: t1 => EF.Property<Nullable<int>>(t1, "QuestionId"), 
+        outerKeySelector: q => EF.Property<Nullable<int>>(q, "Id"), 
+        innerKeySelector: (o, i) => new TransparentIdentifier<TagQuestion, Question>(
+            Outer = o, 
+            Inner = i
+        ))
+    .Where(t1 => t1.Inner.CreatedDate >= DateTime.Now
+        .GetDayOfWeek(Monday))' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to either AsEnumerable(), AsAsyncEnumerable(), ToList(), or ToListAsync(). See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.<VisitMethodCall>g__CheckTranslated|8_0(ShapedQueryExpression translated, <>c__DisplayClass8_0& )
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.TranslateSubquery(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor.Translate(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.VisitNew(NewExpression newExpression)
+   at System.Linq.Expressions.NewExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalProjectionBindingExpressionVisitor.Translate(SelectExpression selectExpression, Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.TranslateSelect(ShapedQueryExpression source, LambdaExpression selector)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor.VisitMethodCall(MethodCallExpression methodCallExpression)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass9_0`1.<Execute>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQueryCore[TFunc](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Forum.Data.Repository.TagRepository.GetTags() in D:\Projects\Forum\Forum.Data\Repository\TagRepository.cs:line 27
+   at Forum.Api.Controllers.AdminController.CreateRoleAsync(CreateRole role) in D:\Projects\Forum\Forum.Api\Controllers\AdminController.cs:line 52
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+26-07-2020 23:54:58.336 Application Starting...
+26-07-2020 23:55:00.006 Default Quartz.NET properties loaded from embedded resource file
+26-07-2020 23:55:00.056 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+26-07-2020 23:55:00.058 Quartz Scheduler v."3.0.7.0" created.
+26-07-2020 23:55:00.065 RAMJobStore initialized.
+26-07-2020 23:55:00.067 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+26-07-2020 23:55:00.067 Quartz scheduler 'DefaultQuartzScheduler' initialized
+26-07-2020 23:55:00.067 Quartz scheduler version: 3.0.7.0
+26-07-2020 23:55:00.068 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+26-07-2020 23:55:00.108 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+26-07-2020 23:55:00.854 Connection ID ""18302628908719144994"", Request ID ""80000023-0005-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()

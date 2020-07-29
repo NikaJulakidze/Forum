@@ -1,6 +1,8 @@
 ﻿using Forum.Data.Entities;
+using Forum.Models.NewFolder;
 using Forum.Service.StaticSettings;
 using Microsoft.VisualBasic.CompilerServices;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Forum.Service.Models
@@ -15,8 +17,14 @@ namespace Forum.Service.Models
         public string FromName { get; set; }
         public string FromPassword { get; set; }
         public string Subject { get; set; }
+        public List<string> ToManyAdresses { get; set; }
 
-        
+        public static EmailSendModel BuildBirthDayGiftModel(List<ApplicationUser> users)
+        {
+            return null;
+        }
+
+
         public static EmailSendModel BuildEmailVerificationModel(ApplicationUser user,AppSettings _options,string token) => new EmailSendModel()
         {
             Body = File.ReadAllText(_options.MailSendSettings.EmailConfirmationText),

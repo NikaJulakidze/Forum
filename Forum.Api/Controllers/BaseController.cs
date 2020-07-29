@@ -2,6 +2,7 @@
 using Forum.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Security.Claims;
 
 namespace Forum.Api.Controllers
 {
@@ -29,5 +30,9 @@ namespace Forum.Api.Controllers
                 _ => StatusCode((int)HttpStatusCode.InternalServerError),
             };
         }
+
+        protected string Email => User.FindFirstValue(ClaimTypes.Email);
+        protected string UserId => User.FindFirstValue(ClaimTypes.NameIdentifier);
+        protected string Route => Request.Path.Value;
     }
 }

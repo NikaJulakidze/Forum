@@ -2,6 +2,7 @@
 using Forum.Data.Entities;
 using Forum.Data.Uow;
 using Forum.Models;
+using Forum.Models.NewFolder;
 using Forum.Models.Tag;
 using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;

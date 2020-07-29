@@ -1,7 +1,10 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using Forum.Data;
+using Forum.Data.Entities;
+using Forum.Data.Repository;
 using Forum.Models.Admin;
+using Forum.Models.NewFolder;
 using Forum.Models.Tag;
 using Forum.Service.Identity;
 using Forum.Service.Models;
@@ -9,6 +12,7 @@ using Forum.Service.StaticSettings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Forum.Api.Controllers
@@ -22,13 +26,15 @@ namespace Forum.Api.Controllers
         private readonly IMapper _mapper;
         private readonly ApplicationDbContext _context;
         private readonly AppSettings _appSettings;
+        private readonly ITagRepository _tagRepository;
 
-        public AdminController(IAdminService adminService,IMapper mapper,ApplicationDbContext context,IOptionsSnapshot<AppSettings> appSettings)
+        public AdminController(IAdminService adminService,IMapper mapper,ApplicationDbContext context,IOptionsSnapshot<AppSettings> appSettings, ITagRepository tagRepository)
         {
             _adminService = adminService;
             _mapper = mapper;
             _context = context;
             _appSettings=appSettings.Value;
+            _tagRepository = tagRepository;
         }
 
         [HttpPost("CreateTag")]
@@ -40,7 +46,7 @@ namespace Forum.Api.Controllers
         }
 
         [HttpPost(StaticRoutes.Admin.CreateRole)]
-        //S[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme,Roles ="Admin")]
+        //[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme,Roles ="Admin")]
         [AllowAnonymous]
         public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRole role)
         {

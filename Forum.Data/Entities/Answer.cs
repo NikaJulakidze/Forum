@@ -1,5 +1,4 @@
-﻿using Forum.Data.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -22,7 +21,7 @@ namespace Forum.Data.Entities
 
 
         public virtual Question Question { get; set; }
-        public ApplicationUser User { get; set; }
-        //public virtual ICollection<AnswerReply> AnswerReplies { get; set; }
+        public virtual ApplicationUser User { get; set; }
+        public virtual ICollection<TagAnswer> TagAnswers { get; set; }
     }
 }

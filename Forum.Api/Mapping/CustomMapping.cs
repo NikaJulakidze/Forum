@@ -24,19 +24,18 @@ namespace Forum.Api.Mapping
             CreateMap<Question, QuestionModel>()
                 .ForMember(dest => dest.QuestionAuthor, opt => opt.MapFrom(src => src.User))
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.TagQuestions.Select(x => x.Tag.Title)))
-                .ForMember(dest => dest.Answers, opt => opt.MapFrom(src => src.Answers));
+                .ForMember(dest => dest.Answers, opt => opt.MapFrom(src => src.TagAnswers));
             CreateMap<Question, UpDownVoteModel>()
                 .ForMember(dest => dest.QuestionRatingPoints, opt => opt.MapFrom(src => src.RatingPoints))
                 .ForMember(dest=>dest.UserRatingPoints,opt=>opt.MapFrom(src=>src.User.RatingPoints));
             CreateMap<ApplicationUser, AuthenticationResponse>();
-            CreateMap<ApplicationUser, ApplicationUserModel>();
+            CreateMap<ApplicationUser, ApplicationUserListingModel>();
             CreateMap<CreateAnswerRequest, Answer>();
             CreateMap<Answer, AnswerModel>().ForMember(dest=>dest.ApplicationUser,opt=>opt.MapFrom(src=>src.User));
             CreateMap<CreateRole, IdentityRole>();
             CreateMap<ApplicationUser, UserRatingPointsHistory>()
-                .ForMember(dest=>dest.Id,opt=>opt.Ignore())
-                .ForMember(dest=>dest.UserId,opt=>opt.MapFrom(src=>src.Id));
-            CreateMap<ApplicationUser, UserProfileModel>();
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id));
         }
     }
 }

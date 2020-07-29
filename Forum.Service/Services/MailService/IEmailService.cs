@@ -8,6 +8,7 @@ namespace Forum.Service.Services.MailService
 {
     public interface IEmailService
     {
+        Task SendBirthDayGiftMail(EmailSendModel model);
         Task SendMail(EmailSendModel model);
     }
 }

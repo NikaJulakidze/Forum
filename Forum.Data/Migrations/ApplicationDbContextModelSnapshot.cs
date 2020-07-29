@@ -128,6 +128,33 @@ namespace Forum.Data.Migrations
                     b.ToTable("Tags");
                 });
 
+            modelBuilder.Entity("Forum.Data.Entities.TagAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnswerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnswerId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("TagAnswers");
+                });
+
             modelBuilder.Entity("Forum.Data.Entities.TagQuestion", b =>
                 {
                     b.Property<int>("TagId")
@@ -151,7 +178,9 @@ namespace Forum.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("AddedTime")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<int>("RatingPoints")
                         .HasColumnType("int");
@@ -164,37 +193,6 @@ namespace Forum.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserRatingPoints");
-                });
-
-            modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ActionType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("IpAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Time")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("getdate()");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("UsersAction");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -403,6 +401,9 @@ namespace Forum.Data.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("AboutMe")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Credits")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
@@ -411,6 +412,11 @@ namespace Forum.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProfileViewCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<int>("RatingPoints")
                         .ValueGeneratedOnAdd()
@@ -426,7 +432,7 @@ namespace Forum.Data.Migrations
             modelBuilder.Entity("Forum.Data.Entities.Answer", b =>
                 {
                     b.HasOne("Forum.Data.Entities.Question", "Question")
-                        .WithMany("Answers")
+                        .WithMany()
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -441,6 +447,25 @@ namespace Forum.Data.Migrations
                     b.HasOne("Forum.Data.Entities.ApplicationUser", "User")
                         .WithMany("Questions")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Forum.Data.Entities.TagAnswer", b =>
+                {
+                    b.HasOne("Forum.Data.Entities.Answer", "Answer")
+                        .WithMany("TagAnswers")
+                        .HasForeignKey("AnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Forum.Data.Entities.Question", null)
+                        .WithMany("TagAnswers")
+                        .HasForeignKey("QuestionId");
+
+                    b.HasOne("Forum.Data.Entities.Tag", "Tag")
+                        .WithMany("TagAnswers")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Forum.Data.Entities.TagQuestion", b =>
@@ -463,13 +488,6 @@ namespace Forum.Data.Migrations
                     b.HasOne("Forum.Data.Entities.ApplicationUser", "User")
                         .WithMany("UserRatingPoints")
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Forum.Data.Entities.UsersAction", b =>
-                {
-                    b.HasOne("Forum.Data.Entities.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

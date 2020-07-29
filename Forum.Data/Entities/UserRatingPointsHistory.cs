@@ -9,6 +9,6 @@ namespace Forum.Data.Entities
         public DateTime AddedTime { get; set; } = DateTime.Now;
 
         public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
