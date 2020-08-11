@@ -1,6 +1,7 @@
 ﻿using Forum.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Forum.Data
 {
@@ -11,14 +12,14 @@ namespace Forum.Data
 
         }
 
+        public DbSet<PostType> PostTypes { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<TagPost> TagPosts { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<Question> Questions { get; set; }
+        public DbSet<UserRatingPointsHistory> RatingPointsHistory { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<TagQuestion> TagQuestion { get; set; }
-        public DbSet<Answer> Answers { get; set; }
-        public DbSet<UserRatingPointsHistory> UserRatingPoints { get; set; }
-        public DbSet<TagAnswer> TagAnswers { get; set; }
-        //public DbSet<UsersAction> UsersActions { get; set; }
+        public DbSet<Vote> Votes { get; set; }
+        public DbSet<VoteType> VoteTypes { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,61 +31,52 @@ namespace Forum.Data
             {
                 u.Property(p => p.AddedTime).HasDefaultValueSql("getdate()");
             });
-            builder.Entity<Question>(q => 
+
+
+            
+
+            builder.Entity<Post>(p =>
             {
-                q.Property(p => p.ViewCount).HasDefaultValue(0);
-                q.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
-                q.Property(p => p.IsEdited).HasDefaultValue(false);
-                q.Property(p => p.RatingPoints).HasDefaultValue(0);
+                p.Property(p => p.ViewCount).HasDefaultValue(0);
+                p.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
+                p.Property(p => p.LastActivityDate).HasDefaultValueSql("getdate()");
+                p.Property(p => p.RatingPoints).HasDefaultValue(0);
+                p.Property(p => p.AnswersCount).HasDefaultValue(0);
+                p.HasOne(x => x.Parent)
+                .WithOne(x => x.AcceptedAnswer)
+                .HasForeignKey(typeof(Post), "AcceptedAnswerId");
+                p.HasOne(x => x.AcceptedAnswer)
+                .WithOne(x => x.Parent)
+                .HasForeignKey(typeof(Post), "ParentId");
+
             });
 
 
-            builder.Entity<Answer>(a => 
-            {
-                a.Property(p => p.IsAcceptedAnswer).HasDefaultValue(false);
-                a.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
-                a.Property(p => p.RatingPoints).HasDefaultValue(0);
-            });
-
-            //builder.Entity<UsersAction>(u =>
-            //{
-            //    u.Property(p => p.Time).HasDefaultValueSql("getdate()");
-            //});
-
-            builder.Entity<ApplicationUser>(a => 
+            builder.Entity<ApplicationUser>(a =>
             {
                 a.Property(p => p.RatingPoints).HasDefaultValue(1);
                 a.Property(p => p.Credits).HasDefaultValue(0);
                 a.Property(p => p.ProfileViewCount).HasDefaultValue(0);
+                a.Property(p => p.DownVotesCount).HasDefaultValue(0);
+                a.Property(p => p.UpVotesCount).HasDefaultValue(0);
             });
 
             //configure many-to-many relationship
-            builder.Entity<TagQuestion>()
-                .HasKey(x => new { x.TagId, x.QuestionId });
+            builder.Entity<TagPost>()
+                .HasKey(x => new { x.TagId, x.PostId});
 
-            builder.Entity<TagQuestion>()
+            builder.Entity<TagPost>()
                 .HasOne(tq => tq.Tag)
-                .WithMany(t => t.TagQuestions)
+                .WithMany(t => t.TagPosts)
                 .HasForeignKey(pt => pt.TagId);
 
-            builder.Entity<TagQuestion>()
-                 .HasOne(tq => tq.Question)
-                 .WithMany(t => t.TagQuestions)
-                 .HasForeignKey(tq => tq.QuestionId);
-
-            //configure many-to-many relationship
-            builder.Entity<TagAnswer>()
-                .HasOne(ta => ta.Tag)
-                .WithMany(t => t.TagAnswers)
-                .HasForeignKey(fk => fk.TagId);
-
-            builder.Entity<TagAnswer>()
-                .HasOne(ta => ta.Answer)
-                .WithMany(a => a.TagAnswers)
-                .HasForeignKey(fk => fk.AnswerId);
+            builder.Entity<TagPost>()
+                 .HasOne(tq => tq.Post)
+                 .WithMany(t => t.TagPosts)
+                 .HasForeignKey(tq => tq.PostId);
 
             builder.Entity<Tag>()
-                .HasIndex(x =>  new{ x.Title, x.Content})
+                .HasIndex(x => new { x.Title, x.Content })
                 .IsUnique();
 
 

@@ -1,11 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Microsoft.AspNetCore.Http;
-using Forum.WebUI.ViewModels;
-using Forum.WebUI.StaticSettings;
 
 namespace Forum.WebUI.Controllers
 {
@@ -22,14 +19,9 @@ namespace Forum.WebUI.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            UsersFilterModel usersFilter = new UsersFilterModel();
-            usersFilter.Role = "test";
-            //usersFilter.SearchValue = "testsearch";
-            //var result= await _apiCall.GetAsync<TestViewModel>(ApiCallStaticRoutes.GetImage);
-            //_httpContextAccessor.HttpContext.Response.Cookies.Append("Key", "This is my cookie!!!!");
-            return View(usersFilter);
+            return View();
         }
 
         public IActionResult Privacy()

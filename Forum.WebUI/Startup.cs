@@ -1,15 +1,11 @@
 using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using Forum.WebUI.Attributes;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Forum.WebUI.StaticSettings;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -44,6 +40,7 @@ namespace Forum.WebUI
             {
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));
             });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +69,7 @@ namespace Forum.WebUI
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<TetsHubClass>("/chathub");
             });
         }
     }

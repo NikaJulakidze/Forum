@@ -8,7 +8,6 @@ namespace Forum.Models.Answer
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
         public int RatingPoints { get; set; }
-        public bool IsAcceptedAsnwer { get; set; }
 
         public ApplicationUserListingModel ApplicationUser { get; set; }
     }

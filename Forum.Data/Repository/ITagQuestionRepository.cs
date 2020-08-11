@@ -7,6 +7,6 @@ namespace Forum.Data.Repository
 {
     public interface ITagQuestionRepository
     {
-        void AddRange(List<TagQuestion> tagQuestions);
+        void AddRange(List<TagPost> tagQuestions);
     }
 }

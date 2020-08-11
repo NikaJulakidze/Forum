@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Forum.Data;
 using Forum.Data.Entities;
 using Forum.Data.Uow;
 using Forum.Models;
 using Forum.Models.Filters;
 using Forum.Models.Question;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,9 @@ namespace Forum.Service.Services.QuestionService
         private readonly ILogger<QuestionService> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
+        private readonly ApplicationDbContext _context;
         public QuestionService(IQuestionUow questionUow,IMapper mapper,ITagUow tagUow,ITagQuestionUow tagQuestionUow,
-            ILogger<QuestionService> logger,UserManager<ApplicationUser> userManager)
+            ILogger<QuestionService> logger,UserManager<ApplicationUser> userManager,ApplicationDbContext context)
         {
             _questionUow = questionUow;
             _mapper = mapper;
@@ -29,20 +32,23 @@ namespace Forum.Service.Services.QuestionService
             _tagQuestionUow = tagQuestionUow;
             _logger = logger;
             _userManager = userManager;
+            _context = context;
         }
 
         public async Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest request,string id)
         {
-            var user = await _userManager.FindByEmailAsync(id);
+            var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
                 _logger.LogError("Question with id {0} not found",id);
                 return Result.BadRequest<QuestionModel>(NoSuccessMessage.AddError("Something Went Wrong"));
             }
 
-            var question= _mapper.Map<Question>(request);
+            var question= _mapper.Map<Post>(request);
             question.User = user;
-
+            question.PostTypeId = 2;
+            question.OwnerDisplayName = user.UserName;
+            
             var tags = _tagUow.TagRepository.GetTagsByNames(request.Tags);
 
             if (tags?.Count()==0)
@@ -50,37 +56,57 @@ namespace Forum.Service.Services.QuestionService
                 return Result.BadRequest<QuestionModel>(NoSuccessMessage.AddError(""));
             }
 
-            var tagQuestions = tags.Select(i => new TagQuestion { Question = question, Tag = i }).ToList();
+            var tagQuestions = tags.Select(i => new TagPost {Post=question, Tag = i }).ToList();
 
             _questionUow.QuestionRepository.Add(question);
             _tagQuestionUow.TagQuestionRepository.AddRange(tagQuestions);
             await _questionUow.CompleteAsync();
 
-            //var test = _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(question.Id);
             var result = _mapper.Map<QuestionModel>(question);
             
             return Result.Ok(result);
         }
 
-        public  Result<Question> GetQuestionById(int id)
+        public  Result<QuestionModel> GetQuestionById(int id)
         {
-            var question = _questionUow.QuestionRepository.GetQuestionByIdWithIncludes(id);
-
+            var posts = _context.Posts.Include(x=>x.TagPosts).ThenInclude(x=>x.Tag).Include(x=>x.User).Where(x => x.Id == id|| x.ParrentId==id).ToList();
+            var question = posts.Single(x => x.Id == id);
             if (question == null)
-                return Result.NotFound<Question>(NoSuccessMessage.AddError("Could not find Question"));
+                return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Could not find Question"));
 
             question.ViewCount += 1;
             _questionUow.QuestionRepository.Update(question);
             _questionUow.CompleteAsync();
+            QuestionModel questionModel1 = new QuestionModel
+            {
+                ViewCount = question.ViewCount,
+                Content = question.Content,
+                Id = question.Id,
+                Tags = question.TagPosts.Select(x => x.Tag.Title).ToList(),
+                RatingPoints = question.RatingPoints,
+                Title = question.Title,
+                CreatedDate = question.CreatedDate,
+            };
+            var questionModel = posts.Select(x => new QuestionModel
+            {
+                ViewCount = x.ViewCount,
+                Content=x.Content,
+                Id=x.Id,
+                Tags=question.TagPosts.Select(x=>x.Tag.Content).ToList(),
+                RatingPoints=x.RatingPoints,
+                Title=x.Title,
+                CreatedDate=x.CreatedDate,
+            }) ;
 
             //var model = _mapper.Map<QuestionModel>(question);
 
-            return Result.Ok(question);
+            return Result.Ok(questionModel1);
         }
 
-        public async Task<List<Question>> GetQuestionsByTag(string tagName)
+        public async Task<List<Post>> GetQuestionsByTag(string tagName)
         {
-            return  await _questionUow.QuestionRepository.GetQuestionByTag(tagName);
+            var (aaa,aaaaa)=  await _questionUow.QuestionRepository.GetQuestionsByTag(tagName);
+            return null;
         }
 
         public async Task<Result<UpDownVoteModel>> UpvoteQuestion(int questionId, string voterId)

@@ -17,6 +17,7 @@ namespace Forum.Service.Identity
         Task<List<RolesModel>> GetRolesAsync();
         Task<Result<List<ApplicationUserListingModel>>> GetTop15ThisWeek();
         Task<UserProfileModel> GetUserProfile(string id);
+        Task GiftTop15Users();
         Task<Result<RegisterResponse>> RegisterAsync(RegisterRequest model);
     }
 }

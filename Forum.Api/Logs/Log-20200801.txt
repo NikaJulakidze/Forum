@@ -1,0 +1,195 @@
+01-08-2020 17:21:29.624 Application Starting...
+01-08-2020 17:21:32.800 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:21:32.862 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:21:32.863 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:21:32.865 RAMJobStore initialized.
+01-08-2020 17:21:32.867 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:21:32.867 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:21:32.867 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:21:32.868 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:21:32.919 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:21:33.768 Connection ID ""18230571314681217134"", Request ID ""8000006f-0005-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+01-08-2020 17:47:22.338 Application Starting...
+01-08-2020 17:47:23.901 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:47:23.950 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:47:23.951 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:47:23.957 RAMJobStore initialized.
+01-08-2020 17:47:23.960 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:47:23.960 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:47:23.960 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:47:23.961 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:47:24.001 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:47:24.605 Connection ID ""18230571297501347976"", Request ID ""80000089-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+01-08-2020 17:49:55.596 Application Starting...
+01-08-2020 17:49:56.980 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:49:57.026 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:49:57.028 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:49:57.034 RAMJobStore initialized.
+01-08-2020 17:49:57.036 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:49:57.037 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:49:57.037 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:49:57.037 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:49:57.075 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:49:57.602 Connection ID ""18158513716348321935"", Request ID ""80000090-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+01-08-2020 17:52:45.299 Application Starting...
+01-08-2020 17:52:46.958 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:52:47.025 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:52:47.026 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:52:47.037 RAMJobStore initialized.
+01-08-2020 17:52:47.040 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:52:47.040 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:52:47.040 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:52:47.041 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:52:47.092 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:52:47.651 Connection ID ""18230571301796315185"", Request ID ""80000032-0002-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+01-08-2020 17:53:07.708 An exception occurred while iterating over the results of a query for context type '"Forum.Data.ApplicationDbContext"'."
+""System.Threading.ThreadAbortException: System error.
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture)
+   at System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at System.Activator.CreateInstance(Type type, Object[] args)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.CreateComparer(Type clrType, Boolean favorStructuralComparisons)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.<>c.<get_Comparer>b__17_0(CoreTypeMapping c)
+   at Microsoft.EntityFrameworkCore.Internal.NonCapturingLazyInitializer.EnsureInitialized[TParam,TValue](TValue& target, TParam param, Func`2 valueFactory)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.get_Comparer()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.OriginalValuesFactoryFactory.GetValueComparer(IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateSnapshotValueExpression(Expression expression, IPropertyBase propertyBase)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateSnapshotExpression(Type entityType, ParameterExpression parameter, Type[] types, IList`1 propertyBases)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateConstructorExpression(IEntityType entityType, ParameterExpression parameter)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory`1.Create(IEntityType entityType)
+   at Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType.<>c.<get_OriginalValuesFactory>b__147_0(EntityType entityType)
+   at Microsoft.EntityFrameworkCore.Internal.NonCapturingLazyInitializer.EnsureInitialized[TParam,TValue](TValue& target, TParam param, Func`2 valueFactory)
+   at Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType.get_OriginalValuesFactory()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OriginalValues..ctor(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.EnsureOriginalValues()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntrySubscriber.SnapshotAndSubscribe(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTrackingFromQuery(IEntityType baseEntityType, Object entity, ValueBuffer& valueBuffer)
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(IEntityType entityType, Object entity, ValueBuffer valueBuffer)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()"
+System.Threading.ThreadAbortException: System error.
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture)
+   at System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at System.Activator.CreateInstance(Type type, Object[] args)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.CreateComparer(Type clrType, Boolean favorStructuralComparisons)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.<>c.<get_Comparer>b__17_0(CoreTypeMapping c)
+   at Microsoft.EntityFrameworkCore.Internal.NonCapturingLazyInitializer.EnsureInitialized[TParam,TValue](TValue& target, TParam param, Func`2 valueFactory)
+   at Microsoft.EntityFrameworkCore.Storage.CoreTypeMapping.get_Comparer()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.OriginalValuesFactoryFactory.GetValueComparer(IProperty property)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateSnapshotValueExpression(Expression expression, IPropertyBase propertyBase)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateSnapshotExpression(Type entityType, ParameterExpression parameter, Type[] types, IList`1 propertyBases)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory.CreateConstructorExpression(IEntityType entityType, ParameterExpression parameter)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.SnapshotFactoryFactory`1.Create(IEntityType entityType)
+   at Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType.<>c.<get_OriginalValuesFactory>b__147_0(EntityType entityType)
+   at Microsoft.EntityFrameworkCore.Internal.NonCapturingLazyInitializer.EnsureInitialized[TParam,TValue](TValue& target, TParam param, Func`2 valueFactory)
+   at Microsoft.EntityFrameworkCore.Metadata.Internal.EntityType.get_OriginalValuesFactory()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.OriginalValues..ctor(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.EnsureOriginalValues()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntrySubscriber.SnapshotAndSubscribe(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTrackingFromQuery(IEntityType baseEntityType, Object entity, ValueBuffer& valueBuffer)
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(IEntityType entityType, Object entity, ValueBuffer valueBuffer)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+01-08-2020 17:53:20.841 Application Starting...
+01-08-2020 17:53:22.652 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:53:22.708 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:53:22.710 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:53:22.717 RAMJobStore initialized.
+01-08-2020 17:53:22.719 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:53:22.719 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:53:22.720 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:53:22.720 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:53:22.760 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:53:23.226 Connection ID ""18230571301796315187"", Request ID ""80000034-0002-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+01-08-2020 17:55:09.522 Application Starting...
+01-08-2020 17:55:10.896 Default Quartz.NET properties loaded from embedded resource file
+01-08-2020 17:55:10.945 Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+01-08-2020 17:55:10.947 Quartz Scheduler v."3.0.7.0" created.
+01-08-2020 17:55:10.953 RAMJobStore initialized.
+01-08-2020 17:55:10.956 Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+01-08-2020 17:55:10.956 Quartz scheduler 'DefaultQuartzScheduler' initialized
+01-08-2020 17:55:10.956 Quartz scheduler version: 3.0.7.0
+01-08-2020 17:55:10.956 JobFactory set to: Forum.Jobs.Factory.SingletonJobFactory
+01-08-2020 17:55:10.995 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+01-08-2020 17:55:11.677 Connection ID ""18230571314681217142"", Request ID ""80000077-0005-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()

@@ -23,8 +23,8 @@ namespace Forum.Api.Controllers
         [HttpPost("[action]/{questionId}")]
         public async Task<IActionResult> CreateAnswer([FromBody]CreateAnswerRequest answer,int questionId)
         {
-            var result=await _answerService.AddAnswerAsync(answer, UserId,questionId);
-            return Ok(result);
+            var result=await _answerService.AddAnswerAsync(answer, "b5661c5e-98a8-4bd9-b287-cc9dd5e370b4", questionId);
+            return Ok();
         }
     }
 }

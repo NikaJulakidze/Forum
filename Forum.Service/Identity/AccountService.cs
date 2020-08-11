@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Forum.Data.Entities;
-using Forum.Data.Extensions;
 using Forum.Data.Uow;
 using Forum.Models;
 using Forum.Models.Account;
@@ -135,10 +134,18 @@ namespace Forum.Service.Identity
         public async Task<Result<List<ApplicationUserListingModel>>> GetTop15ThisWeek()
         {
             var top15 =await _uow.ApplicationUserRepository.GetTop15UsersThisWeek();
-            //var users = _mapper.Map < List<ApplicationUserListingModel>>(top15);
-            return Result.Ok(new List<ApplicationUserListingModel>());
+            var test = top15.Select(x => new ApplicationUserListingModel {Email=x.Email,Id=x.Id,ImageUrl=x.ImageUrl, RatingPoints=x.RatingPoints, Username=x.UserName });
+            return Result.Ok(test.ToList());
         }
 
+
+        public async Task GiftTop15Users()
+        {
+            var users= await _uow.ApplicationUserRepository.GetTop15ForGift();
+            _uow.ApplicationUserRepository.BulkUpdate(users);
+            await _uow.CompleteAsync();
+            await _emailService.SendMail(EmailSendModel.BuildPasswordRecoveryModel(users.Where(x=>x.Email.StartsWith("julakidze")).First(), _appSettings, null));
+        }
        
 
         private async Task<string> GenerateJWTToken(ApplicationUser user)

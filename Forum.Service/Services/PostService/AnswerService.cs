@@ -30,20 +30,28 @@ namespace Forum.Service.PostService
 
         public async Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request,string id,int questionId)
         {
-            var answer= _mapper.Map<Answer>(request);
-           
-            var user=await _userManager.FindByIdAsync(id);
-            var question = _context.Questions.Include(x => x.TagQuestions).ThenInclude(x => x.Tag).First(x=>x.Id==questionId);
-            answer.User = user;
-            _answerUow.AnswerRepository.Add(answer);
-            var tags = _tagUow.TagRepository.GetTagsByNames(question.TagQuestions.Select(x=>x.Tag.Title).ToList());
-            var tagAnswers = tags.Select(x => new TagAnswer { Tag = x, Answer = answer });
-            _context.TagAnswers.AddRange(tagAnswers);
-
-            await _answerUow.CompleteAsync();
-
-            var result= _mapper.Map<AnswerModel>(answer);
-            return Result.Ok(result);
+            var user = await _userManager.FindByIdAsync(id);
+            var tags = _context.TagPosts.Where(x => x.PostId == questionId).Select(x => x.Tag).ToList();
+            //var test= tags.Select(x => x.Tag).ToList();
+            var post = new Post();
+            post.AnswersCount += 1;
+            post.Content = request.Content;
+            post.PostTypeId = 1;
+            post.ParrentId = questionId;
+            post.User = user;
+            post.RatingPoints += 1;
+            var tagAnswer = tags.Select(x => new TagPost { Tag = x, Post=post}).ToList();
+            //post.TagPosts = tagAnswer;
+            var tagPost = new TagPost
+            {
+                Tag=tags.First(),
+                Post = post
+            };
+            post.OwnerDisplayName = user.UserName;
+            await _context.AddAsync(post);
+            await _context.AddRangeAsync(tagAnswer);
+            await _context.SaveChangesAsync();
+            return Result.Ok(new AnswerModel());
         }
     }
 }

@@ -3,6 +3,7 @@ using Forum.Data.Entities;
 using Forum.Data.Uow;
 using Forum.Models;
 using Forum.Models.NewFolder;
+using Forum.Models.PostType;
 using Forum.Models.Tag;
 using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;
@@ -36,6 +37,14 @@ namespace Forum.Service.Identity
             if (identityResult.Succeeded)
                 return Result.Ok();
             return Result.BadRequest(NoSuccessMessage.AddErrors(identityResult.Errors.Select(x => x.Description).ToList()));
+        }
+
+        public async Task<Result> CreatePostTypeAsync(CreatePostTypeRequest postTypeRequest)
+        {
+            var postType = _mapper.Map<PostType>(postTypeRequest);
+            await _uow.AdminRepository.CreatePostType(postType);
+            await _uow.CompleteAsync();
+            return Result.Ok();
         }
 
         public async Task<Result> BanUsersAsync(string userId)

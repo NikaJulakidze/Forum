@@ -1,18 +1,15 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using Forum.Data;
-using Forum.Data.Entities;
 using Forum.Data.Repository;
 using Forum.Models.Admin;
 using Forum.Models.NewFolder;
+using Forum.Models.PostType;
 using Forum.Models.Tag;
 using Forum.Service.Identity;
-using Forum.Service.Models;
 using Forum.Service.StaticSettings;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Forum.Api.Controllers
@@ -47,10 +44,16 @@ namespace Forum.Api.Controllers
 
         [HttpPost(StaticRoutes.Admin.CreateRole)]
         //[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme,Roles ="Admin")]
-        [AllowAnonymous]
         public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRole role)
         {
             return CustomResult(await _adminService.CreateRoleAsync(role.Name));
+        }
+
+        [HttpPost("CreatePostType")]
+        public async Task<IActionResult> CreatePostType([FromBody]CreatePostTypeRequest postType)
+        {
+            var result=await _adminService.CreatePostTypeAsync(postType);
+            return Ok(result);
         }
     }
 }

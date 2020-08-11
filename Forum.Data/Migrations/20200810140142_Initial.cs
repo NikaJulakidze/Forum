@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Forum.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,11 +46,28 @@ namespace Forum.Data.Migrations
                     RegisterTime = table.Column<DateTime>(nullable: true),
                     Credits = table.Column<int>(nullable: true, defaultValue: 0),
                     AboutMe = table.Column<string>(nullable: true),
-                    ProfileViewCount = table.Column<int>(nullable: true, defaultValue: 0)
+                    WebSiteUrl = table.Column<string>(nullable: true),
+                    ProfileViewCount = table.Column<int>(nullable: true, defaultValue: 0),
+                    Location = table.Column<string>(nullable: true),
+                    UpVotesCount = table.Column<int>(nullable: true, defaultValue: 0),
+                    DownVotesCount = table.Column<int>(nullable: true, defaultValue: 0)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PostTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,6 +82,19 @@ namespace Forum.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tags", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VoteTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VoteTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,32 +204,7 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Questions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
-                    Content = table.Column<string>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
-                    RatingPoints = table.Column<int>(nullable: false, defaultValue: 0),
-                    ViewCount = table.Column<int>(nullable: false, defaultValue: 0),
-                    IsEdited = table.Column<bool>(nullable: false, defaultValue: false),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Questions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Questions_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserRatingPoints",
+                name: "RatingPointsHistory",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -210,9 +215,9 @@ namespace Forum.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserRatingPoints", x => x.Id);
+                    table.PrimaryKey("PK_RatingPointsHistory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserRatingPoints_AspNetUsers_UserId",
+                        name: "FK_RatingPointsHistory_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -220,29 +225,42 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answers",
+                name: "Posts",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    PostTypeId = table.Column<int>(nullable: false),
+                    ParrentId = table.Column<int>(nullable: true),
+                    AcceptedAnswerId = table.Column<int>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
-                    IsAcceptedAnswer = table.Column<bool>(nullable: false, defaultValue: false),
+                    LastActivityDate = table.Column<DateTime>(nullable: false, defaultValueSql: "getdate()"),
                     RatingPoints = table.Column<int>(nullable: false, defaultValue: 0),
-                    UserId = table.Column<string>(nullable: true),
-                    QuestionId = table.Column<int>(nullable: false)
+                    AnswersCount = table.Column<int>(nullable: false, defaultValue: 0),
+                    ViewCount = table.Column<int>(nullable: false, defaultValue: 0),
+                    OwnerDisplayName = table.Column<string>(nullable: false),
+                    ParentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Answers", x => x.Id);
+                    table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Answers_Questions_QuestionId",
-                        column: x => x.QuestionId,
-                        principalTable: "Questions",
+                        name: "FK_Posts_Posts_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Posts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Posts_PostTypes_PostTypeId",
+                        column: x => x.PostTypeId,
+                        principalTable: "PostTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Answers_AspNetUsers_UserId",
+                        name: "FK_Posts_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -250,23 +268,23 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TagQuestion",
+                name: "TagPosts",
                 columns: table => new
                 {
                     TagId = table.Column<int>(nullable: false),
-                    QuestionId = table.Column<int>(nullable: false)
+                    PostId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TagQuestion", x => new { x.TagId, x.QuestionId });
+                    table.PrimaryKey("PK_TagPosts", x => new { x.TagId, x.PostId });
                     table.ForeignKey(
-                        name: "FK_TagQuestion_Questions_QuestionId",
-                        column: x => x.QuestionId,
-                        principalTable: "Questions",
+                        name: "FK_TagPosts_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TagQuestion_Tags_TagId",
+                        name: "FK_TagPosts_Tags_TagId",
                         column: x => x.TagId,
                         principalTable: "Tags",
                         principalColumn: "Id",
@@ -274,47 +292,40 @@ namespace Forum.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TagAnswers",
+                name: "Votes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TagId = table.Column<int>(nullable: false),
-                    AnswerId = table.Column<int>(nullable: false),
-                    QuestionId = table.Column<int>(nullable: true)
+                    CreatedTime = table.Column<DateTime>(nullable: false),
+                    BountyAmount = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    VoteTypeId = table.Column<int>(nullable: false),
+                    PostId = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TagAnswers", x => x.Id);
+                    table.PrimaryKey("PK_Votes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TagAnswers_Answers_AnswerId",
-                        column: x => x.AnswerId,
-                        principalTable: "Answers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TagAnswers_Questions_QuestionId",
-                        column: x => x.QuestionId,
-                        principalTable: "Questions",
+                        name: "FK_Votes_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_TagAnswers_Tags_TagId",
-                        column: x => x.TagId,
-                        principalTable: "Tags",
+                        name: "FK_Votes_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Votes_VoteTypes_VoteTypeId",
+                        column: x => x.VoteTypeId,
+                        principalTable: "VoteTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Answers_QuestionId",
-                table: "Answers",
-                column: "QuestionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Answers_UserId",
-                table: "Answers",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -356,29 +367,31 @@ namespace Forum.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Questions_UserId",
-                table: "Questions",
+                name: "IX_Posts_ParentId",
+                table: "Posts",
+                column: "ParentId",
+                unique: true,
+                filter: "[ParentId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_PostTypeId",
+                table: "Posts",
+                column: "PostTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_UserId",
+                table: "Posts",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TagAnswers_AnswerId",
-                table: "TagAnswers",
-                column: "AnswerId");
+                name: "IX_RatingPointsHistory_UserId",
+                table: "RatingPointsHistory",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TagAnswers_QuestionId",
-                table: "TagAnswers",
-                column: "QuestionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TagAnswers_TagId",
-                table: "TagAnswers",
-                column: "TagId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TagQuestion_QuestionId",
-                table: "TagQuestion",
-                column: "QuestionId");
+                name: "IX_TagPosts_PostId",
+                table: "TagPosts",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tags_Title_Content",
@@ -387,9 +400,19 @@ namespace Forum.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserRatingPoints_UserId",
-                table: "UserRatingPoints",
-                column: "UserId");
+                name: "IX_Votes_ApplicationUserId",
+                table: "Votes",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Votes_PostId",
+                table: "Votes",
+                column: "PostId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Votes_VoteTypeId",
+                table: "Votes",
+                column: "VoteTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -410,25 +433,28 @@ namespace Forum.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "TagAnswers");
+                name: "RatingPointsHistory");
 
             migrationBuilder.DropTable(
-                name: "TagQuestion");
+                name: "TagPosts");
 
             migrationBuilder.DropTable(
-                name: "UserRatingPoints");
+                name: "Votes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Answers");
-
-            migrationBuilder.DropTable(
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "Questions");
+                name: "Posts");
+
+            migrationBuilder.DropTable(
+                name: "VoteTypes");
+
+            migrationBuilder.DropTable(
+                name: "PostTypes");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

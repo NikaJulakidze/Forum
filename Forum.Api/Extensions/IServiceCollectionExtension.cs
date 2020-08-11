@@ -104,7 +104,7 @@ namespace Forum.Api.Extensions
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "V1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
         }
 
@@ -164,7 +164,7 @@ namespace Forum.Api.Extensions
 
             services.AddSingleton(new JobSchedule(typeof(BirthDayGiftJob), "0/5 * * * * ?"));
             services.AddSingleton(new JobSchedule(typeof(AnniversaryGiftJob), "0/5 * * * * ?"));
-
+            services.AddSingleton(new JobSchedule(typeof(Top15ThisWeekJob), "0/5 * * * * ?"));
             services.AddHostedService<QuartzHostedService>();
         }
     }

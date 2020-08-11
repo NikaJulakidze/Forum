@@ -1,6 +1,4 @@
-﻿using Forum.Data.Common;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Forum.Data.Entities
@@ -14,8 +12,6 @@ namespace Forum.Data.Entities
         [Required]
         public string Content { get; set; }
 
-
-        public virtual ICollection<TagQuestion> TagQuestions { get; set; }
-        public virtual ICollection<TagAnswer> TagAnswers { get; set; }
+        public virtual ICollection<TagPost> TagPosts { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using AutoMapper;
+using Forum.Api.Models;
 using Forum.Models.Account;
 using Forum.Models.Filters;
 using Forum.Service.Identity;
@@ -13,10 +15,12 @@ namespace Forum.Api.Controllers
     public class UsersController : BaseController
     {
         private readonly IAccountService _accountService;
+        private readonly IMapper _mapper;
 
-        public UsersController(IAccountService accountService)
+        public UsersController(IAccountService accountService,IMapper mapper)
         {
             _accountService = accountService;
+            _mapper = mapper;
         }
 
 

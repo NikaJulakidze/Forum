@@ -44,17 +44,17 @@ namespace Forum.Data.Repository
             var monday = DateTime.Now.Date.GetDayOfWeek(DayOfWeek.Monday);
             var tags = SearchUsers(filterModel.SearchValue);
 
-            var result = tags.Select(x => new TagListingModel
-            {
-                QuestionsCountToday = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today).Count(),
-                QuestionsCountThisYear = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today.AddYears(-1)).Select(x => x.Question).Count(),
-                QuestionsCountThisWeek = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today.AddDays(-7)).Count(),
-                TotalQuestionsCount=x.TagQuestions.Select(x=>x.Question).Count(),
-                TagContent=x.Content,
-                TagTitle=x.Title,
-            });
+            //var result = tags.Select(x => new TagListingModel
+            //{
+            //    QuestionsCountToday = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today).Count(),
+            //    QuestionsCountThisYear = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today.AddYears(-1)).Select(x => x.Question).Count(),
+            //    QuestionsCountThisWeek = x.TagQuestions.Where(x => x.Question.CreatedDate >= DateTime.Today.AddDays(-7)).Count(),
+            //    TotalQuestionsCount=x.TagQuestions.Select(x=>x.Question).Count(),
+            //    TagContent=x.Content,
+            //    TagTitle=x.Title,
+            //});
 
-            return FilterAndSortTags(result,filterModel.Tab);
+            return FilterAndSortTags(null,filterModel.Tab);
         }
 
         private IQueryable<TagListingModel> FilterAndSortTags(IQueryable<TagListingModel> data, string tab)

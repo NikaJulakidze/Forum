@@ -28,7 +28,7 @@ namespace Forum.Api.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> AddQuestion([FromBody] AddQuestionRequest model)
         {
-            var result=await _questionService.AskQuestion(model, UserId);
+            var result=await _questionService.AskQuestion(model, "b5661c5e-98a8-4bd9-b287-cc9dd5e370b4");
             return Ok(result.Data);
         }
 

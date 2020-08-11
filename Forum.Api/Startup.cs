@@ -4,9 +4,6 @@ using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
 using Forum.Jobs.Jobs;
 using Forum.Models.NewFolder;
-using Forum.Service.Models;
-using Forum.Service.Uri;
-using Forum.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -48,8 +45,7 @@ namespace Forum.Api
             services.AddCustomAuthorizations();
             services.AddCustomPolicy();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddSignalR();
-            //services.AddQuartzConfiguration(typeof(BirthDayGiftJob),typeof(AnniversaryGiftJob));
+            //services.AddQuartzConfiguration(typeof(Top15ThisWeekJob));
             services.AddMvc(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
@@ -67,7 +63,7 @@ namespace Forum.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
             if (env.IsDevelopment())
@@ -94,7 +90,6 @@ namespace Forum.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<NotificationHub>("/notifications");
             });
         }
     }

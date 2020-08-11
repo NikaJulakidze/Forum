@@ -12,7 +12,7 @@ namespace Forum.Data.Repository
             _context = context;
         }
 
-        public void AddRange(List<TagQuestion> tagQuestions)
+        public void AddRange(List<TagPost> tagQuestions)
         {
             _context.AddRange(tagQuestions);
         }

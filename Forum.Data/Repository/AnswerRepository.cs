@@ -7,16 +7,16 @@ using System.Text;
 
 namespace Forum.Data.Repository
 {
-    public class AnswerRepository:BaseRepository<Answer>, IAnswerRepository
+    public class AnswerRepository:BaseRepository<Post>, IAnswerRepository
     {
         public AnswerRepository(ApplicationDbContext context):base(context)
         {
 
         }
 
-        public List<Answer> GetAnswersByPost(int questionId)
+        public List<Post> GetAnswersByPost(int questionId)
         {
-            return _entity.Where(x => x.QuestionId == questionId).Include(x=>x.User).ToList();
+            return _entity.Where(x => x.PostTypeId == questionId).Include(x=>x.User).ToList();
         }
     }
 }

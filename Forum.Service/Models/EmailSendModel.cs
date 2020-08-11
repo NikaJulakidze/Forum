@@ -21,7 +21,10 @@ namespace Forum.Service.Models
 
         public static EmailSendModel BuildBirthDayGiftModel(List<ApplicationUser> users)
         {
-            return null;
+            return new EmailSendModel
+            {
+
+            };
         }
 
 

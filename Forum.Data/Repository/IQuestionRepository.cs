@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {
-    public interface IQuestionRepository : IBaseRepository<Question>
+    public interface IQuestionRepository : IBaseRepository<Post>
     {
-        Question GetQuestionByIdWithIncludes(int id);
-        Task<(List<Question>,int)> GetQuestionsByTag(string tagNama);
-        Question GetQuestionWithUserInclude(int questionId);
+        Post GetQuestionByIdWithIncludes(int id);
+        Task<(List<Post>,int)> GetQuestionsByTag(string tagNama);
+        Post GetQuestionWithUserInclude(int questionId);
     }
 }

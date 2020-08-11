@@ -24,19 +24,19 @@ namespace Forum.Service.Services.MailService
         {
             try
             {
-                var body = "GiftTest";
+                var body = model.Body;
 
                 var mailMessage = new MailMessage();
 
-                //foreach(var i in model.ToManyAdresses)
-                //{
-                //    mailMessage.To.Add(i);
-                //}
-                mailMessage.To.Add(model.ToAddress);
-                mailMessage.From = new MailAddress("julakidzenika30@gmail.com", "nika");
-                mailMessage.Subject = "GiftTest";
+                foreach(var i in model.ToManyAdresses)
+                {
+                    mailMessage.To.Add(i);
+                }
+
+                mailMessage.From = new MailAddress(model.FromAddress, model.FromName);
+                mailMessage.Subject = model.Subject;
                 mailMessage.Body = body;
-                mailMessage.IsBodyHtml = true;
+                mailMessage.IsBodyHtml = false;
 
                 var smtp = new SmtpClient()
                 {
@@ -53,7 +53,6 @@ namespace Forum.Service.Services.MailService
             {
                 var a = ex.Message;
             }
-
         }
 
         public async Task SendMail(EmailSendModel model)

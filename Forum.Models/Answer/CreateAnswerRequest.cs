@@ -10,6 +10,5 @@ namespace Forum.Models.Answer
     public class CreateAnswerRequest
     {
         public string Content { get; set; }
-        public int QuestionId { get; set; }
     }
 }

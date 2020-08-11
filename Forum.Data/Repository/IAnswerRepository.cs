@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Forum.Data.Repository
 {
-    public interface IAnswerRepository : IBaseRepository<Answer>
+    public interface IAnswerRepository : IBaseRepository<Post>
     {
-        List<Answer> GetAnswersByPost(int questionId);
+        List<Post> GetAnswersByPost(int questionId);
     }
 }

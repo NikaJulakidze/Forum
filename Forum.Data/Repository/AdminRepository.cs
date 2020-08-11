@@ -1,4 +1,5 @@
 ﻿using Forum.Data.Entities;
+using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
 {
@@ -9,6 +10,11 @@ namespace Forum.Data.Repository
         public AdminRepository(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public async Task CreatePostType(PostType postType)
+        {
+            await _context.AddAsync(postType);
         }
 
         public void CreateTag(Tag tag)

@@ -13,7 +13,6 @@ namespace Forum.Models.Question
         public int ViewCount { get; set; }
         public DateTime CreatedDate { get; set; }
         public int RatingPoints { get; set; }
-        public bool IsEdited { get; set; }
         public ApplicationUserListingModel QuestionAuthor { get; set; }
 
 
