@@ -1,4 +1,6 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using CommonModels.StaticSettings;
 using Forum.WebUI.Attributes;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
@@ -40,6 +42,26 @@ namespace Forum.WebUI
             {
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));
             });
+
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+            services.AddAuthentication(opt => {
+
+                opt.DefaultScheme = "Cookies";
+                opt.DefaultChallengeScheme = "oidc";
+            })
+                .AddCookie("Cookies")
+                .AddOpenIdConnect("oidc",opt=> 
+                {
+                    opt.Authority = StaticUrls.IdentityServerUrl;
+                    //opt.RequireHttpsMetadata = false;
+
+                    opt.ClientId = StaticClienIDs.ForumMvcId;
+                    opt.ClientSecret = StaticCliendSecrets.ForumMvcSecret;
+                    opt.ResponseType = "code";
+
+                    opt.SaveTokens = true;
+                });
+
             services.AddSignalR();
         }
 
@@ -61,14 +83,16 @@ namespace Forum.WebUI
 
             app.UseRouting();
 
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}")
+                           .RequireAuthorization();
+
                 endpoints.MapHub<TetsHubClass>("/chathub");
             });
         }

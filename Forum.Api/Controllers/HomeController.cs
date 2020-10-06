@@ -1,16 +1,20 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Forum.Api.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Api.Controllers
 {
     [Route("api/[controller]")]
     [ModelStateValidation]
+    [Authorize]
     public class HomeController : ControllerBase
     {
-        public async Task<IActionResult> Index()
+        [HttpGet("index")]
+        public  IActionResult Index()
         {
-            return Ok();
+            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace Forum.WebUI.Controllers
 {
@@ -19,9 +20,10 @@ namespace Forum.WebUI.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Index()
+        public async Task<JsonResult> Index()
         {
-            return View();
+           
+            return new JsonResult("");
         }
 
         public IActionResult Privacy()

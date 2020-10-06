@@ -9,6 +9,6 @@ namespace Forum.Models.Answer
         public DateTime CreatedDate { get; set; }
         public int RatingPoints { get; set; }
 
-        public ApplicationUserListingModel ApplicationUser { get; set; }
+        public ApplicationUserModel ApplicationUser { get; set; }
     }
 }

@@ -115,3 +115,572 @@ System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Contr
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
 11-08-2020 00:35:43.425 HTTP "GET" "/api/Question/GetQuestionById/16" responded 200 in 1512.5633 ms
 11-08-2020 00:35:55.352 HTTP "GET" "/api/Question/GetQuestionById/2" responded 200 in 32.7508 ms
+11-08-2020 21:49:28.681 Application Starting...
+11-08-2020 21:49:30.315 Connection ID ""18158513716348322060"", Request ID ""8000010d-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 21:49:37.099 HTTP "GET" "/api/Question/GetQuestionById/2" responded 200 in 3243.6515 ms
+11-08-2020 21:49:45.005 HTTP "GET" "/api/Question/GetQuestionById/16" responded 200 in 33.2612 ms
+11-08-2020 21:59:53.929 Application Starting...
+11-08-2020 21:59:54.546 Connection ID ""18158513707758387252"", Request ID ""80000035-0002-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 21:59:58.870 HTTP "GET" "/api/Question/GetQuestionById/16" responded 500 in 1404.7927 ms
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+11-08-2020 21:59:58.893 Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+11-08-2020 22:01:16.382 Application Starting...
+11-08-2020 22:01:16.957 Connection ID ""18302628900129210680"", Request ID ""80000139-0003-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 22:01:19.357 HTTP "GET" "/api/Question/GetQuestionById/16" responded 500 in 1455.8912 ms
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+11-08-2020 22:01:19.369 Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+11-08-2020 22:01:40.822 Application Starting...
+11-08-2020 22:01:47.265 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.4445 ms
+11-08-2020 22:01:47.401 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0045 ms
+11-08-2020 22:01:47.531 Connection ID ""18302628900129210686"", Request ID ""8000013f-0003-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 22:03:33.580 Application Starting...
+11-08-2020 22:03:34.103 Connection ID ""18158513703463420040"", Request ID ""80000089-0001-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 22:03:55.101 HTTP "GET" "/api/Question/GetQuestionById/16" responded 500 in 1487.1270 ms
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+11-08-2020 22:03:55.112 Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Object -> QuestionModel
+System.Object -> Forum.Models.Question.QuestionModel
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+11-08-2020 22:03:55.121 Connection ID ""18086456122310393953"", Request ID ""80000062-0004-fb00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Dispose(Boolean disposing)
+   at Microsoft.Data.SqlClient.SqlInternalTransaction.Dispose()
+   at Microsoft.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at System.Data.Common.DbTransaction.DisposeAsync()
+   at Microsoft.EntityFrameworkCore.Utilities.DisposableExtensions.DisposeAsyncIfAvailable(IDisposable disposable)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.DisposeAsync()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.DisposeAsync()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.<>c__DisplayClass15_0.<<DisposeAsync>g__Await|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.<>c__DisplayClass15_0.<<DisposeAsync>g__Await|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+11-08-2020 22:04:27.485 Application Starting...
+11-08-2020 22:04:27.991 Connection ID ""18374686502757073049"", Request ID ""8000009a-0005-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 22:04:32.118 HTTP "GET" "/api/Question/GetQuestionById/16" responded 500 in 1463.4562 ms
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> AnswerModel
+Forum.Data.Entities.Post -> Forum.Models.Answer.AnswerModel
+   at lambda_method(Closure , Post , AnswerModel , ResolutionContext )
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+11-08-2020 22:04:32.130 Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> AnswerModel
+Forum.Data.Entities.Post -> Forum.Models.Answer.AnswerModel
+   at lambda_method(Closure , Post , AnswerModel , ResolutionContext )
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+11-08-2020 22:05:29.098 Application Starting...
+11-08-2020 22:05:29.599 Connection ID ""18158513707758387260"", Request ID ""8000003d-0002-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 22:05:31.908 HTTP "GET" "/api/Question/GetQuestionById/16" responded 500 in 1517.6575 ms
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> AnswerModel
+Forum.Data.Entities.Post -> Forum.Models.Answer.AnswerModel
+   at lambda_method(Closure , Post , AnswerModel , ResolutionContext )
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+11-08-2020 22:05:31.920 Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Type Map configuration:
+List`1 -> QuestionModel
+System.Collections.Generic.List`1[[Forum.Data.Entities.Post, Forum.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Forum.Models.Question.QuestionModel
+
+Destination Member:
+Answers
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> AnswerModel
+Forum.Data.Entities.Post -> Forum.Models.Answer.AnswerModel
+   at lambda_method(Closure , Post , AnswerModel , ResolutionContext )
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , QuestionModel , ResolutionContext )
+   at Forum.Service.Services.QuestionService.QuestionService.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Service\Services\QuestionService\QuestionService.cs:line 111
+   at Forum.Api.Controllers.QuestionController.GetQuestionById(Int32 id) in D:\Projects\Forum\Forum.Api\Controllers\QuestionController.cs:line 38
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Forum.Api.Middlewares.GlobalExceptionMidlleware.Invoke(HttpContext httpContext) in D:\Projects\Forum\Forum.Api\Middlewares\GlobalExceptionMidlleware.cs:line 26
+11-08-2020 23:27:40.780 Application Starting...
+11-08-2020 23:27:42.266 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0888 ms
+11-08-2020 23:27:42.377 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0082 ms
+11-08-2020 23:27:42.512 Connection ID ""18374686481282236614"", Request ID ""800000c7-0000-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:28:49.338 Application Starting...
+11-08-2020 23:28:50.841 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0418 ms
+11-08-2020 23:28:51.008 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0044 ms
+11-08-2020 23:28:51.136 Connection ID ""18158513703463420048"", Request ID ""80000091-0001-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:29:53.055 Application Starting...
+11-08-2020 23:29:54.527 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0402 ms
+11-08-2020 23:29:54.636 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0079 ms
+11-08-2020 23:29:54.769 Connection ID ""18374686502757073057"", Request ID ""800000a2-0005-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:31:14.337 Application Starting...
+11-08-2020 23:31:16.196 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0363 ms
+11-08-2020 23:31:16.317 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0047 ms
+11-08-2020 23:31:16.472 Connection ID ""18158513716348322083"", Request ID ""80000124-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:32:56.173 Application Starting...
+11-08-2020 23:32:57.753 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0495 ms
+11-08-2020 23:32:57.941 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0102 ms
+11-08-2020 23:32:58.090 Connection ID ""18158513703463420056"", Request ID ""80000099-0001-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:34:09.344 Application Starting...
+11-08-2020 23:34:10.954 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0384 ms
+11-08-2020 23:34:11.117 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0057 ms
+11-08-2020 23:34:11.296 Connection ID ""18230571297501348011"", Request ID ""800000ac-0001-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:35:39.414 Application Starting...
+11-08-2020 23:35:40.875 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0454 ms
+11-08-2020 23:35:41.020 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0045 ms
+11-08-2020 23:35:41.156 Connection ID ""18302628900129210702"", Request ID ""8000014f-0003-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:37:50.464 Application Starting...
+11-08-2020 23:37:51.942 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.4380 ms
+11-08-2020 23:37:52.049 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0051 ms
+11-08-2020 23:37:52.168 Connection ID ""18374686494167138586"", Request ID ""8000011b-0003-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:46:41.821 Application Starting...
+11-08-2020 23:46:43.814 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0619 ms
+11-08-2020 23:46:43.944 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0098 ms
+11-08-2020 23:46:44.089 Connection ID ""18158513699168452810"", Request ID ""800000cb-0000-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:47:53.277 Application Starting...
+11-08-2020 23:47:53.987 Connection ID ""18230571306091282543"", Request ID ""80000070-0003-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:47:57.471 HTTP "GET" "/api/Question/GetQuestionById/16" responded 200 in 1605.4351 ms
+11-08-2020 23:48:52.401 Connection ID ""18230571314681217301"", Request ID ""80000116-0005-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+11-08-2020 23:49:00.458 HTTP "GET" "/api/Question/GetQuestionById/2" responded 200 in 48.4509 ms

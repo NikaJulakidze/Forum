@@ -41,7 +41,7 @@ namespace Forum.Api
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<ApiStartup>();
                 });
     }
 }

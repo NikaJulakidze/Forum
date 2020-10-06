@@ -7,13 +7,12 @@ namespace Forum.Models.Question
 {
     public class QuestionModel
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public int ViewCount { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime AskedTime { get; set; }
         public int RatingPoints { get; set; }
-        public ApplicationUserListingModel QuestionAuthor { get; set; }
+        public ApplicationUserModel QuestionAuthor { get; set; }
 
 
         public List<AnswerModel> Answers { get; set; }

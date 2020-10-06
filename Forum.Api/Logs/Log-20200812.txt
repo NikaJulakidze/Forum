@@ -1,0 +1,110 @@
+12-08-2020 21:22:23.531 Application Starting...
+12-08-2020 21:22:26.281 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.6431 ms
+12-08-2020 21:22:26.392 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0050 ms
+12-08-2020 21:22:26.525 Connection ID ""18158513699168452818"", Request ID ""800000d3-0000-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 21:23:52.688 Application Starting...
+12-08-2020 21:23:54.076 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0397 ms
+12-08-2020 21:23:54.273 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0065 ms
+12-08-2020 21:23:54.404 Connection ID ""18230571301796315238"", Request ID ""80000067-0002-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 21:24:23.523 Application Starting...
+12-08-2020 21:24:24.927 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0455 ms
+12-08-2020 21:24:25.065 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0126 ms
+12-08-2020 21:24:25.213 Connection ID ""18230571306091282557"", Request ID ""8000007e-0003-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:09:02.489 Application Starting...
+12-08-2020 22:09:04.097 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0375 ms
+12-08-2020 22:09:04.238 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0136 ms
+12-08-2020 22:09:04.372 Connection ID ""18158513699168452827"", Request ID ""800000dc-0000-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:09:58.683 Application Starting...
+12-08-2020 22:10:00.053 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.4466 ms
+12-08-2020 22:10:00.220 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0042 ms
+12-08-2020 22:10:00.340 Connection ID ""18230571306091282563"", Request ID ""80000084-0003-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:10:57.964 Application Starting...
+12-08-2020 22:10:59.282 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0393 ms
+12-08-2020 22:10:59.411 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0087 ms
+12-08-2020 22:10:59.534 Connection ID ""18302628908719145206"", Request ID ""800000f7-0005-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:12:15.656 Application Starting...
+12-08-2020 22:12:17.362 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.1485 ms
+12-08-2020 22:12:17.531 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0199 ms
+12-08-2020 22:12:17.728 Connection ID ""18302628887244308651"", Request ID ""800000ac-0000-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:12:55.575 Application Starting...
+12-08-2020 22:12:57.206 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0405 ms
+12-08-2020 22:12:57.349 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0063 ms
+12-08-2020 22:12:57.503 Connection ID ""18230571301796315256"", Request ID ""80000079-0002-fd00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:52:00.527 Application Starting...
+12-08-2020 22:52:02.048 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0409 ms
+12-08-2020 22:52:02.207 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0052 ms
+12-08-2020 22:52:02.327 Connection ID ""18158513716348322113"", Request ID ""80000142-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:54:37.306 Application Starting...
+12-08-2020 22:54:39.039 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0474 ms
+12-08-2020 22:54:39.191 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0050 ms
+12-08-2020 22:54:39.347 Connection ID ""18158513716348322121"", Request ID ""8000014a-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+12-08-2020 22:55:04.032 Application Starting...
+12-08-2020 22:55:05.465 HTTP "GET" "/swagger/swagger-ui-bundle.js.map" responded 404 in 0.0869 ms
+12-08-2020 22:55:05.583 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js.map" responded 404 in 0.0045 ms
+12-08-2020 22:55:05.709 Connection ID ""18158513716348322123"", Request ID ""8000014c-0004-fc00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()

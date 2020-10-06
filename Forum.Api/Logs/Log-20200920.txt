@@ -1,0 +1,57 @@
+20-09-2020 00:16:57.905 Application Starting...
+20-09-2020 00:16:59.487 Connection ID ""18302628904424177667"", Request ID ""80000004-0004-fe00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+20-09-2020 13:41:14.490 Application Starting...
+20-09-2020 13:41:15.774 HTTP "GET" "/" responded 404 in 0.3868 ms
+20-09-2020 13:41:15.879 HTTP "GET" "/" responded 404 in 0.0047 ms
+20-09-2020 13:41:15.901 Connection ID ""18374686494167138309"", Request ID ""80000006-0003-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+20-09-2020 13:41:16.004 HTTP "GET" "/" responded 404 in 0.0344 ms
+20-09-2020 13:41:16.094 HTTP "GET" "/" responded 404 in 0.0031 ms
+20-09-2020 13:41:16.218 HTTP "GET" "/" responded 404 in 0.1176 ms
+20-09-2020 13:41:16.326 HTTP "GET" "/" responded 404 in 0.0235 ms
+20-09-2020 13:41:16.443 HTTP "GET" "/" responded 404 in 0.0328 ms
+20-09-2020 13:41:16.548 HTTP "GET" "/" responded 404 in 0.0111 ms
+20-09-2020 13:41:16.651 HTTP "GET" "/" responded 404 in 0.0060 ms
+20-09-2020 13:41:40.850 HTTP "GET" "/" responded 404 in 0.0190 ms
+20-09-2020 13:41:40.957 HTTP "GET" "/" responded 404 in 0.0178 ms
+20-09-2020 13:41:41.064 HTTP "GET" "/" responded 404 in 0.0247 ms
+20-09-2020 13:41:41.167 HTTP "GET" "/" responded 404 in 0.0089 ms
+20-09-2020 13:41:41.281 HTTP "GET" "/" responded 404 in 0.0096 ms
+20-09-2020 13:41:41.394 HTTP "GET" "/" responded 404 in 0.0414 ms
+20-09-2020 13:41:48.586 HTTP "GET" "/" responded 404 in 0.0541 ms
+20-09-2020 13:41:48.699 HTTP "GET" "/" responded 404 in 0.0153 ms
+20-09-2020 13:41:48.809 HTTP "GET" "/" responded 404 in 0.0118 ms
+20-09-2020 13:41:48.917 HTTP "GET" "/" responded 404 in 0.0119 ms
+20-09-2020 13:41:49.027 HTTP "GET" "/" responded 404 in 0.0093 ms
+20-09-2020 13:41:49.138 HTTP "GET" "/" responded 404 in 0.0134 ms
+20-09-2020 13:42:00.445 Application Starting...
+20-09-2020 13:42:00.999 Connection ID ""18374686502757072898"", Request ID ""80000003-0005-ff00-b63f-84710c7967bb"": An unhandled exception was thrown by the application.
+System.NotSupportedException: Ambiguous HTTP method for action - Forum.Api.Controllers.HomeController.Index (Forum.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+20-09-2020 13:42:07.575 HTTP "GET" "/" responded 404 in 0.3909 ms
+20-09-2020 13:42:07.683 HTTP "GET" "/" responded 404 in 0.0040 ms
+20-09-2020 13:42:07.798 HTTP "GET" "/" responded 404 in 0.0033 ms
+20-09-2020 13:42:07.912 HTTP "GET" "/" responded 404 in 0.0101 ms
+20-09-2020 13:42:08.019 HTTP "GET" "/" responded 404 in 0.0210 ms
+20-09-2020 13:42:08.127 HTTP "GET" "/" responded 404 in 0.0345 ms
+20-09-2020 13:42:08.142 HTTP "GET" "/" responded 404 in 0.0028 ms
+20-09-2020 13:42:08.252 HTTP "GET" "/" responded 404 in 0.0099 ms
+20-09-2020 13:42:08.355 HTTP "GET" "/" responded 404 in 0.0184 ms
+20-09-2020 13:42:08.464 HTTP "GET" "/" responded 404 in 0.0258 ms
+20-09-2020 13:42:08.576 HTTP "GET" "/" responded 404 in 0.0152 ms
+20-09-2020 13:42:08.687 HTTP "GET" "/" responded 404 in 0.0106 ms

@@ -3,6 +3,7 @@ using Forum.Data;
 using Forum.Data.Entities;
 using Forum.Data.Uow;
 using Forum.Models;
+using Forum.Models.Answer;
 using Forum.Models.Filters;
 using Forum.Models.Question;
 using Microsoft.AspNetCore.Identity;
@@ -69,38 +70,17 @@ namespace Forum.Service.Services.QuestionService
 
         public  Result<QuestionModel> GetQuestionById(int id)
         {
-            var posts = _context.Posts.Include(x=>x.TagPosts).ThenInclude(x=>x.Tag).Include(x=>x.User).Where(x => x.Id == id|| x.ParrentId==id).ToList();
-            var question = posts.Single(x => x.Id == id);
+            var posts = _context.Posts.Include(x=>x.TagPosts).ThenInclude(x=>x.Tag).Include(x=>x.User).Where(x => x.Id == id || x.ParrentId==id).ToList();
+            var question = posts.SingleOrDefault(x => x.Id == id);
             if (question == null)
                 return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Could not find Question"));
 
             question.ViewCount += 1;
             _questionUow.QuestionRepository.Update(question);
             _questionUow.CompleteAsync();
-            QuestionModel questionModel1 = new QuestionModel
-            {
-                ViewCount = question.ViewCount,
-                Content = question.Content,
-                Id = question.Id,
-                Tags = question.TagPosts.Select(x => x.Tag.Title).ToList(),
-                RatingPoints = question.RatingPoints,
-                Title = question.Title,
-                CreatedDate = question.CreatedDate,
-            };
-            var questionModel = posts.Select(x => new QuestionModel
-            {
-                ViewCount = x.ViewCount,
-                Content=x.Content,
-                Id=x.Id,
-                Tags=question.TagPosts.Select(x=>x.Tag.Content).ToList(),
-                RatingPoints=x.RatingPoints,
-                Title=x.Title,
-                CreatedDate=x.CreatedDate,
-            }) ;
+            var aaaaaaaaa = _mapper.Map<QuestionModel>(posts);
 
-            //var model = _mapper.Map<QuestionModel>(question);
-
-            return Result.Ok(questionModel1);
+            return Result.Ok(aaaaaaaaa);
         }
 
         public async Task<List<Post>> GetQuestionsByTag(string tagName)
