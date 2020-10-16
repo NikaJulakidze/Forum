@@ -126,6 +126,7 @@ namespace Forum.Api.Extensions
             }).AddJwtBearer(opt =>
                    {
                        opt.Authority = StaticUrls.IdentityServerUrl;
+                       opt.Audience = StaticResources.ForumApi;
                        //opt.Audience = StaticResources.ForumApi;
                        //opt.RequireHttpsMetadata = false;
 

@@ -4,6 +4,7 @@ using Forum.WebUI.Models;
 using Forum.WebUI.Services;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Forum.WebUI.Controllers
 {
@@ -20,12 +21,13 @@ namespace Forum.WebUI.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<JsonResult> Index()
+        [Authorize]
+        public async Task<IActionResult> Index()
         {
-           
-            return new JsonResult("");
+            return View();  
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
 
