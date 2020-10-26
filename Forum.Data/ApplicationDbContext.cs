@@ -18,8 +18,8 @@ namespace Forum.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<UserRatingPointsHistory> RatingPointsHistory { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<Vote> Votes { get; set; }
-        public DbSet<VoteType> VoteTypes { get; set; }
+        
+        
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,8 +31,6 @@ namespace Forum.Data
             {
                 u.Property(p => p.AddedTime).HasDefaultValueSql("getdate()");
             });
-
-
             
 
             builder.Entity<Post>(p =>

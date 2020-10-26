@@ -52,7 +52,7 @@ namespace IdentityServerHost.Quickstart.UI
             _events = events;
         }
 
-        /// <summary>
+        /// <summary>   
         /// Entry point into the login workflow
         /// </summary>
         [HttpGet]

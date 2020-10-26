@@ -8,13 +8,13 @@ namespace Forum.Api.Controllers
 {
     [Route("api/[controller]")]
     [ModelStateValidation]
-    [Authorize]
+    [AllowAnonymous]
     public class HomeController : ControllerBase
     {
         [HttpGet("index")]
         public  IActionResult Index()
         {
-            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+            return Ok();
         }
     }
 }

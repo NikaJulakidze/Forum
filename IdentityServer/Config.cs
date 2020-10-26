@@ -31,14 +31,15 @@ namespace IdentityServer
 
                 AllowedScopes = new List<string>
                 {
-                IdentityServerConstants.StandardScopes.OpenId,
-                IdentityServerConstants.StandardScopes.Profile
+                   IdentityServerConstants.StandardScopes.OpenId,
+                   IdentityServerConstants.StandardScopes.Profile,
+                   StaticResources.ForumApi
                 }
             }
 
          };
 
-        public static IEnumerable<IdentityResource> Ids =>
+        public static IEnumerable<IdentityResource> IdentityResources =>
                new List<IdentityResource>
                {
                  new IdentityResources.OpenId(),

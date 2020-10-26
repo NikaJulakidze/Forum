@@ -1,9 +1,11 @@
 using System.Linq;
 using System.Reflection;
+using IdentityServer.Data;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,20 +28,33 @@ namespace IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             var migrationsAssembly = typeof(IdentityServerStartup).GetTypeInfo().Assembly.GetName().Name;
-            //var connectionstring = Configuration.GetConnectionString("default");
-            const string connectionstring = @"Data Source=(LocalDb)\MSSQLLocalDB;database=IdentityServer4.Quickstart.EntityFramework-4.0.0;trusted_connection=yes;";
-            services.AddMvc();
+            var connectionstring = Configuration.GetConnectionString("default");
+
+            services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(connectionstring));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+            {
+                config.Password.RequireDigit = false;
+                config.Password.RequireUppercase = false;
+                config.Password.RequiredLength = 4;
+                config.Password.RequireNonAlphanumeric = false;
+            })
+              .AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders() ;
+
+            services.ConfigureApplicationCookie(config => 
+            {
+                config.Cookie.Name = "IdentityServer.Cookie";
+            });
+
             
             var builder = services.AddIdentityServer()
-                .AddTestUsers(TestUsers.Users)
-                .AddConfigurationStore(opt=> 
-                {
-                    opt.ConfigureDbContext = b => b.UseSqlServer(connectionstring, sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
-                .AddOperationalStore(opt => 
-                {
-                    opt.ConfigureDbContext = b => b.UseSqlServer(connectionstring, sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
+                .AddAspNetIdentity<IdentityUser>()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryApiScopes(Config.ApiScopes)
+                .AddInMemoryIdentityResources(Config.IdentityResources)
+                .AddInMemoryClients(Config.Clients)
                 .AddDeveloperSigningCredential();
 
         }
@@ -47,6 +62,7 @@ namespace IdentityServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            InitializeDatabase(app);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,17 +74,15 @@ namespace IdentityServer
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
-    }
 
-    private void InitializeDatabase(IApplicationBuilder app)
-    {
-        using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+
+
+        private void InitializeDatabase(IApplicationBuilder app)
         {
+            using var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
             serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
 
             var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
@@ -100,7 +114,6 @@ namespace IdentityServer
                 context.SaveChanges();
             }
         }
+
     }
-
-
 }

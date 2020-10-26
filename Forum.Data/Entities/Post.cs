@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Forum.Data.Entities
 {
@@ -21,9 +19,9 @@ namespace Forum.Data.Entities
         [Required]
         public string Content { get; set; }
         [Required]
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } 
         [Required]
-        public DateTime LastActivityDate { get; set; } = DateTime.Now;
+        public DateTime LastActivityDate { get; set; } 
         [Required]
         public int RatingPoints { get; set; }
         [Required]
