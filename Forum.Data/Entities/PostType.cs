@@ -1,7 +1,6 @@
-﻿using Forum.Models.PostType;
+﻿using Forum.Models.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
 
 namespace Forum.Data.Entities
 {

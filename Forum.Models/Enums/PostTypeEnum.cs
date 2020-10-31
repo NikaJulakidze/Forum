@@ -1,12 +1,12 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Forum.Models.PostType
+namespace Forum.Models.Enums
 {
     public enum PostTypeEnum
     {
         [EnumMember(Value = "Question")]
-        Question,
+        Question=1,
         [EnumMember(Value = "Answer")]
-        Answer
+        Answer=2
     }
 }

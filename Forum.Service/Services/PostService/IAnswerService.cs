@@ -1,8 +1,5 @@
-﻿using Forum.Data.Entities;
-using Forum.Models;
+﻿using CommonModels;
 using Forum.Models.Answer;
-using Forum.Service.Models;
-using System.Security;
 using System.Threading.Tasks;
 
 namespace Forum.Service.PostService

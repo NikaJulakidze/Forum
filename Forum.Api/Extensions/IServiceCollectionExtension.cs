@@ -1,8 +1,10 @@
-﻿using CommonModels.StaticSettings;
+﻿using AutoMapper;
+using CommonModels;
+using Forum.AutoMapper;
 using Forum.Data;
 using Forum.Data.Entities;
 using Forum.Data.Repository;
-using Forum.Data.Uow;
+using Forum.Data.UnitOfWork;
 using Forum.Jobs.Factory;
 using Forum.Jobs.HostedService;
 using Forum.Jobs.Jobs;
@@ -46,17 +48,10 @@ namespace Forum.Api.Extensions
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IRatingPointsHistoryRepository, RatingPointsHistoryRepository>();
         }
+
         public static void AddUow(this IServiceCollection services)
         {
-            services.AddScoped<IBaseUow, BaseUow>();
-            services.AddScoped<IAnswerUow, AnswerUow>();
-            services.AddScoped<IForumUow, ForumUow>();
-            services.AddScoped<IAdminUow, AdminUow>();
-            services.AddScoped<IApplicationUserUow, ApplicationUserUow>();
-            services.AddScoped<IQuestionUow, QuestionUow>();
-            services.AddScoped<ITagQuestionUow, TagQuestionUow>();
-            services.AddScoped<ITagUow, TagUow>();
-            services.AddScoped<IRatingPointsHistoryUow, RatingPointsHistoryUow>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public static void AddService(this IServiceCollection services)
@@ -125,22 +120,16 @@ namespace Forum.Api.Extensions
 
             }).AddJwtBearer(opt =>
                    {
-                       opt.Authority = StaticUrls.IdentityServerUrl;
-                       opt.Audience = StaticResources.ForumApi;
-                       //opt.Audience = StaticResources.ForumApi;
-                       //opt.RequireHttpsMetadata = false;
-
+                       opt.Audience = StaticSettings.ApiUrl;
                        opt.TokenValidationParameters = new TokenValidationParameters
                        {
-                           ValidateAudience = false
-                           //ValidateAudience = false
-                           //RequireExpirationTime = true,
-                           //ValidateIssuer = false,
-                           //ValidateAudience = false,
-                           //IssuerSigningKey = new SymmetricSecurityKey(secret),
-                           //ValidateIssuerSigningKey = true,
-                           //ValidateLifetime = true,
-                           //ClockSkew=TimeSpan.Zero
+                           ValidateAudience = false,
+                           RequireExpirationTime = true,
+                           ValidateIssuer = false,
+                           IssuerSigningKey = new SymmetricSecurityKey(secret),
+                           ValidateIssuerSigningKey = true,
+                           ValidateLifetime = true,
+                           ClockSkew = TimeSpan.Zero
                        };
                    });
         }
@@ -160,6 +149,17 @@ namespace Forum.Api.Extensions
             services.AddSingleton(new JobSchedule(typeof(AnniversaryGiftJob), "0/5 * * * * ?"));
             services.AddSingleton(new JobSchedule(typeof(Top15ThisWeekJob), "0/5 * * * * ?"));
             services.AddHostedService<QuartzHostedService>();
+        }
+        
+        public static void AddCustomAutoMapperConfiguration(this IServiceCollection services)
+        {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new ForumMapping());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
     }
 }

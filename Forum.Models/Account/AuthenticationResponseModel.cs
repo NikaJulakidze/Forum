@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Forum.Models.Account
 {
-    public class AuthenticatationRequest
+    public class AuthenticationResponseModel
     {
+        public string Id { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string Token { get; set; }
     }
 }

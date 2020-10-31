@@ -2,7 +2,7 @@
 
 namespace Forum.Models.Account
 {
-    public class RegisterRequest
+    public class RegistrationRequestModel
     {
         [Required]
         [DataType(DataType.EmailAddress)]

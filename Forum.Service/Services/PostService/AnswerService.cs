@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
+using CommonModels;
 using Forum.Data;
 using Forum.Data.Entities;
-using Forum.Data.Uow;
-using Forum.Models;
 using Forum.Models.Answer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,19 +11,15 @@ namespace Forum.Service.PostService
 {
     public class AnswerService:IAnswerService
     {
-        private readonly IAnswerUow _answerUow;
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
-        private readonly ITagUow _tagUow;
 
-        public AnswerService(IAnswerUow answerUow,IMapper mapper,UserManager<ApplicationUser> userManager,ApplicationDbContext context,ITagUow tagUow)
+        public AnswerService(IMapper mapper,UserManager<ApplicationUser> userManager,ApplicationDbContext context)
         {
-            _answerUow = answerUow;
             _mapper = mapper;
             _userManager = userManager;
             _context = context;
-            _tagUow = tagUow;
         }
 
         public async Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request,string id,int questionId)

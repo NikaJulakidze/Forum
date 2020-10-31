@@ -48,15 +48,18 @@ namespace Forum.Data
                 .HasForeignKey(typeof(Post), "ParentId");
 
             });
-
+            builder.Entity<PostType>(p =>
+            {
+                p.Property(p => p.PostTypeName)
+                .HasConversion<string>(); 
+            });
 
             builder.Entity<ApplicationUser>(a =>
             {
                 a.Property(p => p.RatingPoints).HasDefaultValue(1);
                 a.Property(p => p.Credits).HasDefaultValue(0);
                 a.Property(p => p.ProfileViewCount).HasDefaultValue(0);
-                a.Property(p => p.DownVotesCount).HasDefaultValue(0);
-                a.Property(p => p.UpVotesCount).HasDefaultValue(0);
+                a.Property(p => p.MemberSince).HasDefaultValueSql("getdate()");
             });
 
             //configure many-to-many relationship

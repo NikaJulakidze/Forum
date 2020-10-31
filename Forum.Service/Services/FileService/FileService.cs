@@ -1,4 +1,5 @@
-﻿using Forum.Data.Entities;
+﻿using CommonModels;
+using Forum.Data.Entities;
 using Forum.Models;
 using Forum.Service.Helpers;
 using Microsoft.AspNetCore.Http;

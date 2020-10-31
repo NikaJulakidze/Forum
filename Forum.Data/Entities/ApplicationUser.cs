@@ -12,7 +12,7 @@ namespace Forum.Data.Entities
         [Required]
         public string ImageUrl { get; set; }
         [Required]
-        public DateTime RegisterTime { get; set; } = DateTime.Now;
+        public DateTime MemberSince { get; set; }
         [Required]
         public int Credits { get; set; }
         public string AboutMe { get; set; }
@@ -20,10 +20,6 @@ namespace Forum.Data.Entities
         [Required]
         public int ProfileViewCount { get; set; }
         public string Location { get; set; }
-        [Required]
-        public int UpVotesCount { get; set; }
-        [Required]
-        public int DownVotesCount { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<UserRatingPointsHistory> RatingPointsHistory { get; set; }

@@ -18,9 +18,9 @@ namespace Forum.Data.Repository
             return null;
         }
 
-        public Post GetQuestionWithUserInclude(int questionId)
+        public async Task<Post>GetQuestionWithUserInclude(int questionId)
         {
-            return _entity.Where(x => x.Id == questionId).Include(x => x.User).FirstOrDefault();
+            return await _entity.Where(x => x.Id == questionId).Include(x=>x.User).Include(x=>x.TagPosts).ThenInclude(x=>x.Tag).FirstOrDefaultAsync();
         }
 
         public async Task<(List<Post>, int)> GetQuestionsByTag(string tagNama)

@@ -1,21 +1,17 @@
-using AutoMapper;
 using Forum.Api.Attributes;
 using Forum.Api.Extensions;
 using Forum.Api.Middlewares;
-using Forum.Jobs.Jobs;
 using Forum.Models.NewFolder;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Forum.Api
 {
@@ -33,19 +29,19 @@ namespace Forum.Api
         {
             var mySettings = Configuration.GetSection("AppSettings").Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(mySettings.JwtSettings.Secret);
+
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddControllers().AddNewtonsoftJson(x=>x.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddCustomAutoMapperConfiguration();
             services.AddDbConfiguration(Configuration.GetConnectionString("default"));
             services.AddRepository();
             services.AddService();
             services.AddUow();
-            services.AddAutoMapper(typeof(ApiStartup));
             services.AddJwtAuthenticationConfiguration(key);
             services.AddCustomAuthorizations();
             services.AddCustomPolicy();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddQuartzConfiguration(typeof(Top15ThisWeekJob));
-            services.AddMvc(opt =>
+            services.AddMvc(opt=> 
             {
                 var policy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                 .RequireAuthenticatedUser()
@@ -53,27 +49,32 @@ namespace Forum.Api
 
                 //opt.Filters.Add(new AuthorizeFilter(policy));
                 opt.Filters.Add(typeof(ModelStateValidationAttribute));
+                opt.EnableEndpointRouting = false;
+            }).AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+            })
+            .AddNewtonsoftJson(x=>x.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddSwaggerGen(c => 
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Api", Version = "v1" });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public  void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public  void Configure(IApplicationBuilder app)
         {
-
-            if (env.IsDevelopment())
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
             {
-                //app.UseDeveloperExceptionPage();
-            }
-
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseStaticFiles();
-            //app.UseForwardedHeaders(new ForwardedHeadersOptions
-            //{
-            //    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            //});
-
+            
 
             app.UseAuthentication();
             app.UseAuthorization();

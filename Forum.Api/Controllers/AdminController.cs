@@ -38,11 +38,12 @@ namespace Forum.Api.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> CreateTags([FromBody] AddTagModel tag)
         {
-            var result = await _adminService.CreateTagAsync(tag);
+            var result = _adminService.CreateTagAsync(tag);
             return Ok(result);
         }
 
         [HttpPost(StaticRoutes.Admin.CreateRole)]
+        [AllowAnonymous]
         //[Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme,Roles ="Admin")]
         public async Task<IActionResult> CreateRoleAsync([FromBody] CreateRole role)
         {

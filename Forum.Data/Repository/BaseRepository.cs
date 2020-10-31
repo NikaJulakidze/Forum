@@ -29,6 +29,21 @@ namespace Forum.Data.Repository
             _entity.Update(entity);
         }
 
+        public void BulkUpdate(params TEntity[] entities)
+        {
+            _entity.UpdateRange(entities);
+        }
+
+        public void BulkInsert(params TEntity[] entities)
+        {
+            _entity.AddRange(entities);
+        }
+
+        public void BulkDelete(params TEntity[] entities)
+        {
+            _entity.RemoveRange(entities);
+        }
+
         public virtual async Task<TEntity> GetByIdAsync<T>(T id)
         {
            return await _entity.FindAsync(id);

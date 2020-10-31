@@ -1,7 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Forum.Api.Attributes;
-using Forum.Data.Repository;
 using Forum.Models.Question;
 using Forum.Service.Services.QuestionService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,7 +12,6 @@ namespace Forum.Api.Controllers
 {
     [Route("api/[controller]")]
     [ModelStateValidation]
-    [AllowAnonymous]
     public class QuestionController : BaseController
     {
         private readonly ILogger<QuestionController> _logger;
@@ -28,14 +26,15 @@ namespace Forum.Api.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> AddQuestion([FromBody] AddQuestionRequest model)
         {
-            var result=await _questionService.AskQuestion(model, "b5661c5e-98a8-4bd9-b287-cc9dd5e370b4");
-            return Ok(result.Data);
+            var result = await _questionService.AskQuestion(model, UserId, Username);
+            return CustomRedirect(result,nameof(GetQuestionById),new {result.Data });
         }
 
         [HttpGet("[action]/{id}")]
-        public IActionResult GetQuestionById(int id)
+        [AllowAnonymous]
+        public async Task<IActionResult> GetQuestionById(int id)
         {
-            var result = _questionService.GetQuestionById(id);
+            var result =  await _questionService.GetQuestionById(id);
             return CustomGenericResult(result);
         }
 
@@ -57,7 +56,6 @@ namespace Forum.Api.Controllers
         [HttpGet("[action]/{tagname}")]
         public async Task<IActionResult> Tagged(string tagName)
         {
-
             var aa =await _questionService.GetQuestionsByTag("C#");
             return Ok(aa);
         }

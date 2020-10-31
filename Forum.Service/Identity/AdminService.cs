@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using CommonModels;
 using Forum.Data.Entities;
-using Forum.Data.Uow;
-using Forum.Models;
+using Forum.Data.Repository;
+using Forum.Data.UnitOfWork;
 using Forum.Models.NewFolder;
 using Forum.Models.PostType;
 using Forum.Models.Tag;
-using Forum.Service.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System;
@@ -18,17 +18,22 @@ namespace Forum.Service.Identity
     {
         private readonly RoleManager<IdentityRole> _rolemanager;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IAdminUow _uow;
         private readonly AppSettings _appSettings;
         private readonly IMapper _mapper;
+        private readonly ITagRepository _tagRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IAdminRepository _adminRepository;
 
-        public AdminService(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager,IAdminUow uow,IOptionsSnapshot<AppSettings> appSettings,IMapper mapper) 
+        public AdminService(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager,
+            IOptionsSnapshot<AppSettings> appSettings,IMapper mapper, ITagRepository tagRepository,IUnitOfWork unitOfWork,IAdminRepository adminRepository) 
         {
             _rolemanager = roleManager;
             _userManager = userManager;
-            _uow = uow;
             _appSettings = appSettings.Value;
             _mapper = mapper;
+            _tagRepository = tagRepository;
+            _unitOfWork = unitOfWork;
+            _adminRepository = adminRepository;
         }
 
         public async Task<Result> CreateRoleAsync(string name)
@@ -42,8 +47,8 @@ namespace Forum.Service.Identity
         public async Task<Result> CreatePostTypeAsync(CreatePostTypeRequest postTypeRequest)
         {
             var postType = _mapper.Map<PostType>(postTypeRequest);
-            await _uow.AdminRepository.CreatePostType(postType);
-            await _uow.CompleteAsync();
+            await _adminRepository.CreatePostType(postType);
+            _unitOfWork.Commit();
             return Result.Ok();
         }
 
@@ -54,11 +59,11 @@ namespace Forum.Service.Identity
             return Result.Ok();
         }
 
-        public async Task<Result<AddTagModel>> CreateTagAsync(AddTagModel tagModel)
+        public Result<AddTagModel> CreateTagAsync(AddTagModel tagModel)
         {
             var tag = _mapper.Map<Tag>(tagModel);
-            _uow.AdminRepository.CreateTag(tag);
-            await _uow.CompleteAsync();
+            _tagRepository.Add(tag);
+             _unitOfWork.Commit();
             return Result.Ok(_mapper.Map<AddTagModel>(tag));
         }
     }

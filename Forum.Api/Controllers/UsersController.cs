@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using Forum.Api.Models;
 using Forum.Models.Account;
 using Forum.Models.Filters;
 using Forum.Service.Identity;
@@ -26,7 +25,7 @@ namespace Forum.Api.Controllers
 
         [HttpPost(StaticRoutes.Account.Register)]
         [AllowAnonymous]
-        public async Task<IActionResult> RegisterAsync([FromBody] RegisterRequest userRegistrationDto)
+        public async Task<IActionResult> RegisterAsync([FromBody] RegistrationRequestModel userRegistrationDto)
         {
             var result= await _accountService.RegisterAsync(userRegistrationDto);
             return CustomGenericResult(result);
@@ -34,12 +33,10 @@ namespace Forum.Api.Controllers
 
         [HttpPost(StaticRoutes.Account.Authenticate)]
         [AllowAnonymous]
-        public async Task<IActionResult> AuthenticateAsync([FromBody] AuthenticatationRequest authenticatation)
+        public async Task<IActionResult> AuthenticateAsync([FromBody] AuthenticatationRequestModel authenticatation)
         {
             var result= await _accountService.AuthenticateAsync(authenticatation);
-            if (result.Succeeded)
-                return Ok(result.Data);
-            return BadRequest(result.noSuccessMessage);
+            return CustomGenericResult(result);
         }
 
         [HttpGet("GetRoles")]

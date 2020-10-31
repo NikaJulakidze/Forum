@@ -119,7 +119,7 @@ namespace Forum.Data.Repository
             switch (sortOrder)
             {
                 case SortConstants.CreationTime:
-                    users.OrderBy(x => x.RegisterTime);
+                    users.OrderBy(x => x.MemberSince);
                     return users;
                 case SortConstants.Reputation:
                     return users.OrderByDescending(x=>x.RatingPoints);

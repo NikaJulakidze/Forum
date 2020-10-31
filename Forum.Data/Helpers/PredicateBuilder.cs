@@ -40,7 +40,7 @@ namespace Forum.Data.Helpers
                 case TabConstants.Reputation:
                     return users.OrderByDescending(x=>x.RatingPoints).SubFilterUsers(model.Filter);
                 case TabConstants.NewUsers:
-                    return users.Where(x => x.RegisterTime >= DateTime.Today.AddMonths(-1));
+                    return users.Where(x => x.MemberSince >= DateTime.Today.AddMonths(-1));
             }
 
             return null;
@@ -52,7 +52,7 @@ namespace Forum.Data.Helpers
             return sort.ToLower() switch
             {
                 SortConstants.Reputation => users.OrderByDescending(x => x.RatingPoints),
-                SortConstants.CreationTime => users.OrderByDescending(x => x.RegisterTime),
+                SortConstants.CreationTime => users.OrderByDescending(x => x.MemberSince),
                 _ => users.OrderByDescending(x => x.RatingPoints),
             };
         }
@@ -60,16 +60,16 @@ namespace Forum.Data.Helpers
         public static IQueryable<ApplicationUser> SubFilterUsers(this IQueryable<ApplicationUser> users, string subFilter)
         {
             if (subFilter == null)
-                return users.Where(x => x.RegisterTime >= DateTime.Today.AddDays(-7));
+                return users.Where(x => x.MemberSince >= DateTime.Today.AddDays(-7));
 
             return subFilter.ToLower() switch
             {
-                FilterConstatns.Week => users.Where(x => x.RegisterTime >= DateTime.Today.AddDays(-7)),
-                FilterConstatns.Month => users.Where(x => x.RegisterTime >= DateTime.Today.AddMonths(-1)),
-                FilterConstatns.Year => users.Where(x => x.RegisterTime >= DateTime.Today.AddYears(-1)),
-                FilterConstatns.Today => users.Where(x => x.RegisterTime >= DateTime.Today),
+                FilterConstatns.Week => users.Where(x => x.MemberSince >= DateTime.Today.AddDays(-7)),
+                FilterConstatns.Month => users.Where(x => x.MemberSince >= DateTime.Today.AddMonths(-1)),
+                FilterConstatns.Year => users.Where(x => x.MemberSince >= DateTime.Today.AddYears(-1)),
+                FilterConstatns.Today => users.Where(x => x.MemberSince >= DateTime.Today),
                 FilterConstatns.All=>users,
-                _ => users.Where(x => x.RegisterTime >= DateTime.Today.AddDays(-7)),
+                _ => users.Where(x => x.MemberSince >= DateTime.Today.AddDays(-7)),
             };
         }
     }

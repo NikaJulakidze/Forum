@@ -1,7 +1,5 @@
 ﻿using Forum.Data.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Forum.Data.Repository
@@ -10,6 +8,6 @@ namespace Forum.Data.Repository
     {
         Post GetQuestionByIdWithIncludes(int id);
         Task<(List<Post>,int)> GetQuestionsByTag(string tagNama);
-        Post GetQuestionWithUserInclude(int questionId);
+        Task<Post> GetQuestionWithUserInclude(int questionId);
     }
 }

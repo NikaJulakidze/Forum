@@ -1,5 +1,4 @@
-﻿using Forum.Models;
-using Forum.Service.Models;
+﻿using CommonModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Security.Claims;
@@ -31,8 +30,20 @@ namespace Forum.Api.Controllers
             };
         }
 
+        protected IActionResult CustomRedirect(Result result,string action,object routeValue)
+        {
+            return result.StatusCode switch
+            {
+                (int)HttpStatusCode.OK => RedirectToAction(action, routeValue),
+                (int)HttpStatusCode.BadRequest=>Ok(result.noSuccessMessage),
+                (int)HttpStatusCode.NotFound=>NotFound(),
+                _ => StatusCode((int)HttpStatusCode.InternalServerError),
+            };
+        }
+
         protected string Email => User.FindFirstValue(ClaimTypes.Email);
         protected string UserId => User.FindFirstValue(ClaimTypes.NameIdentifier);
+        protected string Username => User.FindFirstValue(ClaimTypes.Name);
         protected string Route => Request.Path.Value;
     }
 }

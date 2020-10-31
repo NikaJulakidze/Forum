@@ -1,4 +1,5 @@
-﻿using Forum.Models;
+﻿using CommonModels;
+using Forum.Models;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 

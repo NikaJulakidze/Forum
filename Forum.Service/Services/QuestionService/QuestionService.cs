@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using Forum.Data;
+using CommonModels;
 using Forum.Data.Entities;
-using Forum.Data.Uow;
-using Forum.Models;
-using Forum.Models.Answer;
-using Forum.Models.Filters;
+using Forum.Data.Repository;
+using Forum.Data.UnitOfWork;
+using Forum.Models.Enums;
 using Forum.Models.Question;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,114 +16,101 @@ namespace Forum.Service.Services.QuestionService
 {
     public class QuestionService:IQuestionService
     {
-        private readonly IQuestionUow _questionUow;
-        private readonly ITagUow _tagUow;
-        private readonly ITagQuestionUow _tagQuestionUow;
         private readonly ILogger<QuestionService> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
-        private readonly ApplicationDbContext _context;
-        public QuestionService(IQuestionUow questionUow,IMapper mapper,ITagUow tagUow,ITagQuestionUow tagQuestionUow,
-            ILogger<QuestionService> logger,UserManager<ApplicationUser> userManager,ApplicationDbContext context)
+        private readonly ITagRepository _tagRepository;
+        private readonly IQuestionRepository _questionRepository;
+        private readonly ITagQuestionRepository _tagQuestionRepository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public QuestionService(IMapper mapper,ILogger<QuestionService> logger,UserManager<ApplicationUser> userManager,
+            ITagRepository tagRepository, IQuestionRepository questionRepository, ITagQuestionRepository tagQuestionRepository,IUnitOfWork unitOfWork)
         {
-            _questionUow = questionUow;
             _mapper = mapper;
-            _tagUow = tagUow;
-            _tagQuestionUow = tagQuestionUow;
             _logger = logger;
             _userManager = userManager;
-            _context = context;
+            _tagRepository = tagRepository;
+            _questionRepository = questionRepository;
+            _tagQuestionRepository = tagQuestionRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<Result<QuestionModel>> AskQuestion(AddQuestionRequest request,string id)
+        public async Task<Result<int>> AskQuestion(AddQuestionRequest request, string userId,string Username)
         {
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
+            var question = _mapper.Map<Post>(request);
+            question.UserId = userId;
+            question.PostTypeId =(int)PostTypeEnum.Question;
+            question.OwnerDisplayName = Username;
+
+            var tags = _tagRepository.GetTagsByNames(request.Tags);
+
+            if (tags?.Count() == 0)
             {
-                _logger.LogError("Question with id {0} not found",id);
-                return Result.BadRequest<QuestionModel>(NoSuccessMessage.AddError("Something Went Wrong"));
+                return Result.BadRequest<int>(NoSuccessMessage.AddError(""));
             }
 
-            var question= _mapper.Map<Post>(request);
-            question.User = user;
-            question.PostTypeId = 2;
-            question.OwnerDisplayName = user.UserName;
-            
-            var tags = _tagUow.TagRepository.GetTagsByNames(request.Tags);
+            var tagQuestions = tags.Select(i => new TagPost { Post = question, Tag = i }).ToList();
 
-            if (tags?.Count()==0)
-            {
-                return Result.BadRequest<QuestionModel>(NoSuccessMessage.AddError(""));
-            }
+            _questionRepository.Add(question);
+            _tagQuestionRepository.AddRange(tagQuestions);
+            _unitOfWork.Commit();
 
-            var tagQuestions = tags.Select(i => new TagPost {Post=question, Tag = i }).ToList();
-
-            _questionUow.QuestionRepository.Add(question);
-            _tagQuestionUow.TagQuestionRepository.AddRange(tagQuestions);
-            await _questionUow.CompleteAsync();
-
-            var result = _mapper.Map<QuestionModel>(question);
-            
-            return Result.Ok(result);
+            return Result.Ok(question.Id);
         }
 
-        public  Result<QuestionModel> GetQuestionById(int id)
+        public async Task<Result<QuestionModel>> GetQuestionById(int id)
         {
-            var posts = _context.Posts.Include(x=>x.TagPosts).ThenInclude(x=>x.Tag).Include(x=>x.User).Where(x => x.Id == id || x.ParrentId==id).ToList();
-            var question = posts.SingleOrDefault(x => x.Id == id);
+            var question = await _questionRepository.GetQuestionWithUserInclude(id);
             if (question == null)
-                return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Could not find Question"));
-
-            question.ViewCount += 1;
-            _questionUow.QuestionRepository.Update(question);
-            _questionUow.CompleteAsync();
-            var aaaaaaaaa = _mapper.Map<QuestionModel>(posts);
-
-            return Result.Ok(aaaaaaaaa);
+                return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Not Found"));
+            question.ViewCount++;
+            _unitOfWork.Commit();
+            var questionModel = _mapper.Map<Post, QuestionModel>(question);
+            return Result.Ok(questionModel);
         }
 
         public async Task<List<Post>> GetQuestionsByTag(string tagName)
         {
-            var (aaa,aaaaa)=  await _questionUow.QuestionRepository.GetQuestionsByTag(tagName);
             return null;
         }
 
         public async Task<Result<UpDownVoteModel>> UpvoteQuestion(int questionId, string voterId)
         {
-            var question= _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
+            //var question= _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
 
-            if (question.UserId == voterId)
-                return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot upvote your own question"));
+            //if (question.UserId == voterId)
+            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot upvote your own question"));
             //if (question.User.RatingPoints < 15)
             //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("Your Rating Points must be atleast 15"));
 
-            question.RatingPoints += 1;
-            question.User.RatingPoints += 1;
+            //question.RatingPoints += 1;
+            //question.User.RatingPoints += 1;
 
-            await _userManager.UpdateAsync(question.User);
-            _questionUow.QuestionRepository.Update(question);
-            await _questionUow.CompleteAsync();
+            //await _userManager.UpdateAsync(question.User);
+            //_questionUow.QuestionRepository.Update(question);
+            //await _questionUow.CompleteAsync();
 
-            return Result.Ok(_mapper.Map<UpDownVoteModel>(question));
+            return Result.Ok(new UpDownVoteModel());
         }
 
         public async Task<Result<UpDownVoteModel>> DownVoteQuestion(int questionId, string voterId)
         {
-            var question = _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
+            //var question = _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
 
-            if (question.UserId == voterId)
-                return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot downvote your own question"));
-            //if (question.User.RatingPoints < 15)
-            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("Your Rating Points must be atleast 15"));
+            //if (question.UserId == voterId)
+            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot downvote your own question"));
+            ////if (question.User.RatingPoints < 15)
+            ////    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("Your Rating Points must be atleast 15"));
 
-            question.RatingPoints -= 1;
-            question.User.RatingPoints -= 1;
+            //question.RatingPoints -= 1;
+            //question.User.RatingPoints -= 1;
 
-            await _userManager.UpdateAsync(question.User);
-            _questionUow.QuestionRepository.Update(question);
-            await _questionUow.CompleteAsync();
+            //await _userManager.UpdateAsync(question.User);
+            //_questionUow.QuestionRepository.Update(question);
+            //await _questionUow.CompleteAsync();
 
-            return Result.Ok(_mapper.Map<UpDownVoteModel>(question));
+            return Result.Ok(new UpDownVoteModel());
         }
     }
 }
