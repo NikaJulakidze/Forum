@@ -1,5 +1,6 @@
 ﻿using Forum.Models.ApplicationUser;
 using System;
+using System.Collections.Generic;
 
 namespace Forum.Models.Answer
 {
@@ -10,5 +11,6 @@ namespace Forum.Models.Answer
         public int RatingPoints { get; set; }
 
         public ApplicationUserModel ApplicationUser { get; set; }
+
     }
 }

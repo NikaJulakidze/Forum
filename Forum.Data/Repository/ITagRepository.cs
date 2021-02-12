@@ -10,5 +10,6 @@ namespace Forum.Data.Repository
     {
         Task<(List<TagListingModel>, int)> GetTags(BaseFilterModel filterModel);
         List<Tag> GetTagsByNames(List<string> tagNames);
+        Task<List<Tag>> GetTagsByQuestionId(int quetionId);
     }
 }

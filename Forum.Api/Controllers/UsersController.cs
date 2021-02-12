@@ -57,6 +57,8 @@ namespace Forum.Api.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetUserById(string id, string username)
         {
+            //if (id == UserId)
+            //    return RedirectToAction(nameof(MyProfile), new { id });
             return Ok(await _accountService.GetUserProfile(id));
         }
 

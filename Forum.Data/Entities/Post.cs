@@ -20,13 +20,11 @@ namespace Forum.Data.Entities
         public string Content { get; set; }
         [Required]
         public DateTime CreatedDate { get; set; } 
-        [Required]
-        public DateTime LastActivityDate { get; set; } 
+        public DateTime LastActivityDate { get; set; }
+        //public DateTime? ClosedDate { get; set; }
         [Required]
         public int RatingPoints { get; set; }
-        [Required]
         public int AnswersCount { get; set; }
-        [Required]
         public int ViewCount { get; set; }
         [Required]
         public string OwnerDisplayName { get; set; }
@@ -34,6 +32,7 @@ namespace Forum.Data.Entities
 
         public  Post AcceptedAnswer { get; set; }
         public  Post Parent { get; set; }
+        public virtual ICollection<Post> Answers { get; set; }
         public virtual PostType PostType { get; set; }
         public virtual ApplicationUser User { get; set; }   
         public virtual ICollection<TagPost> TagPosts { get; set; }

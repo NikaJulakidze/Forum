@@ -1,4 +1,5 @@
 ﻿using Forum.Data.Entities;
+using Forum.Models.Account;
 using Forum.Models.ApplicationUser;
 using Forum.Models.Filters;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Forum.Data.Repository
     public interface IAccountRepository:IBaseRepository<ApplicationUser>
     {
         void BulkUpdate(List<ApplicationUser> users);
+        Task<UserProfileModel> GetByIdAsync(string id);
         Task<(List<ApplicationUser>, int)> GetFilteredUsers(UsersFilterModel filter);
         Task<List<ApplicationUser>> GetHappyBirthDayUsers();
         Task<List<ApplicationUser>> GetTop15ForGift();

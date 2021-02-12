@@ -1,5 +1,4 @@
-﻿using Forum.Models.Filters;
-using Microsoft.AspNetCore.WebUtilities;
+﻿using Microsoft.AspNetCore.WebUtilities;
 
 namespace Forum.Service.Uri
 {
@@ -12,7 +11,7 @@ namespace Forum.Service.Uri
             _baseUri = baseUri;
         }
 
-        public System.Uri GetPagedUri(int pageNumber, int pageSize,  string route)
+        public System.Uri GetPagedUri(int pageNumber, int pageSize, string route)
         {
             var _enpointUri = new System.Uri(string.Concat(_baseUri, route));
             var modifiedUri = QueryHelpers.AddQueryString(_enpointUri.ToString(), "pageNumber", pageNumber.ToString());

@@ -43,10 +43,5 @@ namespace Forum.Data.Repository
         {
             _entity.RemoveRange(entities);
         }
-
-        public virtual async Task<TEntity> GetByIdAsync<T>(T id)
-        {
-           return await _entity.FindAsync(id);
-        }
     }
 }

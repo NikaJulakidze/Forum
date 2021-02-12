@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Security.AccessControl;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Forum.Api.Attributes;
 using Forum.Data.Entities;
@@ -6,6 +7,7 @@ using Forum.Models.Answer;
 using Forum.Service.PostService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Forum.Api.Controllers
 {
@@ -15,16 +17,20 @@ namespace Forum.Api.Controllers
     public class AnswerController : BaseController
     {
         private readonly IAnswerService _answerService;
+        private readonly ILogger<AnswerController> _logger;
 
-        public AnswerController(IAnswerService answerService)
+        public AnswerController(IAnswerService answerService,ILogger<AnswerController> logger)
         {
             _answerService = answerService;
+            _logger = logger;
         }
-        [HttpPost("[action]/{questionId}")]
-        public async Task<IActionResult> CreateAnswer([FromBody]CreateAnswerRequest answer,int questionId)
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateAnswer([FromBody]CreateAnswerRequest answer)
         {
-            var result=await _answerService.AddAnswerAsync(answer, "b5661c5e-98a8-4bd9-b287-cc9dd5e370b4", questionId);
-            return Ok();
+            //_logger.LogInformation("Entered {0} Controller, request is {1}", nameof(CreateAnswer),answer);
+            var result=await _answerService.AddAnswerAsync(answer, UserId,Username);
+            return CustomGenericResult(result);
         }
     }
 }

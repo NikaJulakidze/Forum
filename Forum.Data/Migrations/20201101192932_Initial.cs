@@ -233,8 +233,14 @@ namespace Forum.Data.Migrations
                 {
                     table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Posts_Posts_ParentId",
-                        column: x => x.ParentId,
+                        name: "FK_Posts_Posts_AcceptedAnswerId",
+                        column: x => x.AcceptedAnswerId,
+                        principalTable: "Posts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Posts_Posts_ParrentId",
+                        column: x => x.ParrentId,
                         principalTable: "Posts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -316,11 +322,14 @@ namespace Forum.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_ParentId",
+                name: "IX_Posts_AcceptedAnswerId",
                 table: "Posts",
-                column: "ParentId",
-                unique: true,
-                filter: "[ParentId] IS NOT NULL");
+                column: "AcceptedAnswerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_ParrentId",
+                table: "Posts",
+                column: "ParrentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_PostTypeId",

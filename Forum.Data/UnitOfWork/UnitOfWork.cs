@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace Forum.Data.UnitOfWork
 {
@@ -17,9 +15,19 @@ namespace Forum.Data.UnitOfWork
             _context.SaveChanges();
         }
 
+        public async Task CommitAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public void Dispose()
         {
             _context.Dispose();
+        }
+
+        public async Task DisposeAsync()
+        {
+            await _context.DisposeAsync();
         }
     }
 }

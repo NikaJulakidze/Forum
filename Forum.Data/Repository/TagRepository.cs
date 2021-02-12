@@ -1,4 +1,6 @@
-﻿using Forum.Data.Constants;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Forum.Data.Constants;
 using Forum.Data.Entities;
 using Forum.Data.Extensions;
 using Forum.Models.Filters;
@@ -13,9 +15,11 @@ namespace Forum.Data.Repository
 {
     public class TagRepository:BaseRepository<Tag>,ITagRepository
     {
-        public TagRepository(ApplicationDbContext context):base(context)
-        {
+        private IConfigurationProvider _configuration;
 
+        public TagRepository(ApplicationDbContext context, IMapper mapper):base(context)
+        {
+            _configuration = mapper.ConfigurationProvider;
         }
 
         public List<Tag> GetTagsByNames(List<string> tagNames)
@@ -23,12 +27,17 @@ namespace Forum.Data.Repository
             return _context.Tags.Where(x => tagNames.Contains(x.Title)).ToList();
         }
 
+        public async Task<List<Tag>> GetTagsByQuestionId(int quetionId)
+        {
+            return await _context.TagPosts.Where(x => x.PostId == quetionId).Select(x => x.Tag).ToListAsync();
+        }
+
         public async Task<(List<TagListingModel>,int)> GetTags(BaseFilterModel filterModel)
         {
-            var tags = GetFilteredTags(filterModel);
-            var totalCount = await tags.CountAsync();
-            var result= await tags.Skip((filterModel.PageNumber - 1) * filterModel.PageSize).Take(filterModel.PageSize).ToListAsync();
-            return (result, totalCount);
+            var tags = await _entity.ProjectTo<TagListingModel>(_configuration)
+                .SkipAndTake(filterModel.PageNumber, filterModel.PageSize).ToListAsync();
+            var totalCount = await _entity.CountAsync();
+            return (tags, totalCount);
         }
 
 

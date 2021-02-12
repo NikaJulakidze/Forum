@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CommonModels;
+using CommonModels.Paging;
 using Forum.Data.Entities;
 using Forum.Data.Repository;
 using Forum.Data.UnitOfWork;
@@ -7,7 +8,6 @@ using Forum.Models.Account;
 using Forum.Models.ApplicationUser;
 using Forum.Models.Filters;
 using Forum.Models.NewFolder;
-using Forum.Models.Paging;
 using Forum.Service.Helpers;
 using Forum.Service.Models;
 using Forum.Service.Services.MailService;
@@ -39,10 +39,11 @@ namespace Forum.Service.Identity
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRatingPointsHistoryRepository _historyRepository;
         private readonly ILogger<AccountService> _logger;
+        private readonly IAccountRepository _accountRepository;
 
         public AccountService(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager,
             IMapper mapper,IOptions<AppSettings> options,RoleManager<IdentityRole> roleManager,IHostingEnvironment env,
-            IEmailService emailService,IUnitOfWork unitOfWork, IRatingPointsHistoryRepository historyRepository, ILogger<AccountService> logger) 
+            IEmailService emailService,IUnitOfWork unitOfWork, IRatingPointsHistoryRepository historyRepository, ILogger<AccountService> logger,IAccountRepository accountRepository) 
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -54,6 +55,7 @@ namespace Forum.Service.Identity
             _unitOfWork = unitOfWork;
             _historyRepository = historyRepository;
             _logger = logger;
+            _accountRepository = accountRepository;
         }
 
         public async Task<Result<RegisterResponse>> RegisterAsync(RegistrationRequestModel model)
@@ -127,8 +129,8 @@ namespace Forum.Service.Identity
         }
 
         public async Task<UserProfileModel> GetUserProfile(string id)
-        {            
-            return new UserProfileModel();
+        {
+            return  await _accountRepository.GetByIdAsync(id);
         }
 
         public async Task<PagedResult<List<ApplicationUser>>> GetPagedUsersAsync(UsersFilterModel model)

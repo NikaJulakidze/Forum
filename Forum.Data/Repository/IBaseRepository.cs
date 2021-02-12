@@ -9,7 +9,6 @@ namespace Forum.Data.Repository
         void BulkDelete(params TEntity[] entities);
         void BulkInsert(params TEntity[] entities);
         void BulkUpdate(params TEntity[] entities);
-        Task<TEntity> GetByIdAsync<T>(T id);
         void Remove(TEntity entity);
         void Update(TEntity entity);
     }

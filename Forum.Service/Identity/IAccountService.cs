@@ -1,10 +1,9 @@
 ﻿using CommonModels;
+using CommonModels.Paging;
 using Forum.Data.Entities;
-using Forum.Models;
 using Forum.Models.Account;
 using Forum.Models.ApplicationUser;
 using Forum.Models.Filters;
-using Forum.Models.Paging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

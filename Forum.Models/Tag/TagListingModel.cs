@@ -9,9 +9,9 @@ namespace Forum.Models.Tag
         public string TagTitle { get; set; }
         public string TagContent { get; set; }
         public int TotalQuestionsCount { get; set; }
-        public int QuestionsCountThisWeek { get; set; }
-        public int QuestionsCountThisYear { get; set; }
-        public int QuestionsCountToday { get; set; }
+        //public int QuestionsCountThisWeek { get; set; }
+        //public int QuestionsCountThisYear { get; set; }
+        //public int QuestionsCountToday { get; set; }
 
     }
 }

@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using CommonModels;
+using CommonModels.Paging;
 using Forum.Data.Entities;
 using Forum.Data.Repository;
 using Forum.Data.UnitOfWork;
 using Forum.Models.Enums;
+using Forum.Models.Filters;
 using Forum.Models.Question;
+using Forum.Service.Helpers;
+using Forum.Service.Uri;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +24,12 @@ namespace Forum.Service.Services.QuestionService
         private readonly IMapper _mapper;
         private readonly ITagRepository _tagRepository;
         private readonly IQuestionRepository _questionRepository;
-        private readonly ITagQuestionRepository _tagQuestionRepository;
+        private readonly ITagPostRepository _tagQuestionRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUriService _uriService;
 
         public QuestionService(IMapper mapper,ILogger<QuestionService> logger,UserManager<ApplicationUser> userManager,
-            ITagRepository tagRepository, IQuestionRepository questionRepository, ITagQuestionRepository tagQuestionRepository,IUnitOfWork unitOfWork)
+            ITagRepository tagRepository, IQuestionRepository questionRepository, ITagPostRepository tagQuestionRepository,IUnitOfWork unitOfWork,IUriService uriService)
         {
             _mapper = mapper;
             _logger = logger;
@@ -34,7 +38,17 @@ namespace Forum.Service.Services.QuestionService
             _questionRepository = questionRepository;
             _tagQuestionRepository = tagQuestionRepository;
             _unitOfWork = unitOfWork;
+            _uriService = uriService;
         }
+        
+        public async Task<PagedResult<QuestionListingModel>> GetPagedQuesions(BaseFilterModel baseFilter,string route)
+        {
+            var query= await _questionRepository.GetPagedQuestions(baseFilter);
+            var questions = _mapper.Map<List<QuestionListingModel>>(query.questions);
+            return  PagingHelper.CreatePagedReponse(questions, baseFilter, query.count, _uriService, route);
+        }
+
+
 
         public async Task<Result<int>> AskQuestion(AddQuestionRequest request, string userId,string Username)
         {
@@ -66,7 +80,7 @@ namespace Forum.Service.Services.QuestionService
                 return Result.NotFound<QuestionModel>(NoSuccessMessage.AddError("Not Found"));
             question.ViewCount++;
             _unitOfWork.Commit();
-            var questionModel = _mapper.Map<Post, QuestionModel>(question);
+            var questionModel = _mapper.Map<QuestionModel>(question);
             return Result.Ok(questionModel);
         }
 
@@ -77,40 +91,13 @@ namespace Forum.Service.Services.QuestionService
 
         public async Task<Result<UpDownVoteModel>> UpvoteQuestion(int questionId, string voterId)
         {
-            //var question= _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
-
-            //if (question.UserId == voterId)
-            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot upvote your own question"));
-            //if (question.User.RatingPoints < 15)
-            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("Your Rating Points must be atleast 15"));
-
-            //question.RatingPoints += 1;
-            //question.User.RatingPoints += 1;
-
-            //await _userManager.UpdateAsync(question.User);
-            //_questionUow.QuestionRepository.Update(question);
-            //await _questionUow.CompleteAsync();
-
             return Result.Ok(new UpDownVoteModel());
         }
 
         public async Task<Result<UpDownVoteModel>> DownVoteQuestion(int questionId, string voterId)
         {
-            //var question = _questionUow.QuestionRepository.GetQuestionWithUserInclude(questionId);
-
-            //if (question.UserId == voterId)
-            //    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("You cannot downvote your own question"));
-            ////if (question.User.RatingPoints < 15)
-            ////    return Result.BadRequest<UpDownVoteModel>(NoSuccessMessage.AddError("Your Rating Points must be atleast 15"));
-
-            //question.RatingPoints -= 1;
-            //question.User.RatingPoints -= 1;
-
-            //await _userManager.UpdateAsync(question.User);
-            //_questionUow.QuestionRepository.Update(question);
-            //await _questionUow.CompleteAsync();
-
             return Result.Ok(new UpDownVoteModel());
         }
+
     }
 }

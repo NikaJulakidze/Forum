@@ -1,5 +1,5 @@
-﻿using Forum.Models.Filters;
-using Forum.Models.Paging;
+﻿using CommonModels.Paging;
+using Forum.Models.Filters;
 using Forum.Service.Uri;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace Forum.Service.Helpers
                 ? uriService.GetPagedUri(filter.PageNumber - 1, filter.PageSize, route)
                 : null;
             respose.FirstPage = uriService.GetPagedUri(1, filter.PageSize, route);
-            respose.LastPage = uriService.GetPagedUri(roundedTotalPages, filter.PageSize, route);
+            respose.LastPage = respose.NextPage == null ? null : uriService.GetPagedUri(roundedTotalPages, filter.PageSize, route);
             respose.TotalPages = roundedTotalPages;
             respose.TotalResult = totalRecords;
             return respose;

@@ -9,6 +9,7 @@ namespace Forum.Models.Answer
 {
     public class CreateAnswerRequest
     {
+        public int QuestionId { get; set; }
         public string Content { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Forum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201026194342_Initial")]
+    [Migration("20201101192932_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,9 +81,9 @@ namespace Forum.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId")
-                        .IsUnique()
-                        .HasFilter("[ParentId] IS NOT NULL");
+                    b.HasIndex("AcceptedAnswerId");
+
+                    b.HasIndex("ParrentId");
 
                     b.HasIndex("PostTypeId");
 
@@ -416,8 +416,12 @@ namespace Forum.Data.Migrations
             modelBuilder.Entity("Forum.Data.Entities.Post", b =>
                 {
                     b.HasOne("Forum.Data.Entities.Post", "AcceptedAnswer")
-                        .WithOne("Parent")
-                        .HasForeignKey("Forum.Data.Entities.Post", "ParentId");
+                        .WithMany()
+                        .HasForeignKey("AcceptedAnswerId");
+
+                    b.HasOne("Forum.Data.Entities.Post", "Parent")
+                        .WithMany("Answers")
+                        .HasForeignKey("ParrentId");
 
                     b.HasOne("Forum.Data.Entities.PostType", "PostType")
                         .WithMany("Posts")

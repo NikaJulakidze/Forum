@@ -1,6 +1,9 @@
-﻿using Forum.Data.Constants;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Forum.Data.Constants;
 using Forum.Data.Entities;
 using Forum.Data.Extensions;
+using Forum.Models.Account;
 using Forum.Models.ApplicationUser;
 using Forum.Models.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +17,12 @@ namespace Forum.Data.Repository
 {
     public class AccountRepository : BaseRepository<ApplicationUser>, IAccountRepository
     {
-        public AccountRepository(ApplicationDbContext context) : base(context)
+        private readonly IMapper _mapper;
+        private readonly IConfigurationProvider _configuration;
+        public AccountRepository(ApplicationDbContext context, IMapper mapper) : base(context)
         {
-
+            _mapper = mapper;
+            _configuration = mapper.ConfigurationProvider;
         }
 
         public async Task<List<ApplicationUser>> GetHappyBirthDayUsers()
@@ -31,9 +37,10 @@ namespace Forum.Data.Repository
             return (await users.ToListAsync(), await users.CountAsync());
         }
 
-        public override async Task<ApplicationUser> GetByIdAsync<T>(T id)
+        public async Task<UserProfileModel> GetByIdAsync (string id)
         {
-            return null;
+            return await _context.ApplicationUsers.Where(x => x.Id == id)
+                .Include(x => x.Posts).ProjectTo<UserProfileModel>(_configuration).FirstAsync();
         }
 
 

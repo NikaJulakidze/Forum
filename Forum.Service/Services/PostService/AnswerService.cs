@@ -2,8 +2,12 @@
 using CommonModels;
 using Forum.Data;
 using Forum.Data.Entities;
+using Forum.Data.Repository;
+using Forum.Data.UnitOfWork;
 using Forum.Models.Answer;
+using Forum.Models.Enums;
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,39 +17,40 @@ namespace Forum.Service.PostService
     {
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ApplicationDbContext _context;
+        private readonly IAnswerRepository _anwerRepository;
+        private readonly ITagRepository _tagRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ITagPostRepository _tagPostRepository;
 
-        public AnswerService(IMapper mapper,UserManager<ApplicationUser> userManager,ApplicationDbContext context)
+        public AnswerService(IMapper mapper,UserManager<ApplicationUser> userManager,IAnswerRepository answerRepository,
+            ITagRepository tagRepository,ITagPostRepository tagPostRepository, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _userManager = userManager;
-            _context = context;
+            _anwerRepository = answerRepository;
+            _tagRepository = tagRepository;
+            _unitOfWork = unitOfWork;
+            _tagPostRepository = tagPostRepository;
         }
 
-        public async Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request,string id,int questionId)
+        public async Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request,string userId, string username)
         {
-            var user = await _userManager.FindByIdAsync(id);
-            var tags = _context.TagPosts.Where(x => x.PostId == questionId).Select(x => x.Tag).ToList();
-            //var test= tags.Select(x => x.Tag).ToList();
-            var post = new Post();
-            post.AnswersCount += 1;
-            post.Content = request.Content;
-            post.PostTypeId = 1;
-            post.ParrentId = questionId;
-            post.User = user;
-            post.RatingPoints += 1;
-            var tagAnswer = tags.Select(x => new TagPost { Tag = x, Post=post}).ToList();
-            //post.TagPosts = tagAnswer;
-            var tagPost = new TagPost
-            {
-                Tag=tags.First(),
-                Post = post
-            };
-            post.OwnerDisplayName = user.UserName;
-            await _context.AddAsync(post);
-            await _context.AddRangeAsync(tagAnswer);
-            await _context.SaveChangesAsync();
-            return Result.Ok(new AnswerModel());
+            var tags = await _tagRepository.GetTagsByQuestionId(request.QuestionId);
+
+            var post = _mapper.Map<Post>(request);
+            post.PostTypeId = (int)PostTypeEnum.Answer;
+            post.ParrentId = request.QuestionId;
+            post.UserId = userId;
+            post.OwnerDisplayName = username;
+
+            var tagAnswer = tags.Select(tag => new TagPost { Tag = tag, Post=post}).ToList();
+
+            _anwerRepository.Add(post);
+            _tagPostRepository.AddRange(tagAnswer);
+            _unitOfWork.Commit();
+            var answerModel = _mapper.Map<AnswerModel>(post);
+
+            return Result.Ok(answerModel);
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Forum.Data.UnitOfWork
 {
     public interface IUnitOfWork:IDisposable
     {
         void Commit();
+        Task CommitAsync();
     }
 }

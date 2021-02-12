@@ -6,6 +6,6 @@ namespace Forum.Service.PostService
 {
     public interface IAnswerService
     {
-        Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request, string id,int questionId);
+        Task<Result<AnswerModel>> AddAnswerAsync(CreateAnswerRequest request, string userId,string username);
     }
 }

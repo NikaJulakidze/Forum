@@ -46,6 +46,9 @@ namespace Forum.Data
                 p.HasOne(x => x.AcceptedAnswer)
                 .WithOne(x => x.Parent)
                 .HasForeignKey(typeof(Post), "ParentId");
+                p.HasOne(x => x.Parent)
+                .WithMany(x=>x.Answers)
+                .HasForeignKey(x=>x.ParrentId);
 
             });
             builder.Entity<PostType>(p =>

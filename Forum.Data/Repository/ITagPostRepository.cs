@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Forum.Data.Repository
 {
-    public interface ITagQuestionRepository
+    public interface ITagPostRepository:IBaseRepository<Tag>
     {
         void AddRange(List<TagPost> tagQuestions);
     }

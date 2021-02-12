@@ -79,9 +79,9 @@ namespace Forum.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId")
-                        .IsUnique()
-                        .HasFilter("[ParentId] IS NOT NULL");
+                    b.HasIndex("AcceptedAnswerId");
+
+                    b.HasIndex("ParrentId");
 
                     b.HasIndex("PostTypeId");
 
@@ -414,8 +414,12 @@ namespace Forum.Data.Migrations
             modelBuilder.Entity("Forum.Data.Entities.Post", b =>
                 {
                     b.HasOne("Forum.Data.Entities.Post", "AcceptedAnswer")
-                        .WithOne("Parent")
-                        .HasForeignKey("Forum.Data.Entities.Post", "ParentId");
+                        .WithMany()
+                        .HasForeignKey("AcceptedAnswerId");
+
+                    b.HasOne("Forum.Data.Entities.Post", "Parent")
+                        .WithMany("Answers")
+                        .HasForeignKey("ParrentId");
 
                     b.HasOne("Forum.Data.Entities.PostType", "PostType")
                         .WithMany("Posts")

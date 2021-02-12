@@ -43,7 +43,7 @@ namespace Forum.Api.Extensions
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<ITagQuestionRepository, TagQuestionRepository>();
+            services.AddScoped<ITagPostRepository, TagPostRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IRatingPointsHistoryRepository, RatingPointsHistoryRepository>();
